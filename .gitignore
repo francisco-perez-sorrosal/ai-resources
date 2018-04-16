@@ -7,3 +7,8 @@
 tensorflow/word2vec/training_data.zip
 tensorflow/word2vec/text
 **/MNIST_data/*
+
+*.egg-info/
+*.log
+**/.cache/*
+**/__pycache__/*
