@@ -2,10 +2,10 @@ import time
 import datetime
 from deep_lib.model_parameters import initialize_parameters, update_parameters
 from deep_lib.forward_prop import L_model_forward
-from deep_lib.backward_prop import L_model_backward
+from deep_lib.backward_prop import L_model_backward, L_model_backward_with_reg
 from deep_lib.math import log_loss_cost
 from deep_lib.eval import evaluate
-from deep_lib.plot_utils import plot_eval, two_scales, color_y_axis, update_costs_time_plot, CostDiagram
+from deep_lib.plot_utils import plot_eval, color_y_axis, CostDiagram
 
 import logging
 import numpy as np
@@ -26,7 +26,7 @@ class LLayerModel:
     def __init__(self):
         self.logger.info("LLayer model created...")
 
-    def execute(self, X, Y, layers_dims, learning_rate, num_iterations=3000, save_cost=False):  # lr was 0.009
+    def execute(self, X, Y, param_initializer, layers_dims, learning_rate, lambd=1.0, num_iterations=3000, save_cost=False):  # lr was 0.009
         """
         Implements a L-layer neural network: [LINEAR->RELU]*(L-1)->LINEAR->SIGMOID.
 
@@ -51,7 +51,7 @@ class LLayerModel:
         elapsed_times = []
 
         # Parameters initialization.
-        parameters = initialize_parameters(layers_dims)
+        parameters = initialize_parameters(layers_dims, param_initializer)
 
         # Loop (gradient descent)
         start_time = time.time()
@@ -63,10 +63,10 @@ class LLayerModel:
             AL, caches = L_model_forward(X, parameters)
 
             # Compute cost.
-            cost = log_loss_cost(AL, Y)
+            cost = self.__compute_cost(AL, Y, layers_dims, parameters, lambd)
 
             # Backward propagation.
-            grads = L_model_backward(AL, Y, caches)
+            grads = L_model_backward(AL, Y, caches, parameters, lambd)
 
             # Update parameters.
             parameters = update_parameters(parameters, grads, learning_rate)
@@ -126,3 +126,21 @@ class LLayerModel:
         self.logger.info("Precision/Recall/F1: %f/%f/%f" % (p, r, f1))
         plot_eval(p, r, f1)
         return cm, p, r, f1
+
+
+    def __compute_cost(self, YHat, Y, layer_dims, parameters, lambd):
+
+        m = Y.shape[1]
+
+        cross_entropy_cost = log_loss_cost(YHat, Y)
+
+        W_sum = 0
+        for l in range(1, len(layer_dims)):
+            W = parameters['W' + str(l)]
+            W_sum += np.sum(np.square(W))
+
+        L2_regularization_cost = (lambd / (2 * m)) * W_sum
+
+        cost = cross_entropy_cost + L2_regularization_cost
+
+        return cost

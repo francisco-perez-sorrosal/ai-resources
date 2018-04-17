@@ -1,7 +1,24 @@
 import numpy as np
 import logging
 
-def initialize_parameters(layer_dims):
+
+def zero_initializer(rows, cols):
+    return np.zeros((rows, cols))
+
+
+def random_initializer(rows, cols):
+    return np.random.randn(rows, cols) * 10
+
+
+def xavier_initializer(rows, cols):
+    return np.random.randn(rows, cols) * np.sqrt(1. / cols)
+
+
+def he_initializer(rows, cols):
+    return np.random.randn(rows, cols) * np.sqrt(2. / cols)
+
+
+def initialize_parameters(layer_dims, initializer_f):
     """
     Arguments:
     layer_dims -- python array (list) containing the dimensions of each layer in our network
@@ -16,9 +33,8 @@ def initialize_parameters(layer_dims):
     L = len(layer_dims)  # number of layers in the network
 
     for l in range(1, L):
-        parameters['W' + str(l)] = np.random.randn(layer_dims[l], layer_dims[l - 1]) *  (1 / np.sqrt(
-            layer_dims[l - 1]))  # *0.01
-        parameters['b' + str(l)] = np.zeros((layer_dims[l], 1))
+        parameters['W' + str(l)] = initializer_f(layer_dims[l], layer_dims[l - 1])
+        parameters['b' + str(l)] = zero_initializer(layer_dims[l], 1)
 
         assert (parameters['W' + str(l)].shape == (layer_dims[l], layer_dims[l - 1]))
         assert (parameters['b' + str(l)].shape == (layer_dims[l], 1))
