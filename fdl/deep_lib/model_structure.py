@@ -3,9 +3,9 @@ import datetime
 from deep_lib.model_parameters import initialize_parameters, update_parameters
 from deep_lib.forward_prop import L_model_forward
 from deep_lib.backward_prop import L_model_backward
-from deep_lib.math import log_loss_cost
+from deep_lib.math import compute_cost
 from deep_lib.eval import evaluate
-from deep_lib.plot_utils import plot_eval, color_y_axis, CostDiagram
+from deep_lib.plot_utils import plot_eval, CostDiagram
 
 import logging
 import numpy as np
@@ -20,13 +20,12 @@ from IPython.display import display, clear_output
 
 
 class LLayerModel:
-
     logger = logging.getLogger(__name__)
 
     def __init__(self):
         self.logger.info("LLayer model created...")
 
-    def execute(self, X, Y, param_initializer, layers_dims, learning_rate, lambd=1.0, keep_prob=1.0, num_iterations=3000, save_cost=False):  # lr was 0.009
+    def execute(self, X, Y, hp, save_cost=False):  # lr was 0.009
         """
         Implements a L-layer neural network: [LINEAR->RELU]*(L-1)->LINEAR->SIGMOID.
 
@@ -42,8 +41,8 @@ class LLayerModel:
         parameters -- parameters learnt by the model. They can then be used to predict.
         """
 
-        progress_bar = FloatProgress(min=0, max=num_iterations, description='Iterations:')
-        costs_diagram = CostDiagram(learning_rate)
+        progress_bar = FloatProgress(min=0, max=hp.iterations, description='Iterations:')
+        costs_diagram = CostDiagram(hp.learning_rate)
         display(progress_bar, costs_diagram.get_fig())
         self.logger.info('Starting model execution...')
         iterations = []
@@ -51,37 +50,37 @@ class LLayerModel:
         elapsed_times = []
 
         # Parameters initialization.
-        parameters = initialize_parameters(layers_dims, param_initializer)
+        parameters = initialize_parameters(hp.layer_dimensions, hp.param_initializer)
 
         # Loop (gradient descent)
         start_time = time.time()
-        for i in range(0, num_iterations):
+        for i in range(0, hp.iterations):
 
             start_loop_time = datetime.datetime.now()
             progress_bar.value += 1
             # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SIGMOID.
-            AL, caches = L_model_forward(X, parameters, keep_prob)
+            AL, caches = L_model_forward(X, parameters, hp.keep_prob)
 
             # Compute cost.
-            cost = self.__compute_cost(AL, Y, layers_dims, parameters, lambd)
+            cost = compute_cost(AL, Y, hp.layer_dimensions, parameters, hp.lambd)
 
             # Backward propagation.
-            grads = L_model_backward(AL, Y, caches, parameters, lambd, keep_prob)
+            grads = L_model_backward(AL, Y, caches, parameters, hp.lambd, hp.keep_prob)
 
             # Update parameters.
-            parameters = update_parameters(parameters, grads, learning_rate)
+            parameters = update_parameters(parameters, grads, hp.learning_rate)
 
             elapsed_loop_time = datetime.datetime.now() - start_loop_time
 
             # Print the cost every 100 training example
             if save_cost and i % 100 == 0:
-                costs.append((i, np.squeeze(cost), elapsed_loop_time.microseconds/1000))
-                elapsed_times.append(elapsed_loop_time.microseconds/1000)
+                costs.append((i, np.squeeze(cost), elapsed_loop_time.microseconds / 1000))
+                elapsed_times.append(elapsed_loop_time.microseconds / 1000)
                 clear_output(wait=True)
                 costs_diagram.update_data(costs)
                 display(progress_bar, costs_diagram.get_fig())
-                self.logger.info("Cost after iteration %i: %f (elapsed time: %sms)" % (i, cost, elapsed_loop_time.microseconds/1000))
-
+                self.logger.info("Cost after iteration %i: %f (elapsed time: %sms)" % (
+                i, cost, elapsed_loop_time.microseconds / 1000))
 
         elapsed_time = time.time() - start_time
         self.logger.info('Model execution finished. Elapsed time %s' %
@@ -126,21 +125,3 @@ class LLayerModel:
         self.logger.info("Precision/Recall/F1: %f/%f/%f" % (p, r, f1))
         plot_eval(p, r, f1)
         return cm, p, r, f1
-
-
-    def __compute_cost(self, YHat, Y, layer_dims, parameters, lambd):
-
-        m = Y.shape[1]
-
-        cross_entropy_cost = log_loss_cost(YHat, Y)
-
-        W_sum = 0
-        for l in range(1, len(layer_dims)):
-            W = parameters['W' + str(l)]
-            W_sum += np.nansum(np.square(W))
-
-        L2_regularization_cost = (lambd / (2 * m)) * W_sum
-
-        cost = cross_entropy_cost + L2_regularization_cost
-
-        return cost

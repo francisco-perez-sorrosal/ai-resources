@@ -2,6 +2,44 @@ import numpy as np
 import logging
 
 
+class Hyperparameters(object):
+    """
+        Arguments:
+        iterations -- number of iterations of the optimization loop
+        layers_dimensions -- list containing the input size and each layer size, of length (number of layers + 1).
+        learning_rate -- learning rate of the gradient descent update rule
+        param_initializer --
+        lambd --
+        keep_prob --
+    """
+
+
+    def __init__(self, iterations, layer_dimensions, learning_rate, param_initializer, lambd=0., keep_prob=1.):
+        self.iterations = iterations
+        self.layer_dimensions = layer_dimensions
+        self.learning_rate = learning_rate
+        self.param_initializer = param_initializer
+        self.lambd = lambd
+        self.keep_prob = keep_prob
+
+        self.__class_description = """Hyperparameters:
+        Iterations: %d
+        Layer dims: %s
+        Learning_rate: %f
+        Parameter initializer: %s
+        Lambd (L2 Reg param): %.2f
+        Keep Prob (Dropout): %.2f
+        """
+
+    def __str__(self):
+        return self.__class_description % (self.iterations,
+                                           self.layer_dimensions,
+                                           self.learning_rate,
+                                           self.param_initializer.__name__,
+                                           self.lambd,
+                                           self.keep_prob)
+
+
 def zero_initializer(rows, cols):
     return np.zeros((rows, cols))
 
