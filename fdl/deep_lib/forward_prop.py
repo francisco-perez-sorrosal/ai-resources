@@ -25,7 +25,7 @@ def linear_forward(A, W, b):
     return Z, cache
 
 
-def linear_activation_forward(A_prev, W, b, activation):
+def linear_activation_forward(A_prev, W, b, activation, keep_prob=1.0):
     """
     Implement the forward propagation for the LINEAR->ACTIVATION layer
 
@@ -51,13 +51,22 @@ def linear_activation_forward(A_prev, W, b, activation):
         Z, linear_cache = linear_forward(A_prev, W, b)
         A, activation_cache = relu(Z)
 
+    if (keep_prob < 1.0): # Dropout
+        D = np.random.rand(A.shape[0], A.shape[1])  # Step 1: initialize matrix D = np.random.rand(..., ...)
+        D = D < keep_prob  # Step 2: convert entries of D1 to 0 or 1 (using keep_prob as the threshold)
+        assert (D.shape == A.shape)
+        A = A * D  # Step 3: shut down some neurons of A1
+        A = A / keep_prob
+        cache = (linear_cache, activation_cache, D)
+    else:
+        cache = (linear_cache, activation_cache)
+
     assert (A.shape == (W.shape[0], A_prev.shape[1]))
-    cache = (linear_cache, activation_cache)
 
     return A, cache
 
 
-def L_model_forward(X, parameters):
+def L_model_forward(X, parameters, keep_prob=1.0):
     """
     Implement forward propagation for the [LINEAR->RELU]*(L-1)->LINEAR->SIGMOID computation
 
@@ -80,7 +89,10 @@ def L_model_forward(X, parameters):
     for l in range(1, L):
         A_prev = A
         A, cache = linear_activation_forward(A_prev, parameters['W' + str(l)], parameters['b' + str(l)],
-                                             activation="relu")
+                                             activation="relu", keep_prob=keep_prob)
+        if len(cache) == 3:
+            print("Layer F %d" % l)
+            print("Cache %s" % (cache[2].shape,))
         caches.append(cache)
 
     # Implement LINEAR -> SIGMOID. Add "cache" to the "caches" list.

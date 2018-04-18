@@ -72,7 +72,7 @@ def linear_backward(dZ, cache):
     return dA_prev, dW, db
 
 
-def linear_activation_backward(dA, cache, activation):
+def linear_activation_backward(dA, linear_cache, activation_cache, activation_f):
     """
     Implement the backward propagation for the LINEAR->ACTIVATION layer.
 
@@ -86,13 +86,12 @@ def linear_activation_backward(dA, cache, activation):
     dW -- Gradient of the cost with respect to W (current layer l), same shape as W
     db -- Gradient of the cost with respect to b (current layer l), same shape as b
     """
-    linear_cache, activation_cache = cache
 
-    if activation == "relu":
+    if activation_f == "relu":
         dZ = relu_backward(dA, activation_cache)
         dA_prev, dW, db = linear_backward(dZ, linear_cache)
 
-    elif activation == "sigmoid":
+    elif activation_f == "sigmoid":
         dZ = sigmoid_backward(dA, activation_cache)
         dA_prev, dW, db = linear_backward(dZ, linear_cache)
 
@@ -127,13 +126,13 @@ def L_model_backward(AL, Y, caches):
     # Lth layer (SIGMOID -> LINEAR) gradients. Inputs: "AL, Y, caches". Outputs: "grads["dAL"], grads["dWL"], grads["dbL"]
     current_cache = caches[L - 1]
     grads["dA" + str(L)], grads["dW" + str(L)], grads["db" + str(L)] = linear_activation_backward(dAL, current_cache,
-                                                                                                  activation="sigmoid")
+                                                                                                  activation_f="sigmoid")
 
     for l in reversed(range(L - 1)):
         # lth layer: (RELU -> LINEAR) gradients.
         current_cache = caches[l]
         dA_prev_temp, dW_temp, db_temp = linear_activation_backward(grads["dA" + str(l + 2)], current_cache,
-                                                                    activation="relu")
+                                                                    activation_f="relu")
         grads["dA" + str(l + 1)] = dA_prev_temp
         grads["dW" + str(l + 1)] = dW_temp
         grads["db" + str(l + 1)] = db_temp
@@ -141,7 +140,7 @@ def L_model_backward(AL, Y, caches):
     return grads
 
 
-def L_model_backward(AL, Y, caches, parameters, lambd=None):
+def L_model_backward(AL, Y, caches, parameters, lambd=None, keep_prob=1.0):
     """
     Implement the backward propagation for the [LINEAR->RELU] * (L-1) -> LINEAR -> SIGMOID group
 
@@ -167,18 +166,48 @@ def L_model_backward(AL, Y, caches, parameters, lambd=None):
     dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL))
 
     # Lth layer (SIGMOID -> LINEAR) gradients. Inputs: "AL, Y, caches". Outputs: "grads["dAL"], grads["dWL"], grads["dbL"]
-    current_cache = caches[L - 1]
-    grads["dA" + str(L)], grads["dW" + str(L)], grads["db" + str(L)] = linear_activation_backward(dAL, current_cache,
-                                                                                                  activation="sigmoid")
+    current_cache_linear, current_cache_activation = caches[L - 1]
+
+
+    dA_prev_temp, dW_temp, db_temp = linear_activation_backward(dAL,
+                                                                current_cache_linear,
+                                                                current_cache_activation,
+                                                                activation_f="sigmoid")
+    if keep_prob < 1.0:  # Dropout
+        _, _, dropout_cache = caches[L-2]
+        # print("DC L-2 %d %d" % dropout_cache.shape)
+        # print("dA_prev L-2 size %d %d" % dA_prev_temp.shape)
+        dA_prev_temp = dA_prev_temp * dropout_cache  # Step 1: Apply mask D2 to shut down the same neurons as during the forward propagation
+        dA_prev_temp = dA_prev_temp / keep_prob  # Step 2: Scale the value of neurons that haven't been shut down
+
+    grads["dA" + str(L)], grads["dW" + str(L)], grads["db" + str(L)] = dA_prev_temp, dW_temp, db_temp
 
     if lambd: # L_2 Regularization
         grads["dW" + str(L)] += ((lambd / m) * parameters["W" + str(L)])
 
     for l in reversed(range(L - 1)):
         # lth layer: (RELU -> LINEAR) gradients.
-        current_cache = caches[l]
-        dA_prev_temp, dW_temp, db_temp = linear_activation_backward(grads["dA" + str(l + 2)], current_cache,
-                                                                    activation="relu")
+        # print("Layer B (%d)" % l)
+
+        if keep_prob == 1.0:
+            current_cache_linear, current_cache_activation = caches[l]
+        else: # Dropout
+            current_cache_linear, current_cache_activation, dropout_cache = caches[l]
+
+        # print("Dropout cache size %d %d" % dropout_cache.shape)
+        dA_prev_temp, dW_temp, db_temp = linear_activation_backward(grads["dA" + str(l + 2)],
+                                                                    current_cache_linear,
+                                                                    current_cache_activation,
+                                                                    activation_f="relu")
+        # print("dA_prev size %d %d" % dA_prev_temp.shape)
+        if keep_prob < 1.0 and l-1 >= 0:  # Dropout
+            # print("Dropout B in layer %d" % l)
+            _, _, dropout_cache = caches[l-1]
+            # print("dA prev size %d %d" % dA_prev_temp.shape)
+            # print("drop out size %d %d" % dropout_cache.shape)
+            dA_prev_temp = dA_prev_temp * dropout_cache  # Step 1: Apply mask D2 to shut down the same neurons as during the forward propagation
+            dA_prev_temp = dA_prev_temp / keep_prob  # Step 2: Scale the value of neurons that haven't been shut down
+
         grads["dA" + str(l + 1)] = dA_prev_temp
         grads["dW" + str(l + 1)] = dW_temp
         if lambd: # L_2 Regularization
