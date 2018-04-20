@@ -9,7 +9,7 @@ from deep_lib.plot_utils import plot_eval, CostDiagram
 
 import logging
 import numpy as np
-import h5py
+import math
 import matplotlib.pyplot as plt
 import scipy
 from PIL import Image
@@ -44,7 +44,9 @@ class LLayerModel:
         progress_bar = FloatProgress(min=0, max=hp.iterations, description='Iterations:')
         costs_diagram = CostDiagram(hp.learning_rate)
         display(progress_bar, costs_diagram.get_fig())
-        self.logger.info('Starting model execution...')
+        m = X.shape[1]
+        seed = 3
+        self.logger.info('Starting model execution with minibatches. Examples: %d' % m)
         iterations = []
         costs = []  # keep track of costs in iterations
         elapsed_times = []
@@ -58,29 +60,42 @@ class LLayerModel:
 
             start_loop_time = datetime.datetime.now()
             progress_bar.value += 1
-            # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SIGMOID.
-            AL, caches = L_model_forward(X, parameters, hp.keep_prob)
 
-            # Compute cost.
-            cost = compute_cost(AL, Y, hp.layer_dimensions, parameters, hp.lambd)
+            epoch_cost = 0.                       # Defines a cost related to an epoch
+            num_minibatches = int(m / hp.minibatch_size) # number of minibatches of size minibatch_size in the train set
+            seed = seed + 1
+            minibatches = random_mini_batches(X, Y, hp.minibatch_size, seed)
 
-            # Backward propagation.
-            grads = L_model_backward(AL, Y, caches, parameters, hp.lambd, hp.keep_prob)
+            for minibatch in minibatches:
 
-            # Update parameters.
-            parameters = update_parameters(parameters, grads, hp.learning_rate)
+                # Select a minibatch
+                (minibatch_X, minibatch_Y) = minibatch
+
+                # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SIGMOID.
+                AL, caches = L_model_forward(minibatch_X, parameters, hp.keep_prob)
+
+                # Compute cost.
+                minibatch_cost = compute_cost(AL, minibatch_Y, hp.layer_dimensions, parameters, hp.lambd)
+
+                # Backward propagation.
+                grads = L_model_backward(AL, minibatch_Y, caches, parameters, hp.lambd, hp.keep_prob)
+
+                # Update parameters.
+                parameters = update_parameters(parameters, grads, hp.learning_rate)
+
+                epoch_cost += minibatch_cost / num_minibatches
 
             elapsed_loop_time = datetime.datetime.now() - start_loop_time
 
             # Print the cost every 100 training example
             if save_cost and i % 100 == 0:
-                costs.append((i, np.squeeze(cost), elapsed_loop_time.microseconds / 1000))
+                costs.append((i, np.squeeze(epoch_cost), elapsed_loop_time.microseconds / 1000))
                 elapsed_times.append(elapsed_loop_time.microseconds / 1000)
                 clear_output(wait=True)
                 costs_diagram.update_data(costs)
                 display(progress_bar, costs_diagram.get_fig())
                 self.logger.info("Cost after iteration %i: %f (elapsed time: %sms)" % (
-                i, cost, elapsed_loop_time.microseconds / 1000))
+                i, epoch_cost, elapsed_loop_time.microseconds / 1000))
 
         elapsed_time = time.time() - start_time
         self.logger.info('Model execution finished. Elapsed time %s' %
@@ -125,3 +140,44 @@ class LLayerModel:
         self.logger.info("Precision/Recall/F1: %f/%f/%f" % (p, r, f1))
         plot_eval(p, r, f1)
         return cm, p, r, f1
+
+
+def random_mini_batches(X, Y, mini_batch_size=16, seed=0):
+    """
+    Creates a list of random minibatches from (X, Y)
+
+    Arguments:
+    X -- input data, of shape (input size, number of examples)
+    Y -- true "label" vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)
+    mini_batch_size - size of the mini-batches, integer
+    seed -- this is only for the purpose of grading, so that you're "random minibatches are the same as ours.
+
+    Returns:
+    mini_batches -- list of synchronous (mini_batch_X, mini_batch_Y)
+    """
+
+    m = X.shape[1]  # number of training examples
+    mini_batches = []
+    np.random.seed(seed)
+
+    # Step 1: Shuffle (X, Y)
+    permutation = list(np.random.permutation(m))
+    shuffled_X = X[:, permutation]
+    shuffled_Y = Y[:, permutation].reshape((Y.shape[0], m))
+
+    # Step 2: Partition (shuffled_X, shuffled_Y). Minus the end case.
+    num_complete_minibatches = math.floor(m / mini_batch_size)  # number of mini batches of size mini_batch_size in your partitionning
+    for k in range(0, num_complete_minibatches):
+        mini_batch_X = shuffled_X[:, k * mini_batch_size: k * mini_batch_size + mini_batch_size]
+        mini_batch_Y = shuffled_Y[:, k * mini_batch_size: k * mini_batch_size + mini_batch_size]
+        mini_batch = (mini_batch_X, mini_batch_Y)
+        mini_batches.append(mini_batch)
+
+    # Handling the end case (last mini-batch < mini_batch_size)
+    if m % mini_batch_size != 0:
+        mini_batch_X = shuffled_X[:, num_complete_minibatches * mini_batch_size: m]
+        mini_batch_Y = shuffled_Y[:, num_complete_minibatches * mini_batch_size: m]
+        mini_batch = (mini_batch_X, mini_batch_Y)
+        mini_batches.append(mini_batch)
+
+    return mini_batches

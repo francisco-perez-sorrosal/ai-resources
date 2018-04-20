@@ -14,13 +14,14 @@ class Hyperparameters(object):
     """
 
 
-    def __init__(self, iterations, layer_dimensions, learning_rate, param_initializer, lambd=0., keep_prob=1.):
+    def __init__(self, iterations, layer_dimensions, learning_rate, param_initializer, lambd=0., keep_prob=1., minibatch_size=16):
         self.iterations = iterations
         self.layer_dimensions = layer_dimensions
         self.learning_rate = learning_rate
         self.param_initializer = param_initializer
         self.lambd = lambd
         self.keep_prob = keep_prob
+        self.minibatch_size = minibatch_size
 
         self.__class_description = """Hyperparameters:
         Iterations: %d
@@ -29,6 +30,7 @@ class Hyperparameters(object):
         Parameter initializer: %s
         Lambd (L2 Reg param): %.2f
         Keep Prob (Dropout): %.2f
+        Minibatch size: %d
         """
 
     def __str__(self):
@@ -37,7 +39,8 @@ class Hyperparameters(object):
                                            self.learning_rate,
                                            self.param_initializer.__name__,
                                            self.lambd,
-                                           self.keep_prob)
+                                           self.keep_prob,
+                                           self.minibatch_size)
 
 
 def zero_initializer(rows, cols):
