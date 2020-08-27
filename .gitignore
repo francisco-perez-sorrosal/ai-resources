@@ -1,14 +1,3 @@
 .idea/
-
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
-
-**/*.raisearmy-lm
-tensorflow/word2vec/training_data.zip
-tensorflow/word2vec/text
-**/MNIST_data/*
-
-*.egg-info/
-*.log
-**/.cache/*
-**/__pycache__/*
+notebooks/.ipynb_checkpoints/
+book-scaffold/book
