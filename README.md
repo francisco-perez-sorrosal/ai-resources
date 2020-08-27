@@ -25,7 +25,8 @@ The big hit in 2015.
 
 #### Recent Origins
 
-* [Word2Vec]()
+* [Word2Vec](https://arxiv.org/abs/1301.3781)
+* [word2vec Explained: deriving Mikolov et al.'s negative-sampling word-embedding method](https://arxiv.org/abs/1402.3722)
 
 
 
@@ -63,6 +64,16 @@ Code: https://github.com/pytorch/fairseq
 
 ## Topics
 
+### Deep Learning Core
+
+* [Retrospective Loss: Looking Back to Improve Training of Deep Neural Networks (KDD 2020)](https://arxiv.org/abs/2006.13593)	
+Learns from prior training experiences in the form of DNN model states during to guide weight updates and improve DNN 
+training performance. The retrospective loss seeks to ensure that the predictions at a particular training step are more 
+similar to the ground truth than to the predictions from a previous training step (which has relatively
+poorer performance). As training proceeds, minimizing this loss along with the task-specific loss, encourages the 
+network parameters to move towards the optimal parameter state by pushing the training into tighter spaces around the 
+optimum. Claims implementation is 3 lines of Pytorch code. Interesting paper
+
 ### Transfer Learning
 Recent success of DL has been produced, among other reasons, for the big amount of labeled training data.
 However, in general, this is not the approach to follow for AI solving different tasks.
@@ -73,7 +84,9 @@ Approach of modern Transfer-Learning:
 1. Fine-Tunning on specific tasks with smaller (supervised) training sets.
 
 Approach of Hierarchical-Multilevel Classification:
-* [Hierarchical Transfer Learning for Multi-label Text Classification](https://www.aclweb.org/anthology/P19-1633/)
+* [Hierarchical Transfer Learning for Multi-label Text Classification (ACL 2019)](https://www.aclweb.org/anthology/P19-1633/)
+* [Multi-Source Deep Domain Adaptation with Weak Supervision for Time-Series Sensor Data (KDD 2020)](https://arxiv.org/abs/2005.10996)
+Interesting
 
 #### Few-shot Learning (Meta-learning)
 
@@ -120,6 +133,25 @@ Papers:
  * [Calibration Tutorial] (https://www.youtube.com/watch?v=rhnqZV6eKlg&feature=youtu.be)
 </details>
 
+### Model Interpretability
+Intellegibility and explanation are critical in many domains (health, crime prediction...) [Blog entry](https://medium.com/analytics-vidhya/model-interpretation-with-microsofts-interpret-ml-85aa0ad697ae)
+
+
+Models as black box methods: Shap, LIME
+Glass box modesl: Explainable Boosting Machine (EBMs) are the SotA
+
+Papers:
+* [Neural Additive Models: Interpretable Machine Learning with Neural Nets](https://arxiv.org/abs/2004.13912)
+* [A Unified Approach to Interpreting Model Predictions (NIPS 2017)](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf)
+
+Books:
+* [Interpreable Machine Learning Book A Guide for Making Black Box Models Explainable (Christoph Molnar, 2020)](https://christophm.github.io/interpretable-ml-book/)
+
+Tools:
+* [Lime](https://github.com/marcotcr/lime)
+* [Shap](https://github.com/slundberg/shap)
+* [Interpret ML](https://github.com/interpretml/interpret) Reference impl of EBMs
+* [Shap Tutorial (Includes BERT examples)](https://nbviewer.jupyter.org/github/slundberg/shap/blob/master/notebooks/general/Explainable%20AI%20with%20Shapley%20Values.ipynb)
 
 ### Causality
 
@@ -128,7 +160,15 @@ Papers:
 Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
 on top of that data representation, matches for all training distributions.
 
+
+# Production
+
+[Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)](http://pages.cs.wisc.edu/~wentaowu/papers/kdd20-ci-for-ml.pdf)
+Interesting
+
+
 ## Main Conferences
 
+* [NIPS/Neurips](https://nips.cc/)
 * [ACL](https://www.aclweb.org/)
 * [KDD (SIGKDD) ACM](https://www.kdd.org/)
