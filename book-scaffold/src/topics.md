@@ -70,12 +70,20 @@ Main Methods:
 - Temperature scaling
 
 Papers:
-* [Beyond temperature scaling: Obtaining well-calibrated multiclass probabilities with Dirichlet calibration](https://papers.nips.cc/paper/9397-beyond-temperature-scaling-obtaining-well-calibrated-multi-class-probabilities-with-dirichlet-calibration.pdf)
 * [On Calibration of Modern Neural Networks (ICML 2017)](https://arxiv.org/abs/1706.04599)
+* [Beyond temperature scaling: Obtaining well-calibrated multiclass probabilities with Dirichlet calibration (NeurIPS 2019)](https://papers.nips.cc/paper/9397-beyond-temperature-scaling-obtaining-well-calibrated-multi-class-probabilities-with-dirichlet-calibration.pdf)
+
+<details>
+  <summary>Blogs</summary>
+ * [How and When to Use a Calibrated Classification Model with scikit-learn](https://machinelearningmastery.com/calibrated-classification-model-in-scikit-learn/)
+ * [Prediction & Calibration Techniques to Optimize Performance of Machine Learning Models](https://towardsdatascience.com/calibration-techniques-of-machine-learning-models-d4f1a9c7a9cf)
+ * [Calibration in Machine Learning](https://medium.com/analytics-vidhya/calibration-in-machine-learning-e7972ac93555#:~:text=In%20this%20blog%20we%20will%20learn%20what%20is%20calibration%20and,when%20we%20should%20use%20it.&text=We%20calibrate%20our%20model%20when,output%20given%20by%20a%20system.)
+</details>
+
 
 <details>
   <summary>Videos</summary>
- * [Calibration Tutorial] (https://www.youtube.com/watch?v=rhnqZV6eKlg&feature=youtu.be)
+ * [Calibration Tutorial](https://www.youtube.com/watch?v=rhnqZV6eKlg&feature=youtu.be)
 </details>
 
 ## Model Interpretability
@@ -105,3 +113,13 @@ Tools:
 * [Invariant Risk Minimization](https://arxiv.org/abs/1907.02893)
 Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
 on top of that data representation, matches for all training distributions.
+
+## Continual Learning
+
+In biology, defines the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).
+
+* [Continual Lifelong Learning with Neural Networks:A Review](refs.md#parisi2020)
+* [Brain-inspired replay for continual learning with artiﬁcial neural networks (Nature, 2020)](https://www.nature.com/articles/s41467-020-17866-2.epdf?sharing_token=bkJqxr4qptypBkYehsw_FtRgN0jAjWel9jnR3ZoTv0NoUJpE84DVnSx_jyG1N8KQimOuCCtJtaDabIpjOWE47UccZTsgeeOekV8ng2BR-omuTPXahD4aCOiCIIfIO2IOB-qJOABLKf7BlAYsTBE8rCeZYZcKd0yuWJjlzAEc1G8%3D)
+* [Generative replay with feedback connections as a general strategy for continual learning (ICLR2019)](https://arxiv.org/pdf/1809.10635v2.pdf)
+* [Three Scenarios for Continual Learning](https://arxiv.org/pdf/1904.07734.pdf)
+* [Compositional language continual learning](https://openreview.net/pdf?id=rklnDgHtDS)
