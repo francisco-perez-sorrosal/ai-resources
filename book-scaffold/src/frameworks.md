@@ -19,3 +19,6 @@ The big hit in 2015.
 ## Distributed Environments
 * [Horovod](https://github.com/horovod/horovod)
 * [DeepSpeed](https://github.com/microsoft/DeepSpeed)
+
+## Datasets
+* [Huggingface Datasets](https://huggingface.co/datasets)

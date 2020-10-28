@@ -33,6 +33,13 @@ Approach of Hierarchical-Multilevel Classification:
 * [Multi-Source Deep Domain Adaptation with Weak Supervision for Time-Series Sensor Data (KDD 2020)](https://arxiv.org/abs/2005.10996)
 Interesting
 
+### Surveys
+
+* [HuggingFace Presentation on Transfer Learning](https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc/edit?ts=5c8d09e7#slide=id.g5888218f39_364_0)
+* 2010 [A Survey on Transfer Learning](https://www.cse.ust.hk/~qyang/Docs/2009/tkde_transfer_learning.pdf)
+* 2018 [A Survey on Deep Transfer Learning](https://arxiv.org/abs/1808.01974)
+* 2020 [A Survey on Transfer Learning in Natural Language Processing](https://arxiv.org/abs/2007.04239)
+
 ### Few-shot Learning (Meta-learning)
 
 Meta-learning aims to train a general model in several learning tasks. The goal is that the resulting model has to be able to solve unseen tasks by using just 
