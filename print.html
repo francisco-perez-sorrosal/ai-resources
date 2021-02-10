@@ -45,6 +45,9 @@
         
 
         
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -95,7 +98,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">1.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">2.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">3.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">4.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books.html"><strong aria-hidden="true">5.</strong> Books</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">6.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">7.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -161,7 +164,55 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#machinedeep-learning-topics" id="machinedeep-learning-topics">Machine/Deep Learning Topics</a></h1>
+                        <h1><a class="header" href="#preface" id="preface">Preface</a></h1>
+<h1><a class="header" href="#a" id="a">A</a></h1>
+<h2><a class="header" href="#auto-encoder" id="auto-encoder">Auto-Encoder</a></h2>
+<p>Autoencoders are unsupervised ANN that can learn data encodings, making the encoder generate those encodings 
+specifically for reconstructing its own input (See figure below.) They convert their inputs to encoded vectors that lie
+in a latent space that may not be continuous or allow easy interpolation. In the end, this means that regular autoencoders 
+are mostly limited to be used to generate compressed representations of their inputs, allowing to regenerate the original
+input with minimal loss.</p>
+<p><img src="images/autoencoder.png" alt="Autoencoder (Source: https://towardsdatascience.com/intuitively-understanding-variational-autoencoders-1bfe67eb5daf)" /></p>
+<h1><a class="header" href="#g" id="g">G</a></h1>
+<h2><a class="header" href="#generative-adversarial-network-gan" id="generative-adversarial-network-gan">Generative Adversarial Network (GAN)</a></h2>
+<p>A special architecture of ANN aimed to <em>generate new data</em> with similar statistics as of the ones found in a particular 
+training set. The classical example of what GANs are used for, is the generation of new faces, by interpolating new
+features from the data obtained from a pool of preexisting images of faces. The goal is to build the new images as real 
+as possible, making them undistinguisable from real images for the human eye.</p>
+<p>The idea is to train two models at the same time; the first one is the &quot;generative&quot; one, which serves as the &quot;trend 
+gatherer&quot;, that is capturing the data distribution; the second one model, called &quot;discriminative&quot;, is trained to discern
+if a particular sample comes from the training data or from the &quot;generative&quot; moidel {{#cite goodfellow_generative_2014}}</p>
+<p><img src="images/gan.png" alt="GAN (Source: https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)" /></p>
+<h3><a class="header" href="#related" id="related">Related</a></h3>
+<ul>
+<li><a href="https://www.technologyreview.com/2018/02/21/145289/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/">Ian Goodfellow Interview</a></li>
+</ul>
+<h1><a class="header" href="#v" id="v">V</a></h1>
+<h2><a class="header" href="#variational-auto-encoder" id="variational-auto-encoder">Variational Auto-Encoder</a></h2>
+<p>In contrast to a vanilla <a href="vocabulary.html#auto-encoder">autoencoder</a>, a Variational AutoEncoder (VAE) is a <em>generative model</em> 
+that shares most of the architecture with a regular autoencoder, like Generative Adversarial Networks. Because of this, 
+VAEs have relatively little to do with classical autoencoders (sparse or denoising autoencoders) from a mathematical
+point of view.
+VAEs have a special property (which we could call the &quot;creativity&quot; property) that makes them more interesting over 
+regular autoencoders for generating outputs; their latent spaces are 
+continuous by design, which allows random sampling and interpolation. In a generative model this is what you want in the
+end; randomly sample from the continuous latent space in order to &quot;distort a bit&quot; the input image generating an image 
+variation, similar to the original one, but definitely not the same.</p>
+<p>A VAE tries to maximize the probability of each X in the training set under the entire generative process
+according to \( P(X) = \int P(X|z; \theta)P(z)dz \)</p>
+<p>\( P(X|z; \theta) \), allows making the dependence of X on z explicit by using the law of total probability. This<br />
+framework, called &quot;maximum likelihood&quot;, allows to assume that if the model is likely to produce training set samples, 
+then it is also likely to produce similar samples, and also unlikely to produce dissimilar ones.</p>
+<p>According to {{#cite doersch_tutorial_2016}} VAEs are called &quot;autoencoders&quot; because the final training objective does
+share the encoder/decoder architecture, so it resembles a traditional autoencoder.</p>
+<h1><a class="header" href="#machinedeep-learning-topics" id="machinedeep-learning-topics">Machine/Deep Learning Topics</a></h1>
+<h2><a class="header" href="#artificial-general-inteligence" id="artificial-general-inteligence">(Artificial) General Inteligence</a></h2>
+<p>This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of 
+artificial intelligence.</p>
+<p>In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining 
+a general capability on fulfilling previous learned tasks.
+This artificial general intelligence requires that the agent does not forget what it has learn -what is called <a href="topics.html#catastrophic_forgetting">catastrophic forgetting</a>
+in the literature- and assumes that the agent will continue learning new tasks -called <a href="topics.html#continual_learning">continual or lifelong learning</a>.</p>
 <h2><a class="header" href="#feature-engineering" id="feature-engineering">Feature Engineering</a></h2>
 <p>The classical/traditional way of &quot;massage&quot; the input to pass to a ML model (e.g. a classifier.) This was
 an &quot;art&quot; in itself.
@@ -281,8 +332,20 @@ Glass box modesl: Explainable Boosting Machine (EBMs) are the SotA</p>
 Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
 on top of that data representation, matches for all training distributions.</li>
 </ul>
-<h2><a class="header" href="#continual-learning" id="continual-learning">Continual Learning</a></h2>
-<p>In biology, defines the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).</p>
+<h2><a class="header" href="#a-namecontinual_learningacontinual-learning-and-catastrophic-forgetting" id="a-namecontinual_learningacontinual-learning-and-catastrophic-forgetting"><a name="continual_learning"></a>Continual Learning and Catastrophic Forgetting</a></h2>
+<p>In biology, <em>Continual Learning</em> refers to the process of continually gather, update, and transfer skills/knowledge 
+throughout life (lifespan).</p>
+<p>In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget 
+previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the 
+equivalent of continual learning to be implemented in the field of artificial neural networks.</p>
+<p><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">This is a summary of the recent (2021) advances in continual learning in NLP.</a></p>
+<h3><a class="header" href="#a-namecatastrophic_forgettingaprotocolsstrategies-for-solving-catastrophic-forgetting-cf" id="a-namecatastrophic_forgettingaprotocolsstrategies-for-solving-catastrophic-forgetting-cf"><a name="catastrophic_forgetting"></a>Protocols/Strategies for Solving Catastrophic Forgetting (CF)</a></h3>
+<p>One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing
+the effectiveness of the techniques. This has been addressed by studies like <a href="refs.html#vandeven2019">vandeven2019</a> and <a href="refs.html#vandeven2019b">vandeven2019b</a>.</p>
+<p>The approaches to solve Catastrophic Forgetting can be classified in:</p>
+<h4><a class="header" href="#regularization-approaches" id="regularization-approaches">Regularization Approaches</a></h4>
+<p>https://arxiv.org/pdf/1612.00796.pdf</p>
+<h4><a class="header" href="#generative-replay" id="generative-replay">Generative Replay</a></h4>
 <ul>
 <li><a href="refs.html#parisi2020">Continual Lifelong Learning with Neural Networks:A Review</a></li>
 <li><a href="https://www.nature.com/articles/s41467-020-17866-2.epdf?sharing_token=bkJqxr4qptypBkYehsw_FtRgN0jAjWel9jnR3ZoTv0NoUJpE84DVnSx_jyG1N8KQimOuCCtJtaDabIpjOWE47UccZTsgeeOekV8ng2BR-omuTPXahD4aCOiCIIfIO2IOB-qJOABLKf7BlAYsTBE8rCeZYZcKd0yuWJjlzAEc1G8%3D">Brain-inspired replay for continual learning with artiﬁcial neural networks (Nature, 2020)</a></li>
@@ -295,6 +358,11 @@ on top of that data representation, matches for all training distributions.</li>
 <ul>
 <li><a href="https://huggingface.co/">Huggingface</a></li>
 <li><a href="https://github.com/NervanaSystems/nlp-architect">NLP Architect</a></li>
+</ul>
+<h1><a class="header" href="#blogs--repos" id="blogs--repos">Blogs &amp; Repos</a></h1>
+<ul>
+<li><a href="https://github.com/neubig/lowresource-nlp-bootcamp-2020">NLP Bootcamp</a> CMU lectures on NLP by visitors to the
+Language Technologies Institute.</li>
 </ul>
 <h1><a class="header" href="#nlp-papers" id="nlp-papers">NLP Papers</a></h1>
 <h2><a class="header" href="#recent-origins" id="recent-origins">Recent Origins</a></h2>
@@ -327,6 +395,19 @@ It shows improvements on most of the SotA results by BERT and followers. Questio
 It uses a single sentence for the document-level input like SpanBERT.
 Code: https://github.com/pytorch/fairseq</li>
 </ul>
+<h4><a class="header" href="#sparse-transformers" id="sparse-transformers">Sparse Transformers</a></h4>
+<ul>
+<li><a href="refs.html#sparse">Sparse Tansformer</a> Self-attention complexity from O(n2) to O(n*sqrt(n)).</li>
+<li><a href="refs.html#reformer">Reformer</a> Self-attention complexity O(L2) to O(LlogL), where L is the length of the sequence.</li>
+<li><a href="refs.html#linformer">Linformer</a> Self-attention complexity from O(n2) to O(n) in both time and space.</li>
+</ul>
+<h4><a class="header" href="#small-modelssmall-devices" id="small-modelssmall-devices">Small Models/Small Devices</a></h4>
+<ul>
+<li><a href="refs.html#lite">Lite transformer with Long-Short Range Attention</a>
+Uses Long-Short Range Attention (LSRA) in which a group of heads specializes in
+the local context (using convolution) and another group specializes in the
+long-distance relationships (ussing the attention mechanism.) Focus on edge (mobile) devices.</li>
+</ul>
 <details>
   <summary>Small Models</summary>
  * [Distilbert](https://arxiv.org/abs/1910.01108)
@@ -345,16 +426,259 @@ Code: https://github.com/ProsusAI/finBERT]</li>
 &quot;Turing Natural Language Generation (T-NLG) is a 17 billion parameter language model by Microsoft that outperforms the state of the art on many downstream NLP
 tasks. We present a demo of the model, including its freeform generation, question answering, and summarization capabilities, to academics for feedback and
 research purposes. &lt;|endoftext|&gt;&quot; - Summary generated by itself.</p>
+<h3><a class="header" href="#lifelong-learning-in-nlp" id="lifelong-learning-in-nlp">Lifelong learning in NLP</a></h3>
+<ul>
+<li><a name="biesialska"><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">Continual Lifelong Learning in Natural Language Processing: A Survey</a> Colling, 2020</a></li>
+</ul>
+<p>Pytorch conference:</p>
+<h2><a class="header" href="#intro-conf" id="intro-conf">INTRO CONF</a></h2>
+<p>jax and julia languages</p>
+<p>2020 state of ai report</p>
+<p>Tensor Statements (Experimental)</p>
+<p>Facebook MMF Multimodal library</p>
+<p>MLPerf a machine learning performane benchnark suite with broad industry and academia</p>
+<p>Microsoft DeepSpeed Dist training
+Google Brain: ML for system
+DiffTaichi: MIT</p>
+<p>Usability: Try to balance again to performance.</p>
+<h2><a class="header" href="#state-of-pytorch" id="state-of-pytorch">State of pytorch</a></h2>
+<p>-More operators/quantized operators driven by numpy compatibility
+-More language support
+-More platforms</p>
+<p>In 2020:
+-Composability
+-Distributed RPC
+-XLA</p>
+<p>To come:
+-Multitensor optimizers
+-Lazy modules
+-torch.fx python to python transformations instead with C++
+-Vulkan and Metal hw accel to mobile
+-Benchmarking tools
+-Metatensors</p>
+<p>Contrib:
+-rfcs: Proposals bigger than an issue
+-dev newsletter
+-nightly checkout tool</p>
+<h2><a class="header" href="#complex-numbers-in-pytorch" id="complex-numbers-in-pytorch">Complex numbers in pytorch</a></h2>
+<ul>
+<li>Quantum mechanics and singal processing
+-Research: Deep Complex networks, On complex valued convolutional networks, etc...</li>
+<li>Representation:
+-- API easy to use based on a natural representation
+-- Operations
+-- Autograd</li>
+</ul>
+<p>-new datatypes: torch.complex64/128
+-core properties: angle, abs, real, imag, polar, complex based on numpy
+-complex differencitation</p>
+<p>Future:
+-JIT and distribute computing</p>
+<h2><a class="header" href="#pytorch-marries-numpy" id="pytorch-marries-numpy">Pytorch marries Numpy</a></h2>
+<p>-Compatible here means the same function can be called the same way to produce the same (or very similar) behaviour
+-New functions added every day and plan to add linear algebra</p>
+<h2><a class="header" href="#high-level-api-for-autograd" id="high-level-api-for-autograd">High Level API for Autograd</a></h2>
+<p>torch.autograd.functional
+-Takes a python function as an input
+-Closer to functional API and mathematical definition</p>
+<p>functional.jacobian(func, inputs,...)
+functional.vjp(func, input,v,..) -- backprop
+functional.jvp(...) -- forward mode
+functinal.hessian(func, input,...) second order derivativeses
+functinal.vhp(...) backward
+functinal.hvp(...) forward</p>
+<h2><a class="header" href="#pytorch-rpc" id="pytorch-rpc">Pytorch RPC</a></h2>
+<p>DistributedDataParallel was the standard. The input was distributed but not works for large models as the model is centraliced</p>
+<p>RPC in Pytorch: Flexible Low Level Tools
+Features:</p>
+<ul>
+<li>Remote execution: Run user function or modules remotely
+rpc_init,sync, async, return a remote reference (shared pointer), shutdown</li>
+<li>Remote reference
+points to objects in a distributed env and can be passed as rpc arguments to avoid communicating real data</li>
+<li>Distributed autograd
+Automatically stitch togethr local autograd to perform distributed differentiation across rpc boundaries</li>
+</ul>
+<p>Use cases:
+-Parameter server multiple trainers and serevers
+-Distributed model parallel
+-Pipeline parallelism</p>
+<h2><a class="header" href="#pytorch-ddp" id="pytorch-ddp">Pytorch DDP</a></h2>
+<p>DDP and C10D merges with RPC</p>
+<p>Future adds:
+Add zero (DeepSpeed) style training framework for large models
+intra layer perallelism (Used by megatron model)
+Torchscript support for c10d apis
+Auto tuning for DDP
+Hybrid Parallelism
+Auto Parallelism</p>
+<h2><a class="header" href="#torchtext" id="torchtext">TorchText:</a></h2>
+<p>-Raw text
+Download, unzip, read
+-Transforms
+tokenize,vocabulary,sentencepiece
+-Batch and sampler
+DataLoader,Sampler
+-Model
+-Transformer,MultiheadAttention</p>
+<p>Datasets
+AG_NEWS, Sogounews</p>
+<p>Tokenizer-&gt;vocab lookup-&gt;to tensor
+Tokenizer-&gt;Vector Lookup</p>
+<p>Multihead-attention container:
+-Drop-in replacement
+-torchscript support
+-incremental decoding
+-broadcast support
+-research variants</p>
+<h2><a class="header" href="#pyroch-and-tensorboard" id="pyroch-and-tensorboard">Pyroch and Tensorboard</a></h2>
+<p>pr_curve!!!</p>
+<p>hyperpararmeter dashboard</p>
+<p>Future:
+Perf plugin
+plotly
+alert</p>
+<h2><a class="header" href="#performance" id="performance">Performance</a></h2>
+<p>Better AMP
+tf32</p>
+<p>Metal - Apple GPU inference
+Vulkan - Android GPU inferene</p>
+<h2><a class="header" href="#android-and-pytorch" id="android-and-pytorch">Android and Pytorch</a></h2>
+<p>Take advantage of GPUs/NPUs Neural Process Accelerators in mobile devices
+Android Neural Networks API abstracts the different underlying vendor driver libs and chips
+Pytorch supports NNAPI</p>
+<h2><a class="header" href="#pytorch-for-other-languages" id="pytorch-for-other-languages">Pytorch for Other Languages</a></h2>
+<ul>
+<li>Libtorch (C++) Allows other programing languages binding to C++ have their own Torch-like library</li>
+<li>Serialized representation of models like torchscript and onnx. This allows to exchange trained models between 
+programming languages</li>
+</ul>
+<p>Torch for R or Hasktorch are examples of a library implemented on Libtorch</p>
+<p>The Gradient Review: Frameworks don't just enable machine learning resetarch, they enable and restrict what researchers can do</p>
+<h2><a class="header" href="#pytorch-for-graph-neural-networks" id="pytorch-for-graph-neural-networks">Pytorch for Graph Neural networks</a></h2>
+<p>-Pythonic API
+-For High Energy Physics
+-Maybe for Quantum computing in the future?</p>
+<h2><a class="header" href="#hyperparameter-tuning" id="hyperparameter-tuning">Hyperparameter tuning</a></h2>
+<p>hyperparameterss:
+layers, units per layer, lr, etc.. determine the performance. can determine the success or failure of the models.
+preprossingaugmentation, image format</p>
+<p>network trainerbatchs size image, optimizer chosen
+hwlayer : fp3 smixed precission</p>
+<p>Hyper-parameter optimization paper
+Suervay of ML expeprimettal methods at neurips2019 and iclr2020
+- 6% where using only HP optimizers</p>
+<p>Avoid Curse of Dimensionality
+An efficient approach for assesing hyperparameter importance</p>
+<p>Optuma came as a result.</p>
+<p>Best hyperparameters to tune:
+LR is the most hyer parameter
+Units in the firsr layer
+the optimizer
+dropout in the first layer</p>
+<p>Hyperparameter evolution:</p>
+<p>not tuning
+manually play 
+grid search
+optuna
+optupta weveraged with hyperparameter tuning</p>
+<h2><a class="header" href="#deepspeed-interesting" id="deepspeed-interesting">DeepSpeed (Interesting)</a></h2>
+<p>Training optimization library
+Faster Transformer training
+zero-offload: Democrazitzes big models
+1-bit adam: 5x faster training</p>
+<p>ONNX Runtime (ORT)
+optimized for pytorch 
+integrating collections of optimization techiniques from Deepspeed</p>
+<h2><a class="header" href="#ml-perf" id="ml-perf">ML Perf</a></h2>
+<p>GPU support in Pytorch. </p>
+<p>NVIDIA trains BERT in 48.6s using 2048 A100 GPUs</p>
+<p>Challenges:
+Slow non-gpu work: Cuda graphs
+model parallel utilities:<br />
+automated optimizations: Automated operator fusion (collaborate witht the JIT team at FB)</p>
+<p>Dedicated pytorch team in NVIDIA</p>
+<h2><a class="header" href="#going-forward" id="going-forward">Going Forward</a></h2>
+<p>-Run in mobile devices, embedded hw like Rapsberry Pi, new devices</p>
+<ul>
+<li>ONNX Runtime and TVM</li>
+</ul>
+<p>ONNX
+-Need to expoert
+-good perf out o f  the box
+-files as means of exchange
+should pytorch take ONNX?</p>
+<p>TVM
+-can take python JIT graph
+-conversion implemented in Pythn
+-typing one of the hard bits
+can tune for new hw/optimization paterns</p>
+<p>3ed option: hook into pytorch as torch vision ant trttorch</p>
+<p>jit extension
+allows to bind 3rd party libraries for benchmark or quick speedups on specifi ops
+also fuse operation tugehter. trt requritest the jit grap in custom pass
+you stay in pytorch
+you cherry picks which things run externally</p>
+<h2><a class="header" href="#reproducibility-ai-using-pytorch" id="reproducibility-ai-using-pytorch">Reproducibility AI using Pytorch</a></h2>
+<p>MLFlow: Trochserve</p>
+<h2><a class="header" href="#pytorchxla" id="pytorchxla">Pytorch/XLA</a></h2>
+<p>TPUs</p>
+<p>XLA compoiler based linear algrebra exec engine. targets cpu gpu and tpu</p>
+<p>pytrch/xla is a layer eteen xla and pytorch</p>
+<p>provides apis for out of the tree backend extensions.</p>
+<p>Lazy tensor system . Build on top of the pytorch eager runtime.
+stores the pytorch ops as intermidate representation
+then pytroch xla to xla converting theIR node tho the HLOptimizer</p>
+<h2><a class="header" href="#torchserve" id="torchserve">TorchServe</a></h2>
+<p>Pytorch
+Need for custom code to deploy and predict
+Need for custom infrastructure to scale and monitor</p>
+<p>Use version for A/B testing
+Ensemble support (commint soon) and batch inferencing
+REST API, grpc API (coming soon)</p>
+<p>Future:</p>
+<ul>
+<li>Improve memory and resource usage for scalability</li>
+<li>compliancy with serving APIs sun as KFServing (look at it)</li>
+<li>integrating with Captum</li>
+<li>Autoscalling for K8s</li>
+</ul>
+<h2><a class="header" href="#differential-privacy" id="differential-privacy">Differential Privacy</a></h2>
+<p>Destroy a controlled amount of information</p>
+<p>GDPR and used in the US census</p>
+<p>Aggregates can be:
+-count things
+-a mean
+-train a ML model</p>
+<p>memorization violates privacy: has to do with losing memory</p>
+<p>Differential privacy can be added to : data, training, model.zip, deployment
+the gold standard is to add it to training: Opacus (limits memorization)</p>
+<p>bit.ly/opacus-dev-day</p>
+<h2><a class="header" href="#future-of-ai-tools" id="future-of-ai-tools">Future of AI Tools</a></h2>
+<h2><a class="header" href="#what-was-build-in-2020" id="what-was-build-in-2020">What was build in 2020:</a></h2>
+<p>Optuna</p>
 <h1><a class="header" href="#productionizing-mldl" id="productionizing-mldl">Productionizing ML/DL</a></h1>
 <p><a href="http://pages.cs.wisc.edu/%7Ewentaowu/papers/kdd20-ci-for-ml.pdf">Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)</a>
 Interesting</p>
 <h2><a class="header" href="#model-size-vs-efficiency" id="model-size-vs-efficiency">Model Size vs Efficiency</a></h2>
-<p>Big models -&gt; Big problem for company at deploy time. Identify techniques to reduce the number of parameters
-without impacting the quality of the model.</p>
+<p>Big models -&gt; Big problem for company at deploy time. Not to speak about deploying an ensemble of models, even if this
+shows better performance overall. Several techniques, such as knowledge distillation, pruning and quantization, have 
+been identified to reduce the number of parameters of a model without impacting significantly the quality of the model. 
+In the end, most of the techniques described below, result in slightly degraded prediction metrics.</p>
 <ul>
 <li><a href="https://blog.roblox.com/2020/05/scaled-bert-serve-1-billion-daily-requests-cpus/">How We Scaled Bert To Serve 1+ Billion Daily Requests on CPUs (Roblox)</a></li>
 </ul>
 <h3><a class="header" href="#distilation" id="distilation">Distilation</a></h3>
+<p>Hinton, Vinyals and Dean showed in {{#cite hinton_distilling_2015}} how to apply Caruana's model compression techniques described in {{#cite bucilua_model_2006}}.
+Caruana et all showed how to take advantage of the property of ANN of being <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">universal approximators</a>,
+to train an ANN to mimic the function learned by an ensemble of models. The idea behind the universal approximator theorem
+is that, with enough neurons and training data, a NN can approximate any function with enough precision. To do that,
+basically they take a brand new (and usually big) <em>unlabeled</em> dataset and they label it using the ensemble. Then they
+train an ANN using this brand new large (and recently labeled dataset,) so the resulting model mimics the ensemble, and
+which, as they demonstrate, performs much better than the same ANN trained on the original dataset. </p>
+<p>Hinton et all, in the aforementioned paper, prove Caruana's ensemble model distillation on MNIST and in a commercial
+acoustic model. They also add a new composite ensemble with several specialist models (which can also be trained in 
+parallel) that learn to distinguish classes that the full models confuse.</p>
 <h3><a class="header" href="#pruning" id="pruning">Pruning</a></h3>
 <h3><a class="header" href="#quantization" id="quantization">Quantization</a></h3>
 <ul>
@@ -419,22 +743,91 @@ The big hit in 2015.</li>
 <li><a href="http://d2l.ai/">Dive into Deep Learning</a> Interactive book</li>
 <li><a href="https://www.deeplearningbook.org/">Deep Learning</a> <em>Ian Goodfellow and Yoshua Bengio and Aaron Courville</em> </li>
 </ul>
+<h1><a class="header" href="#other-resources" id="other-resources">Other Resources</a></h1>
+<ul>
+<li><a href="https://thegradient.pub/">The Gradient</a> Magazine about research, recent developments and current/long-term trends in 
+AI/ML. Origin: 2017 by students and researchers @ Stanford Artificial Intelligence Laboratory (SAIL).
+Status: non-profit and volunteers in the AI community.</li>
+</ul>
 <h1><a class="header" href="#main-aimldldata-science-conferences" id="main-aimldldata-science-conferences">Main AI/ML/DL/Data Science Conferences</a></h1>
 <ul>
 <li><a href="https://nips.cc/">NIPS/Neurips</a></li>
 <li><a href="https://www.kdd.org/">KDD (SIGKDD) ACM</a></li>
+<li><a href="https://iclr.cc/">ICLR (International Conference on Learning Representations)</a> Dedicated to advances of the
+representation learning a.k.a. deep learning.</li>
+<li><a href="https://cikm2020.org/">International Conference on Information and Knowledge Management</a></li>
 </ul>
 <h2><a class="header" href="#nlplinguistics" id="nlplinguistics">NLP/Linguistics</a></h2>
 <ul>
 <li><a href="https://www.aclweb.org/">ACL (Association of Computational Linguistics)</a></li>
+<li><a href="https://2020.emnlp.org/">Conference on Empirical Methods in Natural Language Processing</a></li>
+</ul>
+<h1><a class="header" href="#applications" id="applications">Applications</a></h1>
+<ul>
+<li><a href="https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf">DeepFace</a> always remind me of how Schwarzenegger is framed for the murder of almost a hundred unarmed civilians in <a href="https://www.imdb.com/title/tt0093894/">The Running Man</a></li>
+</ul>
+<p>This is an example of citation {{#cite ven_brain-inspired_2020}} in an mdBook </p>
+<h2><a class="header" href="#prediction" id="prediction">Prediction</a></h2>
+<h2><a class="header" href="#regression" id="regression">Regression</a></h2>
+<h2><a class="header" href="#classification" id="classification">Classification</a></h2>
+<h2><a class="header" href="#recommender-systems" id="recommender-systems">Recommender systems</a></h2>
+<h2><a class="header" href="#recognition-images-audio-text" id="recognition-images-audio-text">Recognition (images, audio, text)</a></h2>
+<h2><a class="header" href="#computer-vision" id="computer-vision">Computer vision</a></h2>
+<h2><a class="header" href="#clustering-and-anomaly-detection" id="clustering-and-anomaly-detection">Clustering and anomaly detection</a></h2>
+<h2><a class="header" href="#natural-language-processing-generation-and-understanding" id="natural-language-processing-generation-and-understanding">Natural language processing, generation, and understanding</a></h2>
+<h2><a class="header" href="#translation" id="translation">Translation</a></h2>
+<p>Along 2016/2017 Google switched from sentence-based/linguistic expert-based algorithmic approach to deep-learning based 
+methods (what is called Neural Machine Translation, or NMT.) The leap in quality of the transations was massive:</p>
+<ul>
+<li><a href="https://blog.google/products/translate/found-translation-more-accurate-fluent-sentences-google-translate/">Found in translation: More accurate, fluent sentences in Google Translate (Barak Turovsky, Google Translate Product Lead, Nov 2016</a></li>
+<li><a href="https://www.blog.google/products/translate/higher-quality-neural-translations-bunch-more-languages/">Higher quality neural translations for a bunch more languages (Barak Turovsky, Google Translate Product Lead, Mar 2017)</a></li>
+<li><a href="https://ai.googleblog.com/2016/09/a-neural-network-for-machine.html">A Neural Network for Machine Translation, at Production Scale</a></li>
+<li><a href="https://www.theatlantic.com/technology/archive/2018/01/the-shallowness-of-google-translate/551570/">The Shallowness of Google Translate (Douglas Hofstadter)</a></li>
+</ul>
+<h2><a class="header" href="#medicine" id="medicine">Medicine</a></h2>
+<p>Dermatology - Detect skin cancer or problematic skin ir</p>
+<h2><a class="header" href="#legallaw" id="legallaw">Legal/Law</a></h2>
+<h3><a class="header" href="#programing-languages" id="programing-languages">Programing Languages</a></h3>
+<ul>
+<li><a href="https://www.oreilly.com/radar/automated-coding-and-the-future-of-programming/?sfmc_id=85378584&amp;utm_medium=email&amp;utm_source=platform+b2b&amp;utm_campaign=engagement&amp;utm_content=whats+new+thinking+20200831">Automated Coding article (O'Reilly)</a></li>
+<li><a href="https://arxiv.org/pdf/2006.03511.pdf">Unsupervised Translation of Programming Languages</a></li>
 </ul>
 <ul>
 <li>
-<p><a name="finbert"><a href="https://arxiv.org/abs/1908.10063">FinBERT</a> Bert applied to Financial Sentiment Analysis. 
-<a href="https://github.com/ProsusAI/finBERT">Code</a></a></p>
+<p><a name="finbert"><a href="https://arxiv.org/abs/1908.10063">FinBERT</a> Bert applied to Financial Sentiment Analysis.</a>
+Code: https://github.com/ProsusAI/finBERT]</p>
 </li>
 <li>
-<p><a name="parisi2020"><a href="https://arxiv.org/abs/1802.07569">Continual Lifelong Learning with Neural Networks: A Review</a></a></p>
+<p><a name="reformer"><a href="https://arxiv.org/abs/1904.10509">Generating Long Sequences with Sparse Transformers</a>
+2019</a></p>
+</li>
+<li>
+<p><a name="reformer"><a href="https://arxiv.org/abs/2001.04451">Reformer: The Efficient Transformer</a>
+2020</a></p>
+</li>
+<li>
+<p><a name="linformer"><a href="https://arxiv.org/abs/2006.04768">Linformer: Self-Attention with Linear Complexity</a>
+2020</a></p>
+</li>
+<li>
+<p><a name="lite"><a href="https://arxiv.org/pdf/2004.11886.pdf">Lite transformer with Long-Short Range Attention</a>
+2020</a></p>
+</li>
+<li>
+<p><a name="mccloskey1989">Michael McCloskey and Neal J Cohen. Catastrophic interference in connectionist networks: The
+sequential learning problem. The psychology of learning and motivation, 24(109-165):92, 1989.</a></p>
+</li>
+<li>
+<p><a name="biesialska"><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">Continual Lifelong Learning in Natural Language Processing: A Survey</a> Colling, 2020</a></p>
+</li>
+<li>
+<p><a name="parisi2020"><a href="https://arxiv.org/abs/1802.07569">Continual Lifelong Learning with Neural Networks: A Review</a> Tech Report, 2019</a></p>
+</li>
+<li>
+<p><a name="vandeven2019"><a href="https://arxiv.org/pdf/1809.10635v2.pdf">Generative replay with feedback connections as a general strategy for continual learning</a> ICLR 2019</a></p>
+</li>
+<li>
+<p><a name="vandeven2019b"><a href="https://arxiv.org/pdf/1904.07734.pdf">Three Scenarios for Continual Learning</a> Neurips 2019</a></p>
 </li>
 </ul>
 
@@ -490,7 +883,9 @@ The big hit in 2015.</li>
         
         <script type="text/javascript">
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
         

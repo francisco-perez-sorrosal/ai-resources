@@ -43,6 +43,9 @@
         
 
         
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -93,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">1.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">2.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html" class="active"><strong aria-hidden="true">3.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">4.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books.html"><strong aria-hidden="true">5.</strong> Books</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">6.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">7.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html" class="active"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,12 +166,24 @@
 <p><a href="http://pages.cs.wisc.edu/%7Ewentaowu/papers/kdd20-ci-for-ml.pdf">Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)</a>
 Interesting</p>
 <h2><a class="header" href="#model-size-vs-efficiency" id="model-size-vs-efficiency">Model Size vs Efficiency</a></h2>
-<p>Big models -&gt; Big problem for company at deploy time. Identify techniques to reduce the number of parameters
-without impacting the quality of the model.</p>
+<p>Big models -&gt; Big problem for company at deploy time. Not to speak about deploying an ensemble of models, even if this
+shows better performance overall. Several techniques, such as knowledge distillation, pruning and quantization, have 
+been identified to reduce the number of parameters of a model without impacting significantly the quality of the model. 
+In the end, most of the techniques described below, result in slightly degraded prediction metrics.</p>
 <ul>
 <li><a href="https://blog.roblox.com/2020/05/scaled-bert-serve-1-billion-daily-requests-cpus/">How We Scaled Bert To Serve 1+ Billion Daily Requests on CPUs (Roblox)</a></li>
 </ul>
 <h3><a class="header" href="#distilation" id="distilation">Distilation</a></h3>
+<p>Hinton, Vinyals and Dean showed in {{#cite hinton_distilling_2015}} how to apply Caruana's model compression techniques described in {{#cite bucilua_model_2006}}.
+Caruana et all showed how to take advantage of the property of ANN of being <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">universal approximators</a>,
+to train an ANN to mimic the function learned by an ensemble of models. The idea behind the universal approximator theorem
+is that, with enough neurons and training data, a NN can approximate any function with enough precision. To do that,
+basically they take a brand new (and usually big) <em>unlabeled</em> dataset and they label it using the ensemble. Then they
+train an ANN using this brand new large (and recently labeled dataset,) so the resulting model mimics the ensemble, and
+which, as they demonstrate, performs much better than the same ANN trained on the original dataset. </p>
+<p>Hinton et all, in the aforementioned paper, prove Caruana's ensemble model distillation on MNIST and in a commercial
+acoustic model. They also add a new composite ensemble with several specialist models (which can also be trained in 
+parallel) that learn to distinguish classes that the full models confuse.</p>
 <h3><a class="header" href="#pruning" id="pruning">Pruning</a></h3>
 <h3><a class="header" href="#quantization" id="quantization">Quantization</a></h3>
 <ul>

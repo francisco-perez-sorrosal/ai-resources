@@ -43,6 +43,9 @@
         
 
         
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -93,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="topics.html" class="active"><strong aria-hidden="true">1.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">2.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">3.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">4.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books.html"><strong aria-hidden="true">5.</strong> Books</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">6.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">7.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html" class="active"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -160,6 +163,13 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#machinedeep-learning-topics" id="machinedeep-learning-topics">Machine/Deep Learning Topics</a></h1>
+<h2><a class="header" href="#artificial-general-inteligence" id="artificial-general-inteligence">(Artificial) General Inteligence</a></h2>
+<p>This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of 
+artificial intelligence.</p>
+<p>In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining 
+a general capability on fulfilling previous learned tasks.
+This artificial general intelligence requires that the agent does not forget what it has learn -what is called <a href="#catastrophic_forgetting">catastrophic forgetting</a>
+in the literature- and assumes that the agent will continue learning new tasks -called <a href="#continual_learning">continual or lifelong learning</a>.</p>
 <h2><a class="header" href="#feature-engineering" id="feature-engineering">Feature Engineering</a></h2>
 <p>The classical/traditional way of &quot;massage&quot; the input to pass to a ML model (e.g. a classifier.) This was
 an &quot;art&quot; in itself.
@@ -279,8 +289,20 @@ Glass box modesl: Explainable Boosting Machine (EBMs) are the SotA</p>
 Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
 on top of that data representation, matches for all training distributions.</li>
 </ul>
-<h2><a class="header" href="#continual-learning" id="continual-learning">Continual Learning</a></h2>
-<p>In biology, defines the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).</p>
+<h2><a class="header" href="#a-namecontinual_learningacontinual-learning-and-catastrophic-forgetting" id="a-namecontinual_learningacontinual-learning-and-catastrophic-forgetting"><a name="continual_learning"></a>Continual Learning and Catastrophic Forgetting</a></h2>
+<p>In biology, <em>Continual Learning</em> refers to the process of continually gather, update, and transfer skills/knowledge 
+throughout life (lifespan).</p>
+<p>In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget 
+previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the 
+equivalent of continual learning to be implemented in the field of artificial neural networks.</p>
+<p><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">This is a summary of the recent (2021) advances in continual learning in NLP.</a></p>
+<h3><a class="header" href="#a-namecatastrophic_forgettingaprotocolsstrategies-for-solving-catastrophic-forgetting-cf" id="a-namecatastrophic_forgettingaprotocolsstrategies-for-solving-catastrophic-forgetting-cf"><a name="catastrophic_forgetting"></a>Protocols/Strategies for Solving Catastrophic Forgetting (CF)</a></h3>
+<p>One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing
+the effectiveness of the techniques. This has been addressed by studies like <a href="refs.html#vandeven2019">vandeven2019</a> and <a href="refs.html#vandeven2019b">vandeven2019b</a>.</p>
+<p>The approaches to solve Catastrophic Forgetting can be classified in:</p>
+<h4><a class="header" href="#regularization-approaches" id="regularization-approaches">Regularization Approaches</a></h4>
+<p>https://arxiv.org/pdf/1612.00796.pdf</p>
+<h4><a class="header" href="#generative-replay" id="generative-replay">Generative Replay</a></h4>
 <ul>
 <li><a href="refs.html#parisi2020">Continual Lifelong Learning with Neural Networks:A Review</a></li>
 <li><a href="https://www.nature.com/articles/s41467-020-17866-2.epdf?sharing_token=bkJqxr4qptypBkYehsw_FtRgN0jAjWel9jnR3ZoTv0NoUJpE84DVnSx_jyG1N8KQimOuCCtJtaDabIpjOWE47UccZTsgeeOekV8ng2BR-omuTPXahD4aCOiCIIfIO2IOB-qJOABLKf7BlAYsTBE8rCeZYZcKd0yuWJjlzAEc1G8%3D">Brain-inspired replay for continual learning with artiﬁcial neural networks (Nature, 2020)</a></li>
@@ -293,6 +315,10 @@ on top of that data representation, matches for all training distributions.</li>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="vocabulary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
 
                         
@@ -307,6 +333,10 @@ on top of that data representation, matches for all training distributions.</li>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="vocabulary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
 
                 

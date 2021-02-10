@@ -43,6 +43,9 @@
         
 
         
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -93,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">1.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html" class="active"><strong aria-hidden="true">2.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">3.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">4.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books.html"><strong aria-hidden="true">5.</strong> Books</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">6.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">7.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html" class="active"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,6 +168,11 @@
 <li><a href="https://huggingface.co/">Huggingface</a></li>
 <li><a href="https://github.com/NervanaSystems/nlp-architect">NLP Architect</a></li>
 </ul>
+<h1><a class="header" href="#blogs--repos" id="blogs--repos">Blogs &amp; Repos</a></h1>
+<ul>
+<li><a href="https://github.com/neubig/lowresource-nlp-bootcamp-2020">NLP Bootcamp</a> CMU lectures on NLP by visitors to the
+Language Technologies Institute.</li>
+</ul>
 <h1><a class="header" href="#nlp-papers" id="nlp-papers">NLP Papers</a></h1>
 <h2><a class="header" href="#recent-origins" id="recent-origins">Recent Origins</a></h2>
 <ul>
@@ -196,6 +204,19 @@ It shows improvements on most of the SotA results by BERT and followers. Questio
 It uses a single sentence for the document-level input like SpanBERT.
 Code: https://github.com/pytorch/fairseq</li>
 </ul>
+<h4><a class="header" href="#sparse-transformers" id="sparse-transformers">Sparse Transformers</a></h4>
+<ul>
+<li><a href="refs.html#sparse">Sparse Tansformer</a> Self-attention complexity from O(n2) to O(n*sqrt(n)).</li>
+<li><a href="refs.html#reformer">Reformer</a> Self-attention complexity O(L2) to O(LlogL), where L is the length of the sequence.</li>
+<li><a href="refs.html#linformer">Linformer</a> Self-attention complexity from O(n2) to O(n) in both time and space.</li>
+</ul>
+<h4><a class="header" href="#small-modelssmall-devices" id="small-modelssmall-devices">Small Models/Small Devices</a></h4>
+<ul>
+<li><a href="refs.html#lite">Lite transformer with Long-Short Range Attention</a>
+Uses Long-Short Range Attention (LSRA) in which a group of heads specializes in
+the local context (using convolution) and another group specializes in the
+long-distance relationships (ussing the attention mechanism.) Focus on edge (mobile) devices.</li>
+</ul>
 <details>
   <summary>Small Models</summary>
  * [Distilbert](https://arxiv.org/abs/1910.01108)
@@ -214,6 +235,237 @@ Code: https://github.com/ProsusAI/finBERT]</li>
 &quot;Turing Natural Language Generation (T-NLG) is a 17 billion parameter language model by Microsoft that outperforms the state of the art on many downstream NLP
 tasks. We present a demo of the model, including its freeform generation, question answering, and summarization capabilities, to academics for feedback and
 research purposes. &lt;|endoftext|&gt;&quot; - Summary generated by itself.</p>
+<h3><a class="header" href="#lifelong-learning-in-nlp" id="lifelong-learning-in-nlp">Lifelong learning in NLP</a></h3>
+<ul>
+<li><a name="biesialska"><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">Continual Lifelong Learning in Natural Language Processing: A Survey</a> Colling, 2020</a></li>
+</ul>
+<p>Pytorch conference:</p>
+<h2><a class="header" href="#intro-conf" id="intro-conf">INTRO CONF</a></h2>
+<p>jax and julia languages</p>
+<p>2020 state of ai report</p>
+<p>Tensor Statements (Experimental)</p>
+<p>Facebook MMF Multimodal library</p>
+<p>MLPerf a machine learning performane benchnark suite with broad industry and academia</p>
+<p>Microsoft DeepSpeed Dist training
+Google Brain: ML for system
+DiffTaichi: MIT</p>
+<p>Usability: Try to balance again to performance.</p>
+<h2><a class="header" href="#state-of-pytorch" id="state-of-pytorch">State of pytorch</a></h2>
+<p>-More operators/quantized operators driven by numpy compatibility
+-More language support
+-More platforms</p>
+<p>In 2020:
+-Composability
+-Distributed RPC
+-XLA</p>
+<p>To come:
+-Multitensor optimizers
+-Lazy modules
+-torch.fx python to python transformations instead with C++
+-Vulkan and Metal hw accel to mobile
+-Benchmarking tools
+-Metatensors</p>
+<p>Contrib:
+-rfcs: Proposals bigger than an issue
+-dev newsletter
+-nightly checkout tool</p>
+<h2><a class="header" href="#complex-numbers-in-pytorch" id="complex-numbers-in-pytorch">Complex numbers in pytorch</a></h2>
+<ul>
+<li>Quantum mechanics and singal processing
+-Research: Deep Complex networks, On complex valued convolutional networks, etc...</li>
+<li>Representation:
+-- API easy to use based on a natural representation
+-- Operations
+-- Autograd</li>
+</ul>
+<p>-new datatypes: torch.complex64/128
+-core properties: angle, abs, real, imag, polar, complex based on numpy
+-complex differencitation</p>
+<p>Future:
+-JIT and distribute computing</p>
+<h2><a class="header" href="#pytorch-marries-numpy" id="pytorch-marries-numpy">Pytorch marries Numpy</a></h2>
+<p>-Compatible here means the same function can be called the same way to produce the same (or very similar) behaviour
+-New functions added every day and plan to add linear algebra</p>
+<h2><a class="header" href="#high-level-api-for-autograd" id="high-level-api-for-autograd">High Level API for Autograd</a></h2>
+<p>torch.autograd.functional
+-Takes a python function as an input
+-Closer to functional API and mathematical definition</p>
+<p>functional.jacobian(func, inputs,...)
+functional.vjp(func, input,v,..) -- backprop
+functional.jvp(...) -- forward mode
+functinal.hessian(func, input,...) second order derivativeses
+functinal.vhp(...) backward
+functinal.hvp(...) forward</p>
+<h2><a class="header" href="#pytorch-rpc" id="pytorch-rpc">Pytorch RPC</a></h2>
+<p>DistributedDataParallel was the standard. The input was distributed but not works for large models as the model is centraliced</p>
+<p>RPC in Pytorch: Flexible Low Level Tools
+Features:</p>
+<ul>
+<li>Remote execution: Run user function or modules remotely
+rpc_init,sync, async, return a remote reference (shared pointer), shutdown</li>
+<li>Remote reference
+points to objects in a distributed env and can be passed as rpc arguments to avoid communicating real data</li>
+<li>Distributed autograd
+Automatically stitch togethr local autograd to perform distributed differentiation across rpc boundaries</li>
+</ul>
+<p>Use cases:
+-Parameter server multiple trainers and serevers
+-Distributed model parallel
+-Pipeline parallelism</p>
+<h2><a class="header" href="#pytorch-ddp" id="pytorch-ddp">Pytorch DDP</a></h2>
+<p>DDP and C10D merges with RPC</p>
+<p>Future adds:
+Add zero (DeepSpeed) style training framework for large models
+intra layer perallelism (Used by megatron model)
+Torchscript support for c10d apis
+Auto tuning for DDP
+Hybrid Parallelism
+Auto Parallelism</p>
+<h2><a class="header" href="#torchtext" id="torchtext">TorchText:</a></h2>
+<p>-Raw text
+Download, unzip, read
+-Transforms
+tokenize,vocabulary,sentencepiece
+-Batch and sampler
+DataLoader,Sampler
+-Model
+-Transformer,MultiheadAttention</p>
+<p>Datasets
+AG_NEWS, Sogounews</p>
+<p>Tokenizer-&gt;vocab lookup-&gt;to tensor
+Tokenizer-&gt;Vector Lookup</p>
+<p>Multihead-attention container:
+-Drop-in replacement
+-torchscript support
+-incremental decoding
+-broadcast support
+-research variants</p>
+<h2><a class="header" href="#pyroch-and-tensorboard" id="pyroch-and-tensorboard">Pyroch and Tensorboard</a></h2>
+<p>pr_curve!!!</p>
+<p>hyperpararmeter dashboard</p>
+<p>Future:
+Perf plugin
+plotly
+alert</p>
+<h2><a class="header" href="#performance" id="performance">Performance</a></h2>
+<p>Better AMP
+tf32</p>
+<p>Metal - Apple GPU inference
+Vulkan - Android GPU inferene</p>
+<h2><a class="header" href="#android-and-pytorch" id="android-and-pytorch">Android and Pytorch</a></h2>
+<p>Take advantage of GPUs/NPUs Neural Process Accelerators in mobile devices
+Android Neural Networks API abstracts the different underlying vendor driver libs and chips
+Pytorch supports NNAPI</p>
+<h2><a class="header" href="#pytorch-for-other-languages" id="pytorch-for-other-languages">Pytorch for Other Languages</a></h2>
+<ul>
+<li>Libtorch (C++) Allows other programing languages binding to C++ have their own Torch-like library</li>
+<li>Serialized representation of models like torchscript and onnx. This allows to exchange trained models between 
+programming languages</li>
+</ul>
+<p>Torch for R or Hasktorch are examples of a library implemented on Libtorch</p>
+<p>The Gradient Review: Frameworks don't just enable machine learning resetarch, they enable and restrict what researchers can do</p>
+<h2><a class="header" href="#pytorch-for-graph-neural-networks" id="pytorch-for-graph-neural-networks">Pytorch for Graph Neural networks</a></h2>
+<p>-Pythonic API
+-For High Energy Physics
+-Maybe for Quantum computing in the future?</p>
+<h2><a class="header" href="#hyperparameter-tuning" id="hyperparameter-tuning">Hyperparameter tuning</a></h2>
+<p>hyperparameterss:
+layers, units per layer, lr, etc.. determine the performance. can determine the success or failure of the models.
+preprossingaugmentation, image format</p>
+<p>network trainerbatchs size image, optimizer chosen
+hwlayer : fp3 smixed precission</p>
+<p>Hyper-parameter optimization paper
+Suervay of ML expeprimettal methods at neurips2019 and iclr2020
+- 6% where using only HP optimizers</p>
+<p>Avoid Curse of Dimensionality
+An efficient approach for assesing hyperparameter importance</p>
+<p>Optuma came as a result.</p>
+<p>Best hyperparameters to tune:
+LR is the most hyer parameter
+Units in the firsr layer
+the optimizer
+dropout in the first layer</p>
+<p>Hyperparameter evolution:</p>
+<p>not tuning
+manually play 
+grid search
+optuna
+optupta weveraged with hyperparameter tuning</p>
+<h2><a class="header" href="#deepspeed-interesting" id="deepspeed-interesting">DeepSpeed (Interesting)</a></h2>
+<p>Training optimization library
+Faster Transformer training
+zero-offload: Democrazitzes big models
+1-bit adam: 5x faster training</p>
+<p>ONNX Runtime (ORT)
+optimized for pytorch 
+integrating collections of optimization techiniques from Deepspeed</p>
+<h2><a class="header" href="#ml-perf" id="ml-perf">ML Perf</a></h2>
+<p>GPU support in Pytorch. </p>
+<p>NVIDIA trains BERT in 48.6s using 2048 A100 GPUs</p>
+<p>Challenges:
+Slow non-gpu work: Cuda graphs
+model parallel utilities:<br />
+automated optimizations: Automated operator fusion (collaborate witht the JIT team at FB)</p>
+<p>Dedicated pytorch team in NVIDIA</p>
+<h2><a class="header" href="#going-forward" id="going-forward">Going Forward</a></h2>
+<p>-Run in mobile devices, embedded hw like Rapsberry Pi, new devices</p>
+<ul>
+<li>ONNX Runtime and TVM</li>
+</ul>
+<p>ONNX
+-Need to expoert
+-good perf out o f  the box
+-files as means of exchange
+should pytorch take ONNX?</p>
+<p>TVM
+-can take python JIT graph
+-conversion implemented in Pythn
+-typing one of the hard bits
+can tune for new hw/optimization paterns</p>
+<p>3ed option: hook into pytorch as torch vision ant trttorch</p>
+<p>jit extension
+allows to bind 3rd party libraries for benchmark or quick speedups on specifi ops
+also fuse operation tugehter. trt requritest the jit grap in custom pass
+you stay in pytorch
+you cherry picks which things run externally</p>
+<h2><a class="header" href="#reproducibility-ai-using-pytorch" id="reproducibility-ai-using-pytorch">Reproducibility AI using Pytorch</a></h2>
+<p>MLFlow: Trochserve</p>
+<h2><a class="header" href="#pytorchxla" id="pytorchxla">Pytorch/XLA</a></h2>
+<p>TPUs</p>
+<p>XLA compoiler based linear algrebra exec engine. targets cpu gpu and tpu</p>
+<p>pytrch/xla is a layer eteen xla and pytorch</p>
+<p>provides apis for out of the tree backend extensions.</p>
+<p>Lazy tensor system . Build on top of the pytorch eager runtime.
+stores the pytorch ops as intermidate representation
+then pytroch xla to xla converting theIR node tho the HLOptimizer</p>
+<h2><a class="header" href="#torchserve" id="torchserve">TorchServe</a></h2>
+<p>Pytorch
+Need for custom code to deploy and predict
+Need for custom infrastructure to scale and monitor</p>
+<p>Use version for A/B testing
+Ensemble support (commint soon) and batch inferencing
+REST API, grpc API (coming soon)</p>
+<p>Future:</p>
+<ul>
+<li>Improve memory and resource usage for scalability</li>
+<li>compliancy with serving APIs sun as KFServing (look at it)</li>
+<li>integrating with Captum</li>
+<li>Autoscalling for K8s</li>
+</ul>
+<h2><a class="header" href="#differential-privacy" id="differential-privacy">Differential Privacy</a></h2>
+<p>Destroy a controlled amount of information</p>
+<p>GDPR and used in the US census</p>
+<p>Aggregates can be:
+-count things
+-a mean
+-train a ML model</p>
+<p>memorization violates privacy: has to do with losing memory</p>
+<p>Differential privacy can be added to : data, training, model.zip, deployment
+the gold standard is to add it to training: Opacus (limits memorization)</p>
+<p>bit.ly/opacus-dev-day</p>
+<h2><a class="header" href="#future-of-ai-tools" id="future-of-ai-tools">Future of AI Tools</a></h2>
+<h2><a class="header" href="#what-was-build-in-2020" id="what-was-build-in-2020">What was build in 2020:</a></h2>
+<p>Optuna</p>
 
                     </main>
 
