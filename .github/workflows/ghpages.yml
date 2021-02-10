@@ -1,0 +1,34 @@
+name: Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: '0.4.6'
+          # mdbook-version: 'latest'
+
+      - name: Install mdBook bibliography Plugin
+        uses: actions-rs/install@v0.1
+        with:
+          crate: mdbook-bib
+          version: latest
+          use-tool-cache: true
+
+      - name: Generate mdBook
+        run: mdbook build book-scaffold && mdbook test book-scaffold
+
+      - name: Deploy book contents to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book-scaffold/book

@@ -1,5 +1,15 @@
 # Machine/Deep Learning Topics
 
+## (Artificial) General Inteligence
+
+This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of 
+artificial intelligence.
+
+In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining 
+a general capability on fulfilling previous learned tasks.
+This artificial general intelligence requires that the agent does not forget what it has learn -what is called [catastrophic forgetting](#catastrophic_forgetting)
+in the literature- and assumes that the agent will continue learning new tasks -called [continual or lifelong learning](#continual_learning).
+
 ## Feature Engineering
 
 The classical/traditional way of "massage" the input to pass to a ML model (e.g. a classifier.) This was
@@ -122,9 +132,29 @@ Tools:
 Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
 on top of that data representation, matches for all training distributions.
 
-## Continual Learning
+## <a name="continual_learning"></a>Continual Learning and Catastrophic Forgetting
 
-In biology, defines the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).
+In biology, *Continual Learning* refers to the process of continually gather, update, and transfer skills/knowledge 
+throughout life (lifespan).
+
+In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget 
+previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the 
+equivalent of continual learning to be implemented in the field of artificial neural networks.
+
+[This is a summary of the recent (2021) advances in continual learning in NLP.](https://www.aclweb.org/anthology/2020.coling-main.574.pdf)
+
+### <a name="catastrophic_forgetting"></a>Protocols/Strategies for Solving Catastrophic Forgetting (CF)
+
+One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing
+the effectiveness of the techniques. This has been addressed by studies like [vandeven2019](refs.md#vandeven2019) and [vandeven2019b](refs.md#vandeven2019b).
+
+The approaches to solve Catastrophic Forgetting can be classified in:
+
+#### Regularization Approaches
+
+https://arxiv.org/pdf/1612.00796.pdf
+
+#### Generative Replay
 
 * [Continual Lifelong Learning with Neural Networks:A Review](refs.md#parisi2020)
 * [Brain-inspired replay for continual learning with artiﬁcial neural networks (Nature, 2020)](https://www.nature.com/articles/s41467-020-17866-2.epdf?sharing_token=bkJqxr4qptypBkYehsw_FtRgN0jAjWel9jnR3ZoTv0NoUJpE84DVnSx_jyG1N8KQimOuCCtJtaDabIpjOWE47UccZTsgeeOekV8ng2BR-omuTPXahD4aCOiCIIfIO2IOB-qJOABLKf7BlAYsTBE8rCeZYZcKd0yuWJjlzAEc1G8%3D)

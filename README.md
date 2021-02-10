@@ -8,6 +8,8 @@ disagreeable situation with the smallest possible expenditure of intelligence.â€
 
 _Note: s/people/model/g_
 
+[![Build Status](https://travis-ci.org/francisco-perez-sorrosal/ai-resources.svg?branch=master)](https://travis-ci.org/francisco-perez-sorrosal/ai-resources)
+
 ## Book
 
 [Click me to go to the rendered book (Early WIP)](https://francisco-perez-sorrosal.github.io/ai-resources/)
