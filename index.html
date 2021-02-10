@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ML/DL Topics - AI Resources</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">1.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">2.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">3.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">4.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books.html"><strong aria-hidden="true">5.</strong> Books</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">6.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">7.</strong> References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">AI Resources</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#machinedeep-learning-topics" id="machinedeep-learning-topics">Machine/Deep Learning Topics</a></h1>
+<h2><a class="header" href="#feature-engineering" id="feature-engineering">Feature Engineering</a></h2>
+<p>The classical/traditional way of &quot;massage&quot; the input to pass to a ML model (e.g. a classifier.) This was
+an &quot;art&quot; in itself.
+In the age of DL, this has been substituted by the DL models themselves, which represents
+also the features on top of which the learning of a task is done. </p>
+<h2><a class="header" href="#loss-function" id="loss-function">Loss Function</a></h2>
+<p>Papers:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2006.13593">Retrospective Loss: Looking Back to Improve Training of Deep Neural Networks (KDD 2020)</a>	
+Learns from prior training experiences in the form of DNN model states during to guide weight updates and improve DNN 
+training performance. The retrospective loss seeks to ensure that the predictions at a particular training step are more 
+similar to the ground truth than to the predictions from a previous training step (which has relatively
+poorer performance). As training proceeds, minimizing this loss along with the task-specific loss, encourages the 
+network parameters to move towards the optimal parameter state by pushing the training into tighter spaces around the 
+optimum. Claims implementation is 3 lines of Pytorch code. Interesting paper</li>
+</ul>
+<h2><a class="header" href="#transfer-learning" id="transfer-learning">Transfer Learning</a></h2>
+<p>Recent success of DL has been produced, among other reasons, for the big amount of labeled training data.
+However, in general, this is not the approach to follow for AI solving different tasks.
+Humans are good at learning from very few examples, so scientifically there's still &quot;something&quot; we still need to understand.</p>
+<p>Approach of modern Transfer-Learning: </p>
+<ol>
+<li>Pre-train in large genral corpus, usually unsupervised (e.g. as in BERT)</li>
+<li>Fine-Tunning on specific tasks with smaller (supervised) training sets.</li>
+</ol>
+<p>Approach of Hierarchical-Multilevel Classification:</p>
+<ul>
+<li><a href="https://www.aclweb.org/anthology/P19-1633/">Hierarchical Transfer Learning for Multi-label Text Classification (ACL 2019)</a></li>
+<li><a href="https://arxiv.org/abs/2005.10996">Multi-Source Deep Domain Adaptation with Weak Supervision for Time-Series Sensor Data (KDD 2020)</a>
+Interesting</li>
+</ul>
+<h3><a class="header" href="#surveys" id="surveys">Surveys</a></h3>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc/edit?ts=5c8d09e7#slide=id.g5888218f39_364_0">HuggingFace Presentation on Transfer Learning</a></li>
+<li>2010 <a href="https://www.cse.ust.hk/%7Eqyang/Docs/2009/tkde_transfer_learning.pdf">A Survey on Transfer Learning</a></li>
+<li>2018 <a href="https://arxiv.org/abs/1808.01974">A Survey on Deep Transfer Learning</a></li>
+<li>2020 <a href="https://arxiv.org/abs/2007.04239">A Survey on Transfer Learning in Natural Language Processing</a></li>
+</ul>
+<h3><a class="header" href="#few-shot-learning-meta-learning" id="few-shot-learning-meta-learning">Few-shot Learning (Meta-learning)</a></h3>
+<p>Meta-learning aims to train a general model in several learning tasks. The goal is that the resulting model has to be able to solve unseen tasks by using just 
+a few training examples.</p>
+<p>Concept of [shortcut learning]: You don't learn a task by completely understanding it but by taking &quot;shortcuts&quot; imitating.
+e.g. when training on some math exercises in highschool because every year they had the same structure. </p>
+<ul>
+<li><a href="https://arxiv.org/abs/2004.07780">Shortcut Learning in Deep Neural Networks</a></li>
+</ul>
+<p>Meta-Learning -learning (how) to learn-: Find an algorithm <img src="https://render.githubusercontent.com/render/math?math=A"> that from a small input data (few-shot examples) <img src="https://render.githubusercontent.com/render/math?math=DS_{train}(x_i,y_i)"> can predict the output <img src="https://render.githubusercontent.com/render/math?math=y'"> of a new input 
+<img src="https://render.githubusercontent.com/render/math?math=x'"></p>
+<ul>
+<li>
+<p>Prototypical Networks <a href="">Prototypical Networks for Few-shot Learning</a>
+Nearest centroid classification</p>
+</li>
+<li>
+<p>MAML <a href="">Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks</a> 
+Model-agnostic meta-learning algorithm compatible with any model trained with GD and applicable to a variety of different learning problems, including 
+classification, regression, and reinforcement learning.</p>
+</li>
+<li>
+<p><a href="">Selecting Relevant Features from a Multi-Domain Representation for Few-shot Learning</a></p>
+</li>
+</ul>
+<p>Work from Hugo Larochelle at Google Brain:</p>
+<ul>
+<li><a href="">Meta-Dataset: A Dataset of Datasets for Learning to Learn from Few Examples</a></li>
+<li><a href="">A Universal Representation Transformer Layer for Few-shot Image Classification</a></li>
+</ul>
+<h2><a class="header" href="#calibration" id="calibration">Calibration</a></h2>
+<p>A measure of the confidence of the predictions of a model. Concept comes from weather forecast.</p>
+<p>Main Methods:</p>
+<ul>
+<li>Platt Scaling</li>
+<li>Matrix Vector Scaling</li>
+<li>Temperature scaling</li>
+</ul>
+<p>Papers:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1706.04599">On Calibration of Modern Neural Networks (ICML 2017)</a></li>
+<li><a href="https://papers.nips.cc/paper/9397-beyond-temperature-scaling-obtaining-well-calibrated-multi-class-probabilities-with-dirichlet-calibration.pdf">Beyond temperature scaling: Obtaining well-calibrated multiclass probabilities with Dirichlet calibration (NeurIPS 2019)</a></li>
+</ul>
+<details>
+  <summary>Blogs</summary>
+ * [How and When to Use a Calibrated Classification Model with scikit-learn](https://machinelearningmastery.com/calibrated-classification-model-in-scikit-learn/)
+ * [Prediction & Calibration Techniques to Optimize Performance of Machine Learning Models](https://towardsdatascience.com/calibration-techniques-of-machine-learning-models-d4f1a9c7a9cf)
+ * [Calibration in Machine Learning](https://medium.com/analytics-vidhya/calibration-in-machine-learning-e7972ac93555#:~:text=In%20this%20blog%20we%20will%20learn%20what%20is%20calibration%20and,when%20we%20should%20use%20it.&text=We%20calibrate%20our%20model%20when,output%20given%20by%20a%20system.)
+ * [Calibration Tutorial (KDD 2020)](http://kdd2020.nplan.io/presentation) [Github](https://github.com/nplan-io/kdd2020-calibration)
+</details>
+<details>
+  <summary>Videos</summary>
+ * [Calibration Tutorial](https://www.youtube.com/watch?v=rhnqZV6eKlg&feature=youtu.be)
+</details>
+<h2><a class="header" href="#model-interpretability" id="model-interpretability">Model Interpretability</a></h2>
+<p>Intellegibility and explanation are critical in many domains (health, crime prediction...) <a href="https://medium.com/analytics-vidhya/model-interpretation-with-microsofts-interpret-ml-85aa0ad697ae">Blog entry</a></p>
+<p>Models as black box methods: Shap, LIME
+Glass box modesl: Explainable Boosting Machine (EBMs) are the SotA</p>
+<p>Papers:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/2004.13912">Neural Additive Models: Interpretable Machine Learning with Neural Nets</a></li>
+<li><a href="https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf">A Unified Approach to Interpreting Model Predictions (NIPS 2017)</a></li>
+</ul>
+<p>Books:</p>
+<ul>
+<li><a href="https://christophm.github.io/interpretable-ml-book/">Interpreable Machine Learning Book A Guide for Making Black Box Models Explainable (Christoph Molnar, 2020)</a></li>
+</ul>
+<p>Tools:</p>
+<ul>
+<li><a href="https://github.com/marcotcr/lime">Lime</a></li>
+<li><a href="https://github.com/slundberg/shap">Shap</a></li>
+<li><a href="https://github.com/interpretml/interpret">Interpret ML</a> Reference impl of EBMs</li>
+<li><a href="https://nbviewer.jupyter.org/github/slundberg/shap/blob/master/notebooks/general/Explainable%20AI%20with%20Shapley%20Values.ipynb">Shap Tutorial (Includes BERT examples)</a></li>
+<li><a href="https://captum.ai/">Captum</a> For Pytorch</li>
+</ul>
+<h2><a class="header" href="#causality" id="causality">Causality</a></h2>
+<ul>
+<li><a href="http://bayes.cs.ucla.edu/WHY/">The Book of Why (Judea Perl)</a></li>
+<li><a href="https://arxiv.org/abs/1907.02893">Invariant Risk Minimization</a>
+Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
+on top of that data representation, matches for all training distributions.</li>
+</ul>
+<h2><a class="header" href="#continual-learning" id="continual-learning">Continual Learning</a></h2>
+<p>In biology, defines the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).</p>
+<ul>
+<li><a href="refs.html#parisi2020">Continual Lifelong Learning with Neural Networks:A Review</a></li>
+<li><a href="https://www.nature.com/articles/s41467-020-17866-2.epdf?sharing_token=bkJqxr4qptypBkYehsw_FtRgN0jAjWel9jnR3ZoTv0NoUJpE84DVnSx_jyG1N8KQimOuCCtJtaDabIpjOWE47UccZTsgeeOekV8ng2BR-omuTPXahD4aCOiCIIfIO2IOB-qJOABLKf7BlAYsTBE8rCeZYZcKd0yuWJjlzAEc1G8%3D">Brain-inspired replay for continual learning with artiﬁcial neural networks (Nature, 2020)</a></li>
+<li><a href="https://arxiv.org/pdf/1809.10635v2.pdf">Generative replay with feedback connections as a general strategy for continual learning (ICLR2019)</a></li>
+<li><a href="https://arxiv.org/pdf/1904.07734.pdf">Three Scenarios for Continual Learning</a></li>
+<li><a href="https://openreview.net/pdf?id=rklnDgHtDS">Compositional language continual learning</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="nlp.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a rel="next" href="nlp.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
