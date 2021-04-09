@@ -30,6 +30,9 @@ methods (what is called Neural Machine Translation, or NMT.) The leap in quality
 - [A Neural Network for Machine Translation, at Production Scale](https://ai.googleblog.com/2016/09/a-neural-network-for-machine.html)
 - [The Shallowness of Google Translate (Douglas Hofstadter)](https://www.theatlantic.com/technology/archive/2018/01/the-shallowness-of-google-translate/551570/)
 
+## Financial
+
+FinBERT special pretraining with a large financial corpora of articles {{ cite yang_finbert_2020 }} 
 
 ## Medicine
 

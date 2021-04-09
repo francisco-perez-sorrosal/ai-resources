@@ -10,7 +10,31 @@ input with minimal loss.
 
 ![Autoencoder (Source: https://towardsdatascience.com/intuitively-understanding-variational-autoencoders-1bfe67eb5daf)](images/autoencoder.png)
 
+# B
+
+## Backpropagation
+
+A procedure to adjust the weights of a neural network by propagating the error obtained in the forward pass, backwards. 
+After calculating the error in the output layer, e.g. by contrasting the output of the forward pass with the known 
+so-called gold labels by means of a cost function, the gradient on the input weights of the last layer to the output units 
+is calculated; then the weights of that layer are adjusted; this process is repeated backwards layer after layer until 
+reaching the input layer. 
+
+# Causality
+
+Correlations is not causation. In ML causality tries to understand the relationships between data in order to create models
+that generalize well.
+
+# E
+
+## Expert System
+
 # G
+
+## Generalization
+
+The capability of an already trained ML model of adapting to previously unseen data taken from the same distribution as
+the data used to train it.
 
 ## Generative Adversarial Network (GAN)
 A special architecture of ANN aimed to *generate new data* with similar statistics as of the ones found in a particular 
@@ -27,6 +51,41 @@ if a particular sample comes from the training data or from the "generative" moi
 ### Related
 
 * [Ian Goodfellow Interview](https://www.technologyreview.com/2018/02/21/145289/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/)
+
+
+# O
+
+## Overfitting 
+
+The effect seen in a ML model when it seems to fit the training data so closely to the target goal that its unable to 
+[generalize](#Generalization) well to unseen data. When a model is said to be overfitted, usually we observe a low
+error in the metrics from the train dataset and a high error in the metrics from the test dataset. 
+
+# S
+
+## Simulated Annealing
+
+Inspired by the process of annealing in metal works, it describes a probabilistic approach to solve problems by 
+"heating" them up and, subsequently, "cooling" them down. Let's see what this means.
+
+The algorithmic solution of is applicable in large search domain problems with may contain several local optima points.
+At the core of a simulated annealing algorithm, there's a temperature variable. This variable is set up with a high
+value to simulate the heating process. As the algorithm proceeds with its iterations, the variable is allowed to be 
+"cooled down". While the temperature is high, the algorithm accepts solutions that are worse than the current solution;
+that means in some way that is less risk averse. This allows the algorithm to jump out from locations with local optima
+that may be appear early when executing. Gradually, as the temperature decreases, the probability of accepting worse 
+solutions decreases, hopefully "crystallizing" on the area of the search space where the global optimum solution is located. 
+
+More info see {{ #cite kirkpatrick_optimization_1983 }}.
+
+##  SVM (Support Vector Machine)
+
+Perceptron-based classifier. SVM learns how to separate points in the space by establishing the so-called decision boundaries.
+When data is separable linearly, as it shown in many examples in the ML literature, it may seem a trivial task. However, 
+data in the real world is not always linearly separable, being randomly distributed, making it hard the process of segregating
+the different classes linearly. The kernel trick introduced by the SVM paper performs a mathematical trick to efficiently 
+(in O(n)) map -for example- data from a 2-dimensional space to 3-dimensional space, where maybe it's possible to find a 
+hyperplane that separates the different classes.
 
 
 # V

@@ -124,10 +124,14 @@ Tools:
 * [Interpret ML](https://github.com/interpretml/interpret) Reference impl of EBMs
 * [Shap Tutorial (Includes BERT examples)](https://nbviewer.jupyter.org/github/slundberg/shap/blob/master/notebooks/general/Explainable%20AI%20with%20Shapley%20Values.ipynb)
 * [Captum](https://captum.ai/) For Pytorch
+* [Explainable AI works by Jesse Vig (PARC Researcher)](https://jessevig.com/)
+* [Testing and Explainability (Lecture 10 in FullStackDeepLearning)](https://fullstackdeeplearning.com/spring2021/lecture-10/)
+
 
 ## Causality
 
 * [The Book of Why (Judea Perl)](http://bayes.cs.ucla.edu/WHY/)
+* [Causal Inference Intro with Exercises](https://github.com/DataForScience/CausalInference)
 * [Invariant Risk Minimization](https://arxiv.org/abs/1907.02893)
 Learning paradigm to estimate invariant correlations across multiple training distributions. IRM learns a data representation such that the optimal classifier, 
 on top of that data representation, matches for all training distributions.
@@ -161,3 +165,5 @@ https://arxiv.org/pdf/1612.00796.pdf
 * [Generative replay with feedback connections as a general strategy for continual learning (ICLR2019)](https://arxiv.org/pdf/1809.10635v2.pdf)
 * [Three Scenarios for Continual Learning](https://arxiv.org/pdf/1904.07734.pdf)
 * [Compositional language continual learning](https://openreview.net/pdf?id=rklnDgHtDS)
+
+# GANs and Creativity

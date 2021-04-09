@@ -1,14 +1,15 @@
-# Frameworks
+# Tools and Frameworks for ML
 
+* [Scikit-learn]()
 * [JAX]()
 * [Caffe2]()
 
 ## Deep Learning
 
 * [Pytorch](https://pytorch.org/)
-Recent trend in Research Community. Improvig a lot to put into production
+Recent trend in Research Community. Improving a lot to get into production.
 * [Tensorflow/Keras](https://www.tensorflow.org/)
-The big hit in 2015.
+Google's big hit in 2015.
 * [MxNet](https://mxnet.apache.org/versions/1.6/) Apache
 
 ## NLP
@@ -20,5 +21,6 @@ The big hit in 2015.
 * [Horovod](https://github.com/horovod/horovod)
 * [DeepSpeed](https://github.com/microsoft/DeepSpeed)
 
+# D
 ## Datasets
 * [Huggingface Datasets](https://huggingface.co/datasets)
