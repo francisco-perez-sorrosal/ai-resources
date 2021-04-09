@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>People - AI Resources</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html" class="active"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">AI Resources</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#andrew-barto" id="andrew-barto">Andrew Barto</a></h1>
+<p>Joint with [Richard Sutton](#Richard Sutton), <a href="https://www.cics.umass.edu/news/barto-sutton-co-author-second-edition-ground-breaking-textbook-reinforcement-learning">one of the most influential academics</a> 
+behind the recent successes and dissemination of reinforcement learning. <a href="https://www.cics.umass.edu/faculty/directory/barto_andrew">He was at University of Ahmerst</a> 
+in Massachusets. Author of the already classic book on RL [<a href="bibliography.html#sutton_reinforcement_2018">sutton_reinforcement_2018</a>]</p>
+<h1><a class="header" href="#yoshua-bengio" id="yoshua-bengio">Yoshua Bengio</a></h1>
+<h1><a class="header" href="#rodney-brooks" id="rodney-brooks">Rodney Brooks</a></h1>
+<p>Father of modern robotics. Strong believer in the <a href="approaches.html#Actionist">actionist approach</a> of ML/AI.
+Founder of <a href="https://www.irobot.com/">iRobot</a> and <a href="https://www.rethinkrobotics.com/">Rethink Robotics</a>.</p>
+<p><a href="https://dblp.org/pid/b/RodneyABrooks.html">DBLP Papers</a></p>
+<h1><a class="header" href="#ian-goofellow" id="ian-goofellow">Ian Goofellow</a></h1>
+<p>Generative Adversarial Networks</p>
+<h1><a class="header" href="#demis-hassabis" id="demis-hassabis">Demis Hassabis</a></h1>
+<p><a href="https://en.wikipedia.org/wiki/Demis_Hassabis">CEO and co-founder</a> of DeepMind.</p>
+<h1><a class="header" href="#geoffrey-hinton" id="geoffrey-hinton">Geoffrey Hinton</a></h1>
+<p>One of the main people behind the rebirth of NN. Winner of <a href="https://amturing.acm.org/award_winners/hinton_4791679.cfm">Turing Award in 2018</a>
+&quot;[f]or conceptual and engineering breakthroughs that have made deep neural networks a critical component of computing.&quot;
+Founder of <a href="https://techcrunch.com/2013/06/12/how-googles-acquisition-of-dnnresearch-allowed-it-to-build-its-impressive-google-photo-search-in-6-months/?guccounter=1&amp;guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&amp;guce_referrer_sig=AQAAAEXqPKy-F911hPhusOztjZn7ny0W7-dggrCD7aET0bqXJLH1xkVbsJWPBdtBM-Gpa5TfLM9k6PqR_NvbvLheqpoo4wkVaNKKd8NyGorbUm9S_oVQ-m8OsTFueR0lVO-n5-LrLWs6PAqGW1oyTEjmwAUExSmE_hDey3fyMaLKZeCA">DNN Research</a>,
+which was acquired by Google in 2013.</p>
+<ul>
+<li><a href="https://www.cs.toronto.edu/%7Ehinton/">Toronto University Web Page</a></li>
+<li><a href="https://research.google/people/GeoffreyHinton/">Google Research Web Page</a></li>
+<li><a href="https://twitter.com/geoffreyhinton?lang=en">Twitter Handle</a></li>
+</ul>
+<h1><a class="header" href="#step-hochreiter" id="step-hochreiter">Step Hochreiter</a></h1>
+<p>LSTM</p>
+<h1><a class="header" href="#andrej-karpathy" id="andrej-karpathy">Andrej Karpathy</a></h1>
+<p>AI Researcher mainly in the field of vision. He focused also on model <a href="topics.html#Interpretability">Interpretability</a>. 
+Former student of <a href="#Geoff_Hinton">Geoff Hinton</a> at U. of Toronto, his PhD. advisor was <a href="#Fei-Fei_Li">Fei-Fei Li</a> at 
+Stanford. After passing by Google's Brain, Research and DeepMind teams, by 2021, current director of AI and Autopilot 
+Vision at Tesla. </p>
+<p><a href="https://karpathy.ai/">Personal Website</a>
+<a href="http://karpathy.github.io/">Blog</a> </p>
+<p>Main papers:</p>
+<ul>
+<li>Large-scale Video Classiﬁcation with Convolutional Neural Networks [<a href="bibliography.html#karpathy_large-scale_nodate">karpathy_large-scale_nodate</a>]</li>
+<li>Visualizing and Understanding Recurrent Networks [<a href="bibliography.html#karpathy_visualizing_2015">karpathy_visualizing_2015</a>]</li>
+</ul>
+<h1><a class="header" href="#a-hrefhttpsenwikipediaorgwikiscott_kirkpatrickscott-kirkpatricka" id="a-hrefhttpsenwikipediaorgwikiscott_kirkpatrickscott-kirkpatricka"><a href="https://en.wikipedia.org/wiki/Scott_Kirkpatrick">Scott Kirkpatrick</a></a></h1>
+<p>Inventor of <a href="vocabulary.html#Simulated_Annealing">simulated annealing</a></p>
+<h1><a class="header" href="#alex-krizhevsky" id="alex-krizhevsky">Alex Krizhevsky</a></h1>
+<p>Co-Developer of AlexNet, which in 2012 obtained an impressive error rate of 18% in the ImageNet dataset.</p>
+<h1><a class="header" href="#yann-lecunn" id="yann-lecunn">Yann LeCunn</a></h1>
+<p>Creator of &quot;Le Net&quot; and it's subsequent evolutions, mimicking the visual cortex (&quot;ConvNet&quot;).
+Creator of a backpropagation-like method in his PhD thesis in 1987 (Modeles connexionnistes de l'apprentissage).</p>
+<h1><a class="header" href="#fei-fei-li" id="fei-fei-li">Fei-Fei Li</a></h1>
+<h1><a class="header" href="#marvin-minsky" id="marvin-minsky">Marvin Minsky</a></h1>
+<p>Winner of the <a href="https://amturing.acm.org/award_winners/minsky_7440781.cfm">Turing Award</a> in 1969. Joint with (#Seymour_Papert)
+both being authors of &quot;Perceptrons&quot; {{ cite minsky_perceptrons_1987 }}, demonstrated initially that NN had severe learning limitations as a ML technique.
+This is often cited as a cause for the advent of the first machine learning winter int the 70s.</p>
+<p>Apart from this, he was famous from his &quot;Theory of Frames&quot;, summarized in the paper, “A Framework for Representing Knowledge” [<a href="bibliography.html#minsky_framework_1974">minsky_framework_1974</a>].
+The theory of frames is one of the things I still remember being introduced to during the poorly AI class I took at the
+university (although I have to say that at that time, AI wasn't very popular due to all the buzz about the Internet and
+the WWW flying around). This evolved years later in his broader theory for memory published in 1979 in the book 
+“K-lines: A Theory of Memory” [<a href="bibliography.html#minsky_k-lines_1979">minsky_k-lines_1979</a>].</p>
+<ul>
+<li><a href="https://dblp.org/pid/m/MarvinMinsky.html">DBLP Papers</a></li>
+</ul>
+<h1><a class="header" href="#javier-movellan" id="javier-movellan">Javier Movellan</a></h1>
+<p>Piooner in introducing social robots in classrooms.</p>
+<p><a href="https://scholar.google.com/citations?user=07NrZFIAAAAJ&amp;hl=en">Google Scholar Papers</a>
+<a href="https://dblp.org/pid/41/4458.html">DBLP Papers</a></p>
+<h1><a class="header" href="#andrew-ng" id="andrew-ng">Andrew Ng</a></h1>
+<p>He's driven a lot of efforts for disseminating and democratizing modern AI and DL. Founder of <a href="https://www.coursera.org/">Coursera</a> and <a href="https://www.deeplearning.ai/">DeepLearning.AI</a>
+Author of a guide for Machine Learning engineers that summarizes the basic principles and best practices to take into account in
+that new &quot;work position&quot; called <a href="https://d2wvfoqc9gyqzf.cloudfront.net/content/uploads/2018/09/Ng-MLY01-13.pdf">Machine Learning Yearning</a></p>
+<h1><a class="header" href="#allen-newell" id="allen-newell">Allen Newell</a></h1>
+<p>Joint with [Herbert A. Simon](#Herbert A. Simon) one of the fathers of the <a href="approaches.html#Symbolist">symbolic approach in AI/ML</a>. </p>
+<h1><a class="header" href="#arthur-samuel" id="arthur-samuel">Arthur Samuel</a></h1>
+<p>One of the pioners of a game-oriented AI, and reinforcement learning precursor. Creator of a chess game while at IBM that
+learned playing against itself.</p>
+<h1><a class="header" href="#santiago-ramon-y-cajal" id="santiago-ramon-y-cajal">Santiago Ramon y Cajal</a></h1>
+<p>Spanish neuroanatomist considered one of the fathers of modern neuroscience.</p>
+<h1><a class="header" href="#david-rumelhart-1943-2011" id="david-rumelhart-1943-2011">David Rumelhart (1943-2011)</a></h1>
+<p>Known for being one of the persons developing <a href="vocabulary.html#backpropagation">Backpropagation</a>.
+He was diagnosed with FTD (frontotemporal dementia). In FTD, some areas of the frontal lobes of the brain suffer an 
+atrophy (they shrink), which in the end may cause problems with behavior and language depending on the area affected.</p>
+<h1><a class="header" href="#terrence-sejnowsky-1947-" id="terrence-sejnowsky-1947-">Terrence Sejnowsky (1947-)</a></h1>
+<p>One of the initial developers of connectionism</p>
+<h1><a class="header" href="#herbert-a-simon" id="herbert-a-simon">Herbert A. Simon</a></h1>
+<p>A strong believer of the <a href="approaches.html#Symbolist">symbolic approach in AI/ML</a>. </p>
+<h1><a class="header" href="#marian-stewart-bartlett" id="marian-stewart-bartlett">Marian Stewart-Bartlett</a></h1>
+<p>Pioneer on recognizing facial expressions identified by Paul Ekman with neural networks.
+Founder, joint with <a href="#Javier_Movellan">Javier Movellan</a> of Emotient, which was eventually acquired by Apple.</p>
+<p><a href="https://dblp.org/pid/54/4284.html">DBLP Papers</a></p>
+<h1><a class="header" href="#ilya-sutskever" id="ilya-sutskever">Ilya Sutskever</a></h1>
+<p>Co-Developer of AlexNet
+Co-Founder of Open AI</p>
+<h1><a class="header" href="#richard-sutton" id="richard-sutton">Richard Sutton</a></h1>
+<p>One of the current popes of Reinforcement Learning</p>
+<h1><a class="header" href="#seymour-papert" id="seymour-papert">Seymour Papert</a></h1>
+<h1><a class="header" href="#judea-perl" id="judea-perl">Judea Perl</a></h1>
+<p>Creator of Belief Networks based on Bayesian analysis.
+Author or {{ cite perl_2018 }}</p>
+<h1><a class="header" href="#jurgen-schimidhuber" id="jurgen-schimidhuber">Jurgen Schimidhuber</a></h1>
+<p>LSTM</p>
+<h1><a class="header" href="#hava-siegelmann" id="hava-siegelmann">Hava Siegelmann</a></h1>
+<p><a href="https://www.cics.umass.edu/faculty/directory/siegelmann_hava">She's the creator</a> of a new field of computer science, 
+Super-Turing computation. This is related to the <a href="approaches.html#Adaptable">Adaptable approach</a> to AI/ML learning.</p>
+<h1><a class="header" href="#vladimir-vapnik" id="vladimir-vapnik">Vladimir Vapnik</a></h1>
+<p>Author of the SVM</p>
+<h1><a class="header" href="#stephen-wolfram" id="stephen-wolfram">Stephen Wolfram</a></h1>
+<p>Pioneer in Complexity theory and creator of Mathematica and Wolfgram Alpha mathematical search engine. He studied complexity
+through cellular automatas (e.g. Conway's Game of Life.) John von Neuman also studied cellullar automata, in this case
+for self-replication. <a href="https://science.sciencemag.org/content/157/3785/180.1">He found an automata</a> with 29 states 
+and a large memory that was able to self-replicate.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="conferences.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="vocabulary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="conferences.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="vocabulary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Frameworks - AI Resources</title>
+        <title>Approaches - AI Resources</title>
         
         
 
@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html" class="active"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html" class="active"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -162,47 +162,86 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#frameworks" id="frameworks">Frameworks</a></h1>
+                        <h1><a class="header" href="#aproaches-and-flavors-in-aiml" id="aproaches-and-flavors-in-aiml">Aproaches and Flavors in AI/ML</a></h1>
+<h2><a class="header" href="#approaches-to-ml" id="approaches-to-ml">Approaches to ML</a></h2>
+<p>The following categorization is done for simplification and is based on the one done by Pedro Domingos in 
+[<a href="bibliography.html#domingos_master_2015">domingos_master_2015</a>]. The influence of each one of them has varied along the evolution of machine learning, 
+but in the end all them influence each other in some way or another; so, many times, the &quot;boundaries&quot; we humans
+tend to trace among them (or in any other categorization) they only exist in our imagination.</p>
+<h3><a class="header" href="#symbolist" id="symbolist">Symbolist</a></h3>
+<p>Learning is viewed as a kind of inverse approach of deduction. Very influenced by logic and the need of humans
+to try to represent abstract problems in a human-readable way to facilitate communication with each other. It had early 
+successes in early AI computer programs, in particular in the era of [expert systems](vocabulary.md#Expert System).</p>
+<h3><a class="header" href="#connectionist" id="connectionist">Connectionist</a></h3>
+<p>Basically this approach is based on studying the recent advances in neuroscience related to how the brain works 
+and try to do a reverse engineering process of what has been learn. As neuroscience is indeed influenced by physics
+the connectionists model also the neurons based on the </p>
+<h4><a class="header" href="#from-the-early-days-in-connectionism-towards-deep-learning" id="from-the-early-days-in-connectionism-towards-deep-learning">From the Early Days in Connectionism, towards Deep Learning</a></h4>
+<pre><code class="language-textmate">Alan Turing's Intelligence Machinery (1948) -&gt; Perceptron (1962) -&gt; Hopfield Net (1982) -&gt; Bolzman Machines(1985) -&gt; Backprop (1986) -&gt; First NIPS Conf. (1987) -&gt; Deep Learning matures as a field on its own in NIPS Conf. (2012)
+</code></pre>
+<h3><a class="header" href="#evolutionary" id="evolutionary">Evolutionary</a></h3>
+<p>Influenced by genetics and evolutionary biology, this approach tries to simulate this evolutionary environment
+through computers. </p>
+<h3><a class="header" href="#bayesian" id="bayesian">Bayesian</a></h3>
+<p>This approach is based mainly in applying probabilistic inference to mimic the learning process and of course is
+strongly influenced by mathematics and statistics. </p>
+<p><a href="topics.html#Causality">Causal inference</a> can also be included in this approach. Human beings we tend to approach situations in terms of
+cause and effect; this framework of thinking often modifies our behaviour when we find (or at least we think we've 
+found) WHY a certain event has occurred and what are its consequences.</p>
+<p>Some of the main advocates of this approach in its modern conception is <a href="people.html#Judea_Pearl">Judea Pearl</a>.</p>
+<h4><a class="header" href="#analogizers" id="analogizers">Analogizers</a></h4>
+<p>They consider that learning is done by abstracting and reconciling experiences. Influenced by psychology and cognitive
+sciences in general and math optimization.</p>
+<h3><a class="header" href="#actioninst" id="actioninst">Actioninst</a></h3>
+<p>The approach is based on the fact that a limited set of basic behaviours or states in a system can lead to more complex 
+ones, by correcting themselves through observation and subsequent action. This has to do to what is known as [reinforcement learning](#Reinforcement Learning)
+and <a href="https://en.wikipedia.org/wiki/Behavior-based_robotics">behavioral robotics</a>. 
+In the case of robots, this paradigm advocates that the most effective mechanism to learn sensory-motor cognitive 
+abilities like walking, should be based on interactions with the environment. After all, this is more or less how toddlers
+learn to walk; model these kind of interactions programmatically through abstract reasoning based on rules, 
+it's inefficient and prone to errors. </p>
+<h3><a class="header" href="#autonomicsurvivalistic" id="autonomicsurvivalistic">Autonomic/Survivalistic</a></h3>
+<p>The approach is based on the fact that intelligent complex systems like humans, are able to survive on their own. In
+order to do that, we rely in parts of the brain that either are not well understood now or they haven't taken into account
+yet in the artificial systems implemented. This can be related to the field of <a href="https://en.wikipedia.org/wiki/Autonomic_computing">autonomic computing</a>.</p>
+<p>Some of these brain areas are:</p>
 <ul>
-<li><a href="">JAX</a></li>
-<li><a href="">Caffe2</a></li>
+<li>
+<p>Hypothalamus, which controls basic non-conscious subsystems related to maintaining body temperature, thirst, hunger 
+and other homeostatic systems. Some of these could be mimicked by a computer system; e.g. the case of feeding, an 
+intelligent ingestion data pipeline could be feeding a self-adaptive a neural network.</p>
+</li>
+<li>
+<p>Cerabellum, which is located near the brainstem, and is responsible to coordinate movements. In the case of robotics,
+this is related to the field of <a href="https://en.wikipedia.org/wiki/Behavior-based_robotics">behavioral robotics</a> and all the
+advances done by companies such as <a href="https://www.bostondynamics.com/">Boston Dynamics</a>, Samsung STAR Labs or NASA.</p>
+</li>
 </ul>
-<h2><a class="header" href="#deep-learning" id="deep-learning">Deep Learning</a></h2>
-<ul>
-<li><a href="https://pytorch.org/">Pytorch</a>
-Recent trend in Research Community. Improvig a lot to put into production</li>
-<li><a href="https://www.tensorflow.org/">Tensorflow/Keras</a>
-The big hit in 2015.</li>
-<li><a href="https://mxnet.apache.org/versions/1.6/">MxNet</a> Apache</li>
-</ul>
-<h2><a class="header" href="#nlp" id="nlp">NLP</a></h2>
-<ul>
-<li><a href="https://huggingface.co/">Huggingface</a></li>
-<li><a href="https://github.com/NervanaSystems/nlp-architect">NLP Architect</a></li>
-<li><a href="https://github.com/dmlc/gluon-nlp">GluonNlp</a></li>
-</ul>
-<h2><a class="header" href="#distributed-environments" id="distributed-environments">Distributed Environments</a></h2>
-<ul>
-<li><a href="https://github.com/horovod/horovod">Horovod</a></li>
-<li><a href="https://github.com/microsoft/DeepSpeed">DeepSpeed</a></li>
-</ul>
-<h2><a class="header" href="#datasets" id="datasets">Datasets</a></h2>
-<ul>
-<li><a href="https://huggingface.co/datasets">Huggingface Datasets</a></li>
-</ul>
+<h3><a class="header" href="#adaptable" id="adaptable">Adaptable</a></h3>
+<p>Kind of similar to the <a href="approaches.html#Autonomic/Survivalistic">Autonomic/Survivalistic</a> approach but taken from the 
+point of view of computer science instead of the survival of species.
+When modeling learning in with an artificial machine/algorithms, why be limited by Turing Machines? Human computational
+power is way beyond what a Turing machine is capable to do and this approach tries to mimic that. The adaptable approach
+is related to what is known as the Super-Turing Computation or [Lifelong Learning](topics.md#Continual Learning and Catastrophic Forgetting). 
+This is also related to the <a href="https://www.darpa.mil/program/time-aware-machine-intelligence">Time-Aware Machine Intelligence (TAMI) program</a> at DARPA, 
+which aims to model meta-learning.</p>
+<h2><a class="header" href="#flavors-in-ml" id="flavors-in-ml">Flavors in ML</a></h2>
+<h3><a class="header" href="#reinforcement-learning" id="reinforcement-learning">Reinforcement Learning</a></h3>
+<p>A branch of machine learning that was influenced by the associative learning approach observed in animals and
+newborns/young adults.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="productionizing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="multidisciplinary_approach.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="books_and_resources.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="topics.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -214,13 +253,13 @@ The big hit in 2015.</li>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="productionizing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="multidisciplinary_approach.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="books_and_resources.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="topics.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

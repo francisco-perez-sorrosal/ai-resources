@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html" class="active"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html" class="active"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,8 +163,307 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#productionizing-mldl" id="productionizing-mldl">Productionizing ML/DL</a></h1>
+<p>The software infrastructure stack that is required for ML projects in general, is quite different from the current stack
+of non-ML projects. <a href="people.html#Andrej_Karpathy">Andrej Karpathy</a></p>
 <p><a href="http://pages.cs.wisc.edu/%7Ewentaowu/papers/kdd20-ci-for-ml.pdf">Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)</a>
 Interesting</p>
+<h2><a class="header" href="#challenges-in-putting-a-ml-model-into-production" id="challenges-in-putting-a-ml-model-into-production">Challenges in Putting a ML Model into Production</a></h2>
+<ul>
+<li><strong>Infrastructure and Tooling</strong>: As of 2021, current tools and platforms, mainly CI/CD do not have great support for data and/or
+ML specific computing resources (e.g. GPUs/TPUs) which causes problems when trying to integrate the tasks and necessary
+steps that conform a modern ML pipeline for any use case at hand.</li>
+<li><strong>Culture and Organizational Structure</strong>: Companies should reorganize their divisions to accommodate this new way of producing
+software systems based on a ML model. The standard model for software development does not fit here. But that doesn't mean
+that data scientists should not adopt norms, techniques and tools from the traditional software development (such as 
+testing) and adapt them to their needs.</li>
+<li><strong>Decision Making</strong>: How to decide that a model is &quot;good enough&quot;? Check <a href="topics.html#Model_Interpretability">Interpretability</a> </li>
+</ul>
+<h1><a class="header" href="#data" id="data">Data</a></h1>
+<h2><a class="header" href="#data-management-at-scale" id="data-management-at-scale">Data Management At Scale</a></h2>
+<p>Data management is one of the new problems many companies in the industry are facing. Usually managed by individual teams
+in isolation and with very different policies in terms of versioning, privacy and accesibility and location, with the
+increasing sources of data, this has become a problem in modern companies.</p>
+<p>In the past, solutions like Data Warehouses -built out of multiple of ETL processes- or its evolution, the Data Lake where the norm. 
+The trend in 2021 is to evolve the Data Lake view towards the so-called <a href="https://martinfowler.com/articles/data-monolith-to-mesh.html">Data Mesh</a> are the tendency.
+The idea is to scale up the </p>
+<h2><a class="header" href="#datasets" id="datasets">Datasets</a></h2>
+<p>It's well know that the main datasets involved in any ML process for creating a model are:</p>
+<ul>
+<li><strong>Train</strong>, which is the data your model will train on</li>
+<li><strong>Dev</strong>, which is a representation of the test dataset used to do hyperparameter tuning, select features or make any other
+decision over the model. In scikit-learn use to be called <strong>hold-out cross-validation set</strong>. </li>
+<li><strong>Test</strong>, which is used exclusively for evaluating the metrics selected for the model. It should not be used to make any other
+decision about the process of developing the final model.</li>
+</ul>
+<p>However there's more things to take into account, mainly: </p>
+<ul>
+<li>Main test set should mirror your online distribution</li>
+<li>It's possible to collect alternative datasets
+<ul>
+<li>They don't have to come from the real distribution but will be useful to evaluate the model selected</li>
+<li>When is this useful?
+<ul>
+<li>when there are certain edge cases that we need to actuate on</li>
+<li>when the model has to run on multiple datasets with different modalities (e.g. English and Spanish datasets, wild and pet animals datasets)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Compare new model against:</li>
+<li>
+<ol>
+<li>the previous model and </li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>a fixed older model (baseline)</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>against the possible slices interesting for the business model</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>against the alternative datasets</li>
+</ol>
+</li>
+</ul>
+<p>More information about dataset creation and quality can be found in the online book by Andrew Ng, <a href="https://d2wvfoqc9gyqzf.cloudfront.net/content/uploads/2018/09/Ng-MLY01-13.pdf">Machine Learning Yearning</a></p>
+<h2><a class="header" href="#versioning" id="versioning">Versioning</a></h2>
+<p>One of the main problems that I found when I started working in the ML field 3 years ago was that there was almost no 
+control of what data was used in some of experiments we were doing; the vast majority 
+(if not all) of my colleagues were not using versioned data; they were just relying on the knowledge transmitted by the
+old members of the team. As an outsider at that time coming from other computer science
+disciplines and being more aware of software engineering techniques, that shocked me because I knew that working in a
+context like that was to bring two well-known major pains for me:</p>
+<ul>
+<li>Back to old same problems back in the days for not having regular versioned code</li>
+<li>Frustration when trying to communicate and explain that data versioning was helpful and we had to implement a policy
+and use tools for keep track of the evolution of the data in our datasets </li>
+</ul>
+<p>But there's more when you introduce data versioning in your scope. Almost immediately it comes up to your mind that you
+also have to keep track of the data-code version pairs to be able to reproduce exactly your experiments.</p>
+<p>The next step is of course, find tools about version control for data. You can think immediately on Git/Github and similar
+tools (Bitbucket, Gitlab, etc..) Sooner that later that those existing solutions might work for projects with
+small datasets, but scalability is gonna become a problem (e.g. you can't store in git files bigger than a certain size).
+Also because when building a dataset, you need certain flexibility
+to manage the deltas you are adding; if you add data incrementally at some point you may create biases (e.g. by 
+adding at some point many examples of a particular category in data for a classifier). It would be nice to use a tool that 
+despite recognizing you added data to a dataset incrementally, it would allow you certain flexibility when building the datasets
+for training/testing based on the deltas added (e.g. by skipping certain delta increments, combining only the base datasets
+and two specific deltas, etc). This kind of tools that allow user to create versioned datasets and then aggregate them
+by following a workflow-based data combination approach is what it would be nice to have to manage data used in ML model/experiments.</p>
+<p>In Lecture 8, Slide 76 of the [Full Stack DL of 2021] there a summary of the approaches that currently are followed by the practitioners:</p>
+<ul>
+<li>Level 0 - No data versioning. Unfortunately, the most common approach.</li>
+<li>Level 1 - Snapshot at training time. The next level if you are a little bit more careful when developing a new model.</li>
+<li>Level 2 - Data is versioned as mix of assets and code. I pushed hard to follow this approach at least when I implemented my first ML training pipeline a couple of years ago.</li>
+<li>Level 3 - New tools for integrated data versioning. An active space for developing new tools.</li>
+</ul>
+<h3><a class="header" href="#tools" id="tools">Tools</a></h3>
+<ul>
+<li></li>
+<li><a href="https://dvc.org/">dvc Data Version Control</a></li>
+</ul>
+<h1><a class="header" href="#machine-learning-platforms-and-pipelines" id="machine-learning-platforms-and-pipelines">Machine Learning Platforms and Pipelines</a></h1>
+<p>At some point, the main leaders in the software development industry decided to show off their ML platforms. Here there
+are some of them.</p>
+<h2><a class="header" href="#architectural-examples" id="architectural-examples">Architectural Examples</a></h2>
+<ul>
+<li><a href="https://eng.uber.com/michelangelo-machine-learning-platform/">Michelangelo (Uber)</a> - Uber's machine learning platform. Here, 
+<a href="https://eng.uber.com/scaling-michelangelo/">there's another blogpost</a> with more details.</li>
+<li><a href="https://www.youtube.com/watch?v=XV5VGddmP24">Metaflow (Netflix)</a> - They don't offer much details about the data-related
+tasks (e.g. data-lake, versioning, preprocessing, etc.) available in the platform. Post about <a href="https://netflixtechblog.com/open-sourcing-metaflow-a-human-centric-framework-for-data-science-fa72e04a5d9">moving Metaflow to an open-source effort</a></li>
+<li><a href="https://engineering.linkedin.com/blog/2019/01/scaling-machine-learning-productivity-at-linkedin">Pro-ML (Linkedin)</a> - Also
+they don't provide much detail about the data part, which present as a silo on the left part of their architectural diagram,
+and called Feature Marketplace.</li>
+</ul>
+<h2><a class="header" href="#regular-sw-vs-machine-learning-sw" id="regular-sw-vs-machine-learning-sw">Regular SW vs Machine Learning SW</a></h2>
+<table><thead><tr><th>Traditional SW</th><th>Machine Learning</th></tr></thead><tbody>
+<tr><td>Code + Config Data</td><td>Code + Data + Workflow + Config Data</td></tr>
+<tr><td>Written by humans to be validated essentially by humans</td><td>Specified by humans, optimized by compilers to satisfy a proxy metric</td></tr>
+<tr><td>Bugs &amp; Failures are perceived almost instantly by humans</td><td>Failures can be silent and system degradation can be imperceptible</td></tr>
+<tr><td>Change according to versions</td><td>Change is almost a constant in this systems</td></tr>
+</tbody></table>
+<h2><a class="header" href="#errors-when-testing-ml-as-regular-sw" id="errors-when-testing-ml-as-regular-sw">Errors when Testing ML as Regular SW</a></h2>
+<ol>
+<li>Not analyzing sufficiently how the performance of the model is gonna be quantified and measured (metrics) and its
+relation to the context where it's gonna be applied (business part)</li>
+<li>Test only the model and not the system as a whole (as a consequence of 1.)</li>
+<li>Missing data testing (also as a consequence of 1.)</li>
+<li>Rely too much in automated testing and not in production testing</li>
+<li>Lose sight of the possible divergence of the business measures against the model metrics observed (also as a consequence of 1. and 4.) </li>
+</ol>
+<h2><a class="header" href="#meet-the-testing-family-in-ml" id="meet-the-testing-family-in-ml">Meet The Testing Family in ML</a></h2>
+<h3><a class="header" href="#label-tests" id="label-tests">Label Tests</a></h3>
+<ul>
+<li>Focus: Labeling system/editor tools/editors</li>
+<li>Goal: Catch poor quality labels or parts of the dataset to avoid model corruption</li>
+<li>Techniques:
+<ul>
+<li>Get trained labelers
+<ul>
+<li>We all are prone to biases so...</li>
+</ul>
+</li>
+<li>Try to avoid human biases
+<ul>
+<li>by aggregating labels from multiple labelers</li>
+</ul>
+</li>
+<li>Assign labelers a trust score based on how often they are wrong</li>
+<li>Identify examples in training/testing processes which get different judgement from humans vs computers
+<ul>
+<li>Relabel those examples again and check if it's true that there were inconsistencies/errors in human and computer judgements</li>
+</ul>
+</li>
+<li>Compare older models on new labels</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#data-tests" id="data-tests">Data Tests</a></h3>
+<ul>
+<li>a.k.a. Expectation Tests</li>
+<li>Focus: Storage and Preprocessing Task</li>
+<li>Goal: Catch bad data or data with quality issues before going to the train pipeline</li>
+<li>Techniques:
+<ul>
+<li>Define expectations:
+<ul>
+<li>Assertions for data or</li>
+<li>rules about properties of each of your data tables at each stage in your data cleaning/preprocessing pipeline</li>
+<li>e.g. we should expect that Column X in Table A after preprocessing does not contain any null values</li>
+<li>e.g. we should expect that the average value of Column Y in Table B after preprocessing should be between v1 and v2 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tools:
+<ul>
+<li><a href="https://greatexpecations.io">Great Expectations</a></li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#infrastructure-test-aka-unit-tests-in-regular-sw-development" id="infrastructure-test-aka-unit-tests-in-regular-sw-development">Infrastructure Test (aka Unit tests in Regular SW development)</a></h3>
+<ul>
+<li>Focus: Training Task</li>
+<li>Goal: Avoid bugs</li>
+<li>Techniques:
+<ul>
+<li>Use unit test for the parts that are similar to regular sofware (e.g. data preparation and cleaning)</li>
+<li>Extract a small sample of the dataset to test quickly over it</li>
+<li>Add tests of a single epoch with the previous extracted small dataset</li>
+<li>Run frequently</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#training-tests" id="training-tests">Training Tests</a></h3>
+<ul>
+<li>Focus: Storage and preprocessing Tasks and Training Task</li>
+<li>Goal: Ensure reproducibility of training</li>
+<li>Techniques:</li>
+<li>Define a set of baseline metrics</li>
+<li>Pull a fixed dataset representative of the full dataset</li>
+<li>Check model performance remains consistent against the baseline metrics</li>
+<li>Consider pulling a sliding window of data</li>
+<li>As they're slow, run periodically (night or any other specific times)</li>
+</ul>
+<h3><a class="header" href="#functionality-tests" id="functionality-tests">Functionality Tests</a></h3>
+<ul>
+<li>Focus: Prediction Task</li>
+<li>Goal: Avoid regressions in the code that makes up your prediction infrastructure</li>
+<li>Techniques:
+<ul>
+<li>Unit test for the prediction code as for traditional software</li>
+<li>Load model and test particular examples</li>
+<li>Run frequently</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#evaluation-tests" id="evaluation-tests">Evaluation Tests</a></h3>
+<ul>
+<li>
+<p>Focus: Training Task and Production Task</p>
+</li>
+<li>
+<p>Goal: Validate the model to go into production by testing the integration of the two tasks above</p>
+</li>
+<li>
+<p>Techniques:</p>
+<ul>
+<li>Evaluate model in all the important datasets, metrics and slices
+<ul>
+<li>Traditional metrics (Accuracy, Precision, Recall, etc.) </li>
+<li><a href="https://github.com/francisco-perez-sorrosal/deep-learning-papers/tree/master/Beyond%20Accuracy">Behavioral Tests</a></li>
+<li>Robustness Metrics
+<ul>
+<li>Related to <a href="#Errors_when_Testing_ML_as_Regular_SW">Step 5 here</a></li>
+<li>I think is very important to asses the overall quality of the model and decide when it's time to react</li>
+<li>Extract data to understand where the model is gonna perform well or bad</li>
+<li>Study the feature importance</li>
+<li>Densitivity to data staleness (vs old data)...</li>
+<li>...and data drifts (training vs prod data or different prod data distributions)
+<ul>
+<li>Important to define metrics for particular data categories (e.g. metrics for the &quot;news&quot; category)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Privacy and fairness
+<ul>
+<li>Will become more important from now on</li>
+</ul>
+</li>
+<li>Simulation tests
+<ul>
+<li>Understand the interaction of your model with the rest of the environment (&quot;the world&quot;)</li>
+<li>Used in Robotics/Automated Vehicles</li>
+<li>Hard to model &quot;the world&quot;</li>
+</ul>
+</li>
+<li>Shadow tests
+<ul>
+<li>Testing in production and compare with the results in the offline</li>
+<li>Detect issues in production</li>
+<li>Apply the <a href="">strangler fig pattern</a> to not impact users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Compare model against previous one and the baselines</li>
+<li>This is done only at a particular point in time; so run these tests when you've selected a candidate
+model from the training phase and you want to put it in production.</li>
+</ul>
+</li>
+<li>
+<p>Tools: </p>
+<ul>
+<li>Robustness: 
+<ul>
+<li><a href="https://pair-code.github.io/what-if-tool/">what-if-tool</a> </li>
+<li><a href="https://research.google/pubs/pub47966/">Slice Finder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#ab-tests" id="ab-tests">A/B Tests</a></h3>
+<ul>
+<li>Focus: Serving System</li>
+<li>Goal: Check how the users react to the new model and how the business metrics are affected</li>
+<li>Techniques:
+<ul>
+<li>Separate a fraction of the request and redirect it to the new model. The rest of the request will
+still targeting the old model which will serve as a control</li>
+<li>Compare the two cohorts</li>
+<li>Use monitoring as a tool for evaluation!!!</li>
+<li><a href="https://levelup.gitconnected.com/the-engineering-problem-of-a-b-testing-ac1adfd492a8">A/B Testing blog</a></li>
+</ul>
+</li>
+</ul>
 <h2><a class="header" href="#model-size-vs-efficiency" id="model-size-vs-efficiency">Model Size vs Efficiency</a></h2>
 <p>Big models -&gt; Big problem for company at deploy time. Not to speak about deploying an ensemble of models, even if this
 shows better performance overall. Several techniques, such as knowledge distillation, pruning and quantization, have 
@@ -174,7 +473,7 @@ In the end, most of the techniques described below, result in slightly degraded 
 <li><a href="https://blog.roblox.com/2020/05/scaled-bert-serve-1-billion-daily-requests-cpus/">How We Scaled Bert To Serve 1+ Billion Daily Requests on CPUs (Roblox)</a></li>
 </ul>
 <h3><a class="header" href="#distilation" id="distilation">Distilation</a></h3>
-<p>Hinton, Vinyals and Dean showed in {{#cite hinton_distilling_2015}} how to apply Caruana's model compression techniques described in {{#cite bucilua_model_2006}}.
+<p>Hinton, Vinyals and Dean showed in [<a href="bibliography.html#hinton_distilling_2015">hinton_distilling_2015</a>] how to apply Caruana's model compression techniques described in [<a href="bibliography.html#bucilua_model_2006">bucilua_model_2006</a>].
 Caruana et all showed how to take advantage of the property of ANN of being <a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">universal approximators</a>,
 to train an ANN to mimic the function learned by an ensemble of models. The idea behind the universal approximator theorem
 is that, with enough neurons and training data, a NN can approximate any function with enough precision. To do that,
@@ -227,7 +526,7 @@ large models with pure data parallelism and the problem of using model paralleli
                         
 
                         
-                            <a rel="next" href="frameworks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="tools_and_frameworks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -245,7 +544,7 @@ large models with pure data parallelism and the problem of using model paralleli
                 
 
                 
-                    <a rel="next" href="frameworks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="tools_and_frameworks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="vocabulary.html" class="active"><strong aria-hidden="true">2.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">3.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">4.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">5.</strong> To Production</a></li><li class="chapter-item expanded "><a href="frameworks.html"><strong aria-hidden="true">6.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">7.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">8.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">9.</strong> Applications</a></li><li class="chapter-item expanded "><a href="refs.html"><strong aria-hidden="true">10.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html" class="active"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -170,7 +170,22 @@ in a latent space that may not be continuous or allow easy interpolation. In the
 are mostly limited to be used to generate compressed representations of their inputs, allowing to regenerate the original
 input with minimal loss.</p>
 <p><img src="images/autoencoder.png" alt="Autoencoder (Source: https://towardsdatascience.com/intuitively-understanding-variational-autoencoders-1bfe67eb5daf)" /></p>
+<h1><a class="header" href="#b" id="b">B</a></h1>
+<h2><a class="header" href="#backpropagation" id="backpropagation">Backpropagation</a></h2>
+<p>A procedure to adjust the weights of a neural network by propagating the error obtained in the forward pass, backwards. 
+After calculating the error in the output layer, e.g. by contrasting the output of the forward pass with the known 
+so-called gold labels by means of a cost function, the gradient on the input weights of the last layer to the output units 
+is calculated; then the weights of that layer are adjusted; this process is repeated backwards layer after layer until 
+reaching the input layer. </p>
+<h1><a class="header" href="#causality" id="causality">Causality</a></h1>
+<p>Correlations is not causation. In ML causality tries to understand the relationships between data in order to create models
+that generalize well.</p>
+<h1><a class="header" href="#e" id="e">E</a></h1>
+<h2><a class="header" href="#expert-system" id="expert-system">Expert System</a></h2>
 <h1><a class="header" href="#g" id="g">G</a></h1>
+<h2><a class="header" href="#generalization" id="generalization">Generalization</a></h2>
+<p>The capability of an already trained ML model of adapting to previously unseen data taken from the same distribution as
+the data used to train it.</p>
 <h2><a class="header" href="#generative-adversarial-network-gan" id="generative-adversarial-network-gan">Generative Adversarial Network (GAN)</a></h2>
 <p>A special architecture of ANN aimed to <em>generate new data</em> with similar statistics as of the ones found in a particular 
 training set. The classical example of what GANs are used for, is the generation of new faces, by interpolating new
@@ -178,12 +193,36 @@ features from the data obtained from a pool of preexisting images of faces. The 
 as possible, making them undistinguisable from real images for the human eye.</p>
 <p>The idea is to train two models at the same time; the first one is the &quot;generative&quot; one, which serves as the &quot;trend 
 gatherer&quot;, that is capturing the data distribution; the second one model, called &quot;discriminative&quot;, is trained to discern
-if a particular sample comes from the training data or from the &quot;generative&quot; moidel {{#cite goodfellow_generative_2014}}</p>
+if a particular sample comes from the training data or from the &quot;generative&quot; moidel [<a href="bibliography.html#goodfellow_generative_2014">goodfellow_generative_2014</a>]</p>
 <p><img src="images/gan.png" alt="GAN (Source: https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)" /></p>
 <h3><a class="header" href="#related" id="related">Related</a></h3>
 <ul>
 <li><a href="https://www.technologyreview.com/2018/02/21/145289/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/">Ian Goodfellow Interview</a></li>
 </ul>
+<h1><a class="header" href="#o" id="o">O</a></h1>
+<h2><a class="header" href="#overfitting" id="overfitting">Overfitting</a></h2>
+<p>The effect seen in a ML model when it seems to fit the training data so closely to the target goal that its unable to 
+<a href="#Generalization">generalize</a> well to unseen data. When a model is said to be overfitted, usually we observe a low
+error in the metrics from the train dataset and a high error in the metrics from the test dataset. </p>
+<h1><a class="header" href="#s" id="s">S</a></h1>
+<h2><a class="header" href="#simulated-annealing" id="simulated-annealing">Simulated Annealing</a></h2>
+<p>Inspired by the process of annealing in metal works, it describes a probabilistic approach to solve problems by 
+&quot;heating&quot; them up and, subsequently, &quot;cooling&quot; them down. Let's see what this means.</p>
+<p>The algorithmic solution of is applicable in large search domain problems with may contain several local optima points.
+At the core of a simulated annealing algorithm, there's a temperature variable. This variable is set up with a high
+value to simulate the heating process. As the algorithm proceeds with its iterations, the variable is allowed to be 
+&quot;cooled down&quot;. While the temperature is high, the algorithm accepts solutions that are worse than the current solution;
+that means in some way that is less risk averse. This allows the algorithm to jump out from locations with local optima
+that may be appear early when executing. Gradually, as the temperature decreases, the probability of accepting worse 
+solutions decreases, hopefully &quot;crystallizing&quot; on the area of the search space where the global optimum solution is located. </p>
+<p>More info see [<a href="bibliography.html#kirkpatrick_optimization_1983">kirkpatrick_optimization_1983</a>].</p>
+<h2><a class="header" href="#svm-support-vector-machine" id="svm-support-vector-machine">SVM (Support Vector Machine)</a></h2>
+<p>Perceptron-based classifier. SVM learns how to separate points in the space by establishing the so-called decision boundaries.
+When data is separable linearly, as it shown in many examples in the ML literature, it may seem a trivial task. However, 
+data in the real world is not always linearly separable, being randomly distributed, making it hard the process of segregating
+the different classes linearly. The kernel trick introduced by the SVM paper performs a mathematical trick to efficiently 
+(in O(n)) map -for example- data from a 2-dimensional space to 3-dimensional space, where maybe it's possible to find a 
+hyperplane that separates the different classes.</p>
 <h1><a class="header" href="#v" id="v">V</a></h1>
 <h2><a class="header" href="#variational-auto-encoder" id="variational-auto-encoder">Variational Auto-Encoder</a></h2>
 <p>In contrast to a vanilla <a href="#auto-encoder">autoencoder</a>, a Variational AutoEncoder (VAE) is a <em>generative model</em> 
@@ -200,7 +239,7 @@ according to \( P(X) = \int P(X|z; \theta)P(z)dz \)</p>
 <p>\( P(X|z; \theta) \), allows making the dependence of X on z explicit by using the law of total probability. This<br />
 framework, called &quot;maximum likelihood&quot;, allows to assume that if the model is likely to produce training set samples, 
 then it is also likely to produce similar samples, and also unlikely to produce dissimilar ones.</p>
-<p>According to {{#cite doersch_tutorial_2016}} VAEs are called &quot;autoencoders&quot; because the final training objective does
+<p>According to [<a href="bibliography.html#doersch_tutorial_2016">doersch_tutorial_2016</a>] VAEs are called &quot;autoencoders&quot; because the final training objective does
 share the encoder/decoder architecture, so it resembles a traditional autoencoder.</p>
 
                     </main>
@@ -208,13 +247,13 @@ share the encoder/decoder architecture, so it resembles a traditional autoencode
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="preface.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="people.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="topics.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="bibliography.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -226,13 +265,13 @@ share the encoder/decoder architecture, so it resembles a traditional autoencode
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="preface.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="people.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="topics.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="bibliography.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
