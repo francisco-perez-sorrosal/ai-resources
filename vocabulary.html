@@ -182,6 +182,31 @@ reaching the input layer. </p>
 that generalize well.</p>
 <h1><a class="header" href="#e" id="e">E</a></h1>
 <h2><a class="header" href="#expert-system" id="expert-system">Expert System</a></h2>
+<h2><a class="header" href="#a-hrefvocabularyhtmlinterpretabilityexplainabilitya" id="a-hrefvocabularyhtmlinterpretabilityexplainabilitya"><a href="vocabulary.html#Interpretability">Explainability</a></a></h2>
+<p><a href="vocabulary.html#Interpretability">See Interpretability</a>.</p>
+<h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
+<p>The explicit ability expected in an intelligent agent to give &quot;good&quot; explanations of its decisions to humans. As usual,
+the problem here is to define what is a &quot;good&quot; explanation. If we try to mimic in the intelligent agent world, how 
+humans proceed giving explanations to other humans, we have to acknowledge we'll have to deal with biases and/or social
+expectations. Some researchers argue {{ cite graaf_how_2017 }} that the framework of explanation of those agents will need 
+to be consistent with the conceptual framework and psychological mechanisms of human behavior explanation, as humans
+will expect explanations falling under those two premises.</p>
+<h1><a class="header" href="#f" id="f">F</a></h1>
+<h2><a class="header" href="#feature" id="feature">Feature</a></h2>
+<p>It's a property extracted from each data instance of a dataset being observed. An example would be the &quot;color&quot; attribute
+extracted from row coding an outfit item example from a file called seasonal_outfits.csv). Features are
+crucial for many ML procesess. Selecting those features it's an art, which even has a name: <a href="#feature_enginering">feature engineering</a>.
+Some of the properties that a good feature should have for being selected are:</p>
+<ul>
+<li>Informative about the concept that they represent</li>
+<li>Discriminating, to be able to separate one example instance from another </li>
+<li>Independent, if possible from the other features extracted from the data instance</li>
+</ul>
+<h2><a class="header" href="#feature-engineering" id="feature-engineering">Feature Engineering</a></h2>
+<p>The classical/traditional way of &quot;massage&quot; the input to pass to a ML model (e.g. a classifier.) It refers to the process 
+of using domain knowledge to extract features from raw data. This was an &quot;art&quot; in itself usually done by domain experts.
+In the age of DL, this has been substituted by the DL models themselves, which represents also the features on top of
+which the learning of a task is done.</p>
 <h1><a class="header" href="#g" id="g">G</a></h1>
 <h2><a class="header" href="#generalization" id="generalization">Generalization</a></h2>
 <p>The capability of an already trained ML model of adapting to previously unseen data taken from the same distribution as
@@ -195,10 +220,32 @@ as possible, making them undistinguisable from real images for the human eye.</p
 gatherer&quot;, that is capturing the data distribution; the second one model, called &quot;discriminative&quot;, is trained to discern
 if a particular sample comes from the training data or from the &quot;generative&quot; moidel [<a href="bibliography.html#goodfellow_generative_2014">goodfellow_generative_2014</a>]</p>
 <p><img src="images/gan.png" alt="GAN (Source: https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)" /></p>
+<h1><a class="header" href="#i" id="i">I</a></h1>
+<h2><a class="header" href="#interpretability" id="interpretability">Interpretability</a></h2>
+<p>How well a human can understand the decisions (e.g. the output of a ML classifier) taken by an intelligent system in a given context.
+This is related to the extent up to which humans can predict the results of a model. </p>
 <h3><a class="header" href="#related" id="related">Related</a></h3>
 <ul>
 <li><a href="https://www.technologyreview.com/2018/02/21/145289/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/">Ian Goodfellow Interview</a></li>
 </ul>
+<h1><a class="header" href="#l" id="l">L</a></h1>
+<h1><a class="header" href="#language-model" id="language-model">Language Model</a></h1>
+<p>In any language, the words (or characters) in a sentence show certain correlations. Those correlations
+capture and contextualize the underlying semantics and characteristics of the particular language. </p>
+<p>Sequences of tokens can be found almost anywhere, being the words in a text, pixels in an image, the musical notes in
+a score, etc. A language model could be defined as a statistical model that has learnt to predict the probability of a
+sequence of tokens, capturing the correlation with other nearby tokens, either consecutive or not. In NLP, the tokens 
+use to represent words or n-grams.</p>
+<p>The calculation of the next token in the sequence [x_n] can be modeled as:</p>
+<p>[ p(x_n | x_{n-1}, x_{n-2}...x_{1}) ]</p>
+<p>where [ x_i ] represents the ith token in the sequence.</p>
+<h1><a class="header" href="#neural-network" id="neural-network">Neural Network</a></h1>
+<h1><a class="header" href="#neuromorphic-computing" id="neuromorphic-computing">Neuromorphic Computing</a></h1>
+<p>A computing approach which model neurons as asynchronous and independent computation units which are stimulated by the
+spikes triggered by other interconnected neurons, in a similar way as brain neurons behave.</p>
+<p>Relying on asynchronous communication between the neurons, these neuromorphic systems do not need to rely on a system 
+clock. So, this async communication of pulses to simulate neuron spikes is more enegy efficient, as it consumes less 
+power.</p>
 <h1><a class="header" href="#o" id="o">O</a></h1>
 <h2><a class="header" href="#overfitting" id="overfitting">Overfitting</a></h2>
 <p>The effect seen in a ML model when it seems to fit the training data so closely to the target goal that its unable to 

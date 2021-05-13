@@ -165,7 +165,9 @@
                         <h1><a class="header" href="#nlp" id="nlp">NLP</a></h1>
 <h2><a class="header" href="#frameworks" id="frameworks">Frameworks</a></h2>
 <ul>
-<li><a href="https://huggingface.co/">Huggingface</a></li>
+<li><a href="https://huggingface.co/">Huggingface</a> The de-facto standard framework for modern NLP.</li>
+<li><a href="https://github.com/lucidrains/x-transformers">X-Transformers</a> A new repo, implementing also the later
+advances in the spectrum of Transformer-based models.</li>
 <li><a href="https://github.com/NervanaSystems/nlp-architect">NLP Architect</a></li>
 </ul>
 <h1><a class="header" href="#blogs--repos" id="blogs--repos">Blogs &amp; Repos</a></h1>
@@ -173,25 +175,107 @@
 <li><a href="https://github.com/neubig/lowresource-nlp-bootcamp-2020">NLP Bootcamp</a> CMU lectures on NLP by visitors to the
 Language Technologies Institute.</li>
 </ul>
-<h1><a class="header" href="#nlp-papers" id="nlp-papers">NLP Papers</a></h1>
-<h2><a class="header" href="#recent-origins" id="recent-origins">Recent Origins</a></h2>
+<h1><a class="header" href="#nlp-topics" id="nlp-topics">NLP Topics</a></h1>
+<h2><a class="header" href="#text-categorization" id="text-categorization">Text Categorization</a></h2>
+<p>One of the classical problems in NLP.</p>
+<p><strong>Goal</strong>: Assign labels/tags to text examples (e.g. sentences, paragraphs, documents...)
+<strong>Options for doing text annotation</strong>:</p>
 <ul>
-<li><a href="https://arxiv.org/abs/1301.3781">Word2Vec</a></li>
-<li><a href="https://arxiv.org/abs/1402.3722">word2vec Explained: deriving Mikolov et al.'s negative-sampling word-embedding method</a></li>
+<li>Manual - Reliess on humnans; Because of that fact this approachss doesn't scale, is costly, and error prone.</li>
+<li>Automatic - The current trend due to the increasingly amount of text examples required for many applications in the
+industry.
+<ul>
+<li>Rule-based methods
+<ul>
+<li>Use a set of predefined rules</li>
+<li>Require domain knowledge from experts</li>
 </ul>
+</li>
+<li>ML-driven methods
+<ul>
+<li>Use a set of prelabeled examples to train models.</li>
+<li>Learn -during a training phase- based on observations of data contrasted against the true/gold labels already
+tagged by domain experts for a certain number of the so-called train examples.</li>
+<li>The final model obtained with this method has learned associations between the text and the labels</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We will focus on this approach only, and mainly on the ML-driven methods.</p>
+<p><strong>Applications</strong>:</p>
+<ol>
+<li>Sentiment analysis</li>
+<li>News classification</li>
+<li>Content moderation</li>
+<li>Spam filtering</li>
+<li>Question-answering</li>
+<li>Natural language inference
+...</li>
+</ol>
+<h3><a class="header" href="#procedure" id="procedure">Procedure</a></h3>
+<p>The traditional way of doing text classification consists of these steps:</p>
+<ol start="0">
+<li><strong>Dataset creation</strong> - Create (or download, if a well-know industry used dataset is considered to be used) at least
+two datasets from the text examples available: train and test. See <a href="datasets.html">Datasets</a> section for more information.</li>
+<li><strong>Preprocessing</strong> - Some handcrafted <a href="vocabulary.html#feature">features</a> are [extracted](vocabulary.md#feature
+-engineering) from the train and test datasets. This may require also to do some transformations on the raw input data.</li>
+<li><strong>Training</strong> - From each train example, use the features extracted + its associated label, as input to train a model
+that will
+learn associations from the features and the labels to make predictions on new input features.</li>
+<li><strong>Testing</strong> - Feed a model with the features extracted from each test example to the train model to obtain a
+prediction.</li>
+<li><strong>Evaluation</strong> - Take each prediction obtained and contrast it with the corresponding true/gold label for test
+examples and calculate the required <a href="metrics.html">metrics</a> for the classification problem at hand.</li>
+</ol>
+<p>Popular Algorithms used for text classification are <a href="algorithms_and_model_architectures.html#naive-bayes">Naive Bayes</a>,
+<a href="algorithms_and_model_architectures.html#support-vector-machines">SVMs</a>, <a href="algorithms_and_model_architectures.html#hidden-markov-models">HMMs</a>,
+<a href="algorithms_and_model_architectures.html#gradient-boosting-trees">GBTs</a> and <a href="algorithms_and_model_architectures.html#random-forests">random forests
+</a></p>
+<h2><a class="header" href="#entity-recognition" id="entity-recognition">Entity Recognition</a></h2>
+<h2><a class="header" href="#question-answering" id="question-answering">Question-Answering</a></h2>
+<h1><a class="header" href="#nlp-architectures" id="nlp-architectures">NLP Architectures</a></h1>
+<h2><a class="header" href="#recent-origins" id="recent-origins">Recent Origins</a></h2>
+<p>These papers influenced a paradigm shift towards what will be called <a href="vocabulary.html#deep-learning">Deep Learning</a>, which will imply the massive adoption of neural networks for ML tasks.</p>
+<h3><a class="header" href="#word2vec" id="word2vec">Word2Vec</a></h3>
+<p>&quot;Efficient Estimation of Word Representations in Vector Space&quot; {{ cite mikolov_efficient_2013 }} or simply the
+Word2Vec paper by Mikolov et al. at Google marked a paradigm shift in NLP, as it showed the potential of an embedding
+model trained in large amounts of data (1.6 Billion data words). In particular, they showed the quality of the 
+representations obtained after training by using a word similarity task.
+A deeper explanation can be found in &quot;word2vec Explained: deriving Mikolov et al.'s negative-sampling word-embedding
+method&quot; {{ cite goldbert_word2vec_2014 }}</p>
+<p><a href="https://github.com/tmikolov/word2vec">Source code</a></p>
+<h1><a class="header" href="#" id=""></a></h1>
+<h3><a class="header" href="#elmo" id="elmo">Elmo</a></h3>
+<p>&quot;Deep contextualized word representations&quot; {{ cite peters_deep_2018 }} a.k.a. the &quot;Elmo&quot; paper, improved the results
+obtaineed by Word2Vec. The main differencde is that Elmo adds context to word representations. Word vectors are
+learned functions of the internal states of a deep bidirectional language model (biLM), pre-trained also on a large
+text corpus. This marked the start of the &quot;Sesame Street Saga&quot;</p>
 <h2><a class="header" href="#attention" id="attention">Attention</a></h2>
-<p>The concept of attention is taken, as many others, from cognitive sciences (e.g. psycology, neuroscience, education.) It 
+<p>This was a game changer paper when it appeared in 2017 {{ cite vaswani_attention_2017 }}.
+The concept of attention is taken, as many others, from cognitive sciences (e.g. psycology, neuroscience, education.) It 
 describes the process of focusing on certain concrete stimulus/stimuli while ignoring the rest of stimuli in an 
 environment. In the case of NLP for example, the context/environment can be a sentence and the stimulus a word.</p>
 <ul>
 <li><a href="">Attention and Memory-Augmented Networks for Dual-View Sequential Learning (KDD 2020)</a></li>
 </ul>
-<h2><a class="header" href="#transformers" id="transformers">Transformers</a></h2>
-<h3><a class="header" href="#sesame-street-environment" id="sesame-street-environment">Sesame Street Environment</a></h3>
+<h4><a class="header" href="#sparse-transformers" id="sparse-transformers">Sparse Transformers</a></h4>
 <ul>
-<li><a href="https://arxiv.org/abs/1802.05365">ELMO</a> Improvement over Word2Vec. Tries to add context to word representations.
-Word vectors are learned functions of the internal states of a deep bidirectional language model (biLM), pre-trained
-on a large text corpus.</li>
+<li><a href="refs.html#sparse">Sparse Tansformer</a> Self-attention complexity from O(n2) to O(n*sqrt(n)).</li>
+<li><a href="refs.html#reformer">Reformer</a> Self-attention complexity O(L2) to O(LlogL), where L is the length of the sequence.</li>
+<li><a href="refs.html#linformer">Linformer</a> Self-attention complexity from O(n2) to O(n) in both time and space.</li>
+</ul>
+<h2><a class="header" href="#transformers" id="transformers">Transformers</a></h2>
+<h3><a class="header" href="#sesame-street-saga" id="sesame-street-saga">Sesame Street Saga</a></h3>
+<p>The <a href="#elmo">ELMO</a> paper started a trend to name many NLP model architectures and variations after the characters of
+Sesame Street/Muppets. Some refer to this fenomenon as <a href="https://www.theverge.com/2019/12/11/20993407/ai-language-models-muppets-sesame-street-muppetware-elmo-bert-ernie">&quot;Muppetware&quot;</a>
+These are the most relevant ones.</p>
+<p>TODO mention at least <del>ELMo,</del> BERT, Grover, Big BIRD, Rosita, RoBERTa, ERNIEs, and KERMIT. </p>
+<h4><a class="header" href="#bert" id="bert">BERT</a></h4>
+<p>By 2018 Google developed what is still as of 2021, the SotA of embedding-based models for the majority of the industry.
+Based on the Transformer architecture, it was trained on 3.3 billion words. Comming in two different flavours, base
+and large, they mainly differ on the number of parameters.</p>
+<ul>
 <li><a href="https://arxiv.org/abs/1810.04805">BERT</a> The reference model for NLP since 2018.</li>
 <li><a href="https://arxiv.org/pdf/1907.10529.pdf">SpanBERT</a>
 Masks spans of words instead of random subwords. Spans of words refers to global entities or loca/domain-specific meaning (e.g. American Football)
@@ -203,12 +287,6 @@ Replication study of BERT pretraining that measures the impact of many key hyper
 It shows improvements on most of the SotA results by BERT and followers. Questions the results of some post-BERT models.
 It uses a single sentence for the document-level input like SpanBERT.
 Code: https://github.com/pytorch/fairseq</li>
-</ul>
-<h4><a class="header" href="#sparse-transformers" id="sparse-transformers">Sparse Transformers</a></h4>
-<ul>
-<li><a href="refs.html#sparse">Sparse Tansformer</a> Self-attention complexity from O(n2) to O(n*sqrt(n)).</li>
-<li><a href="refs.html#reformer">Reformer</a> Self-attention complexity O(L2) to O(LlogL), where L is the length of the sequence.</li>
-<li><a href="refs.html#linformer">Linformer</a> Self-attention complexity from O(n2) to O(n) in both time and space.</li>
 </ul>
 <h4><a class="header" href="#small-modelssmall-devices" id="small-modelssmall-devices">Small Models/Small Devices</a></h4>
 <ul>
@@ -239,233 +317,12 @@ research purposes. &lt;|endoftext|&gt;&quot; - Summary generated by itself.</p>
 <ul>
 <li><a name="biesialska"><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">Continual Lifelong Learning in Natural Language Processing: A Survey</a> Colling, 2020</a></li>
 </ul>
-<p>Pytorch conference:</p>
-<h2><a class="header" href="#intro-conf" id="intro-conf">INTRO CONF</a></h2>
-<p>jax and julia languages</p>
-<p>2020 state of ai report</p>
-<p>Tensor Statements (Experimental)</p>
-<p>Facebook MMF Multimodal library</p>
-<p>MLPerf a machine learning performane benchnark suite with broad industry and academia</p>
-<p>Microsoft DeepSpeed Dist training
-Google Brain: ML for system
-DiffTaichi: MIT</p>
-<p>Usability: Try to balance again to performance.</p>
-<h2><a class="header" href="#state-of-pytorch" id="state-of-pytorch">State of pytorch</a></h2>
-<p>-More operators/quantized operators driven by numpy compatibility
--More language support
--More platforms</p>
-<p>In 2020:
--Composability
--Distributed RPC
--XLA</p>
-<p>To come:
--Multitensor optimizers
--Lazy modules
--torch.fx python to python transformations instead with C++
--Vulkan and Metal hw accel to mobile
--Benchmarking tools
--Metatensors</p>
-<p>Contrib:
--rfcs: Proposals bigger than an issue
--dev newsletter
--nightly checkout tool</p>
-<h2><a class="header" href="#complex-numbers-in-pytorch" id="complex-numbers-in-pytorch">Complex numbers in pytorch</a></h2>
-<ul>
-<li>Quantum mechanics and singal processing
--Research: Deep Complex networks, On complex valued convolutional networks, etc...</li>
-<li>Representation:
--- API easy to use based on a natural representation
--- Operations
--- Autograd</li>
-</ul>
-<p>-new datatypes: torch.complex64/128
--core properties: angle, abs, real, imag, polar, complex based on numpy
--complex differencitation</p>
-<p>Future:
--JIT and distribute computing</p>
-<h2><a class="header" href="#pytorch-marries-numpy" id="pytorch-marries-numpy">Pytorch marries Numpy</a></h2>
-<p>-Compatible here means the same function can be called the same way to produce the same (or very similar) behaviour
--New functions added every day and plan to add linear algebra</p>
-<h2><a class="header" href="#high-level-api-for-autograd" id="high-level-api-for-autograd">High Level API for Autograd</a></h2>
-<p>torch.autograd.functional
--Takes a python function as an input
--Closer to functional API and mathematical definition</p>
-<p>functional.jacobian(func, inputs,...)
-functional.vjp(func, input,v,..) -- backprop
-functional.jvp(...) -- forward mode
-functinal.hessian(func, input,...) second order derivativeses
-functinal.vhp(...) backward
-functinal.hvp(...) forward</p>
-<h2><a class="header" href="#pytorch-rpc" id="pytorch-rpc">Pytorch RPC</a></h2>
-<p>DistributedDataParallel was the standard. The input was distributed but not works for large models as the model is centraliced</p>
-<p>RPC in Pytorch: Flexible Low Level Tools
-Features:</p>
-<ul>
-<li>Remote execution: Run user function or modules remotely
-rpc_init,sync, async, return a remote reference (shared pointer), shutdown</li>
-<li>Remote reference
-points to objects in a distributed env and can be passed as rpc arguments to avoid communicating real data</li>
-<li>Distributed autograd
-Automatically stitch togethr local autograd to perform distributed differentiation across rpc boundaries</li>
-</ul>
-<p>Use cases:
--Parameter server multiple trainers and serevers
--Distributed model parallel
--Pipeline parallelism</p>
-<h2><a class="header" href="#pytorch-ddp" id="pytorch-ddp">Pytorch DDP</a></h2>
-<p>DDP and C10D merges with RPC</p>
-<p>Future adds:
-Add zero (DeepSpeed) style training framework for large models
-intra layer perallelism (Used by megatron model)
-Torchscript support for c10d apis
-Auto tuning for DDP
-Hybrid Parallelism
-Auto Parallelism</p>
-<h2><a class="header" href="#torchtext" id="torchtext">TorchText:</a></h2>
-<p>-Raw text
-Download, unzip, read
--Transforms
-tokenize,vocabulary,sentencepiece
--Batch and sampler
-DataLoader,Sampler
--Model
--Transformer,MultiheadAttention</p>
-<p>Datasets
-AG_NEWS, Sogounews</p>
-<p>Tokenizer-&gt;vocab lookup-&gt;to tensor
-Tokenizer-&gt;Vector Lookup</p>
-<p>Multihead-attention container:
--Drop-in replacement
--torchscript support
--incremental decoding
--broadcast support
--research variants</p>
-<h2><a class="header" href="#pyroch-and-tensorboard" id="pyroch-and-tensorboard">Pyroch and Tensorboard</a></h2>
-<p>pr_curve!!!</p>
-<p>hyperpararmeter dashboard</p>
-<p>Future:
-Perf plugin
-plotly
-alert</p>
-<h2><a class="header" href="#performance" id="performance">Performance</a></h2>
-<p>Better AMP
-tf32</p>
-<p>Metal - Apple GPU inference
-Vulkan - Android GPU inferene</p>
-<h2><a class="header" href="#android-and-pytorch" id="android-and-pytorch">Android and Pytorch</a></h2>
-<p>Take advantage of GPUs/NPUs Neural Process Accelerators in mobile devices
-Android Neural Networks API abstracts the different underlying vendor driver libs and chips
-Pytorch supports NNAPI</p>
-<h2><a class="header" href="#pytorch-for-other-languages" id="pytorch-for-other-languages">Pytorch for Other Languages</a></h2>
-<ul>
-<li>Libtorch (C++) Allows other programing languages binding to C++ have their own Torch-like library</li>
-<li>Serialized representation of models like torchscript and onnx. This allows to exchange trained models between 
-programming languages</li>
-</ul>
-<p>Torch for R or Hasktorch are examples of a library implemented on Libtorch</p>
-<p>The Gradient Review: Frameworks don't just enable machine learning resetarch, they enable and restrict what researchers can do</p>
-<h2><a class="header" href="#pytorch-for-graph-neural-networks" id="pytorch-for-graph-neural-networks">Pytorch for Graph Neural networks</a></h2>
-<p>-Pythonic API
--For High Energy Physics
--Maybe for Quantum computing in the future?</p>
-<h2><a class="header" href="#hyperparameter-tuning" id="hyperparameter-tuning">Hyperparameter tuning</a></h2>
-<p>hyperparameterss:
-layers, units per layer, lr, etc.. determine the performance. can determine the success or failure of the models.
-preprossingaugmentation, image format</p>
-<p>network trainerbatchs size image, optimizer chosen
-hwlayer : fp3 smixed precission</p>
-<p>Hyper-parameter optimization paper
-Suervay of ML expeprimettal methods at neurips2019 and iclr2020
-- 6% where using only HP optimizers</p>
-<p>Avoid Curse of Dimensionality
-An efficient approach for assesing hyperparameter importance</p>
-<p>Optuma came as a result.</p>
-<p>Best hyperparameters to tune:
-LR is the most hyer parameter
-Units in the firsr layer
-the optimizer
-dropout in the first layer</p>
-<p>Hyperparameter evolution:</p>
-<p>not tuning
-manually play 
-grid search
-optuna
-optupta weveraged with hyperparameter tuning</p>
-<h2><a class="header" href="#deepspeed-interesting" id="deepspeed-interesting">DeepSpeed (Interesting)</a></h2>
-<p>Training optimization library
-Faster Transformer training
-zero-offload: Democrazitzes big models
-1-bit adam: 5x faster training</p>
-<p>ONNX Runtime (ORT)
-optimized for pytorch 
-integrating collections of optimization techiniques from Deepspeed</p>
-<h2><a class="header" href="#ml-perf" id="ml-perf">ML Perf</a></h2>
-<p>GPU support in Pytorch. </p>
-<p>NVIDIA trains BERT in 48.6s using 2048 A100 GPUs</p>
-<p>Challenges:
-Slow non-gpu work: Cuda graphs
-model parallel utilities:<br />
-automated optimizations: Automated operator fusion (collaborate witht the JIT team at FB)</p>
-<p>Dedicated pytorch team in NVIDIA</p>
-<h2><a class="header" href="#going-forward" id="going-forward">Going Forward</a></h2>
-<p>-Run in mobile devices, embedded hw like Rapsberry Pi, new devices</p>
-<ul>
-<li>ONNX Runtime and TVM</li>
-</ul>
-<p>ONNX
--Need to expoert
--good perf out o f  the box
--files as means of exchange
-should pytorch take ONNX?</p>
-<p>TVM
--can take python JIT graph
--conversion implemented in Pythn
--typing one of the hard bits
-can tune for new hw/optimization paterns</p>
-<p>3ed option: hook into pytorch as torch vision ant trttorch</p>
-<p>jit extension
-allows to bind 3rd party libraries for benchmark or quick speedups on specifi ops
-also fuse operation tugehter. trt requritest the jit grap in custom pass
-you stay in pytorch
-you cherry picks which things run externally</p>
-<h2><a class="header" href="#reproducibility-ai-using-pytorch" id="reproducibility-ai-using-pytorch">Reproducibility AI using Pytorch</a></h2>
-<p>MLFlow: Trochserve</p>
-<h2><a class="header" href="#pytorchxla" id="pytorchxla">Pytorch/XLA</a></h2>
-<p>TPUs</p>
-<p>XLA compoiler based linear algrebra exec engine. targets cpu gpu and tpu</p>
-<p>pytrch/xla is a layer eteen xla and pytorch</p>
-<p>provides apis for out of the tree backend extensions.</p>
-<p>Lazy tensor system . Build on top of the pytorch eager runtime.
-stores the pytorch ops as intermidate representation
-then pytroch xla to xla converting theIR node tho the HLOptimizer</p>
-<h2><a class="header" href="#torchserve" id="torchserve">TorchServe</a></h2>
-<p>Pytorch
-Need for custom code to deploy and predict
-Need for custom infrastructure to scale and monitor</p>
-<p>Use version for A/B testing
-Ensemble support (commint soon) and batch inferencing
-REST API, grpc API (coming soon)</p>
-<p>Future:</p>
-<ul>
-<li>Improve memory and resource usage for scalability</li>
-<li>compliancy with serving APIs sun as KFServing (look at it)</li>
-<li>integrating with Captum</li>
-<li>Autoscalling for K8s</li>
-</ul>
-<h2><a class="header" href="#differential-privacy" id="differential-privacy">Differential Privacy</a></h2>
-<p>Destroy a controlled amount of information</p>
-<p>GDPR and used in the US census</p>
-<p>Aggregates can be:
--count things
--a mean
--train a ML model</p>
-<p>memorization violates privacy: has to do with losing memory</p>
-<p>Differential privacy can be added to : data, training, model.zip, deployment
-the gold standard is to add it to training: Opacus (limits memorization)</p>
-<p>bit.ly/opacus-dev-day</p>
-<h2><a class="header" href="#future-of-ai-tools" id="future-of-ai-tools">Future of AI Tools</a></h2>
-<h2><a class="header" href="#what-was-build-in-2020" id="what-was-build-in-2020">What was build in 2020:</a></h2>
-<p>Optuna</p>
+<h2><a class="header" href="#text-generation" id="text-generation">Text Generation</a></h2>
+<p>Text generation is a subfield of NLP which pursues the automatic generation of human-readable text using
+computational linguistics and AI.</p>
+<p>Approaches to text generation use a <a href="vocabulary.html#language-model">language model</a> to generate the probability
+distribution from we can sample to generate the next token in a sentence.</p>
+<p>One of the most used generative models the so-called is Recurrent Neural Networks (RNN) </p>
 
                     </main>
 
