@@ -78,6 +78,19 @@ the WWW flying around). This evolved years later in his broader theory for memor
 
 - [DBLP Papers](https://dblp.org/pid/m/MarvinMinsky.html)
 
+# Gary Marcus
+
+Cognitive scientist (in his PhD had Steven Pinker as advisor,) founder of Geometric Intelligence, a ML company
+ acquired by Uber in 2016. He's trying to "shape" the next steps in ML through his essays and articles (e.g. {{ cite marcus_next_2020 }}).
+Well known for challenging the traditional [connectionist theories](approaches.md#connectionist), he believes that
+ [neurons can be put together to build circuits in order to do things such as process rules or process structured 
+ representations](https://en.wikipedia.org/wiki/Gary_Marcus), which is more aligned with the Neuro-Symbolic Learning 
+ and Reasoning line of work.
+
+# Carver Mead
+
+Neuromorphic computation
+
 # Javier Movellan
 
 Piooner in introducing social robots in classrooms.

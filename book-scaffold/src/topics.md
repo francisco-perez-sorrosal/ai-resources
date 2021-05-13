@@ -10,13 +10,6 @@ a general capability on fulfilling previous learned tasks.
 This artificial general intelligence requires that the agent does not forget what it has learn -what is called [catastrophic forgetting](#catastrophic_forgetting)
 in the literature- and assumes that the agent will continue learning new tasks -called [continual or lifelong learning](#continual_learning).
 
-## Feature Engineering
-
-The classical/traditional way of "massage" the input to pass to a ML model (e.g. a classifier.) This was
-an "art" in itself.
-In the age of DL, this has been substituted by the DL models themselves, which represents
-also the features on top of which the learning of a task is done. 
-
 ## Loss Function
 
 Papers:
@@ -104,28 +97,6 @@ Papers:
  * [Calibration Tutorial](https://www.youtube.com/watch?v=rhnqZV6eKlg&feature=youtu.be)
 </details>
 
-## Model Interpretability
-Intellegibility and explanation are critical in many domains (health, crime prediction...) [Blog entry](https://medium.com/analytics-vidhya/model-interpretation-with-microsofts-interpret-ml-85aa0ad697ae)
-
-
-Models as black box methods: Shap, LIME
-Glass box modesl: Explainable Boosting Machine (EBMs) are the SotA
-
-Papers:
-* [Neural Additive Models: Interpretable Machine Learning with Neural Nets](https://arxiv.org/abs/2004.13912)
-* [A Unified Approach to Interpreting Model Predictions (NIPS 2017)](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf)
-
-Books:
-* [Interpreable Machine Learning Book A Guide for Making Black Box Models Explainable (Christoph Molnar, 2020)](https://christophm.github.io/interpretable-ml-book/)
-
-Tools:
-* [Lime](https://github.com/marcotcr/lime)
-* [Shap](https://github.com/slundberg/shap)
-* [Interpret ML](https://github.com/interpretml/interpret) Reference impl of EBMs
-* [Shap Tutorial (Includes BERT examples)](https://nbviewer.jupyter.org/github/slundberg/shap/blob/master/notebooks/general/Explainable%20AI%20with%20Shapley%20Values.ipynb)
-* [Captum](https://captum.ai/) For Pytorch
-* [Explainable AI works by Jesse Vig (PARC Researcher)](https://jessevig.com/)
-* [Testing and Explainability (Lecture 10 in FullStackDeepLearning)](https://fullstackdeeplearning.com/spring2021/lecture-10/)
 
 
 ## Causality

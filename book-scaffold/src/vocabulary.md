@@ -29,6 +29,38 @@ that generalize well.
 
 ## Expert System
 
+## [Explainability](vocabulary.md#Interpretability)
+
+[See Interpretability](vocabulary.md#Interpretability).
+
+## Explanation
+
+The explicit ability expected in an intelligent agent to give "good" explanations of its decisions to humans. As usual,
+the problem here is to define what is a "good" explanation. If we try to mimic in the intelligent agent world, how 
+humans proceed giving explanations to other humans, we have to acknowledge we'll have to deal with biases and/or social
+expectations. Some researchers argue {{ cite graaf_how_2017 }} that the framework of explanation of those agents will need 
+to be consistent with the conceptual framework and psychological mechanisms of human behavior explanation, as humans
+will expect explanations falling under those two premises.
+
+# F
+
+## Feature
+
+It's a property extracted from each data instance of a dataset being observed. An example would be the "color" attribute
+extracted from row coding an outfit item example from a file called seasonal_outfits.csv). Features are
+crucial for many ML procesess. Selecting those features it's an art, which even has a name: [feature engineering](#feature_enginering).
+Some of the properties that a good feature should have for being selected are:
+- Informative about the concept that they represent
+- Discriminating, to be able to separate one example instance from another 
+- Independent, if possible from the other features extracted from the data instance
+
+## Feature Engineering
+
+The classical/traditional way of "massage" the input to pass to a ML model (e.g. a classifier.) It refers to the process 
+of using domain knowledge to extract features from raw data. This was an "art" in itself usually done by domain experts.
+In the age of DL, this has been substituted by the DL models themselves, which represents also the features on top of
+ which the learning of a task is done.
+
 # G
 
 ## Generalization
@@ -48,10 +80,47 @@ if a particular sample comes from the training data or from the "generative" moi
 
 ![GAN (Source: https://towardsdatascience.com/understanding-generative-adversarial-networks-gans-cd6e4651a29)](images/gan.png)
 
+# I
+
+## Interpretability
+
+How well a human can understand the decisions (e.g. the output of a ML classifier) taken by an intelligent system in a given context.
+This is related to the extent up to which humans can predict the results of a model. 
+
 ### Related
 
 * [Ian Goodfellow Interview](https://www.technologyreview.com/2018/02/21/145289/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/)
 
+# L
+
+# Language Model
+
+In any language, the words (or characters) in a sentence show certain correlations. Those correlations
+ capture and contextualize the underlying semantics and characteristics of the particular language. 
+ 
+Sequences of tokens can be found almost anywhere, being the words in a text, pixels in an image, the musical notes in
+ a score, etc. A language model could be defined as a statistical model that has learnt to predict the probability of a
+ sequence of tokens, capturing the correlation with other nearby tokens, either consecutive or not. In NLP, the tokens 
+ use to represent words or n-grams.
+
+The calculation of the next token in the sequence \[x_n\] can be modeled as:
+
+\[ p(x_n | x_{n-1}, x_{n-2}...x_{1}) \]
+
+where \[ x_i \] represents the ith token in the sequence.
+
+# Neural Network
+
+
+
+# Neuromorphic Computing
+
+A computing approach which model neurons as asynchronous and independent computation units which are stimulated by the
+ spikes triggered by other interconnected neurons, in a similar way as brain neurons behave.
+ 
+Relying on asynchronous communication between the neurons, these neuromorphic systems do not need to rely on a system 
+clock. So, this async communication of pulses to simulate neuron spikes is more enegy efficient, as it consumes less 
+power.
 
 # O
 

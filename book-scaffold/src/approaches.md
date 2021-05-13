@@ -15,9 +15,26 @@ successes in early AI computer programs, in particular in the era of [expert sys
 
 ### Connectionist
 
-Basically this approach is based on studying the recent advances in neuroscience related to how the brain works 
-and try to do a reverse engineering process of what has been learn. As neuroscience is indeed influenced by physics
-the connectionists model also the neurons based on the 
+Basically this approach is based on studying the recent advances in cognitive sciences related to how the brain works 
+and try to do a reverse engineering process of what has been learn. In cognitive sciences there have been and still
+ are many  researchers that advocate for ToMs that posits that the mind is only made up of randomly arranged neurons. We 
+can say Artificial Neural Networks (ANNs) were the main result of this line of though.
+ 
+However, this view is a very restricted one for many other researchers, for example [Gary Marcus](people.md#gary-marcus) 
+There are other trends like Neural-Symbolic systems that try to combine ANN and logic
+ {{ cite besold_neural-symbolic_2018 }} to try to build systems able to learn and reason.
+
+As neuroscience is indeed influenced by physics
+the connectionists, may model also the artificial neurons based on the physical properties observed in real neurons
+. That's why in this approach we can include also the neuromorphic approach, which models neurons in a more similar
+ fashion to the neurons in the brain. For example, a neuromorphic neuron uses  just 1-bit spike to communicate with other neurons. 
+Neurons can send these spikes in order to activate more or less neurons connected to them. [Carver Mead](people.md#carver-mead)
+was one of the initial contributors in developing this approach. More recently, [IBM](https://www.ibm.com/blogs/research/category/neuromorphic-computing/?mhsrc=ibmsearch_a&mhq=neuromorphic%20computing) 
+or the [e-lab](http://e-lab.github.io/index.html) at Purdue university have continued developing these ideas of this
+ field, now called [neuromorphic computing](vocabulary.md#neuromorphic-computing). Although there are [simulators
+ ](http://apt.cs.manchester.ac.uk/projects/SpiNNaker/) 
+in conventional hardware for modelling this approach, this is highly ineficient, as for example, among other limitations
+, 32-bits are used to model 1-bit spikes, so in order to fully develop neurorphic computing special hardware is needed. 
 
 #### From the Early Days in Connectionism, towards Deep Learning
 
