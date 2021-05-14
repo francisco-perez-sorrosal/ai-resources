@@ -19,15 +19,15 @@ Intelligibility and explanation are critical in many domains (health, crime pred
 Models as black box methods: Shap, LIME
 Glass box models: Explainable Boosting Machine (EBMs) are the SotA
 
-Papers:
+## Papers
 
 * Neural Additive Models: Interpretable Machine Learning with Neural Nets {{ cite agarwal_neural_2020 }}
 * A Unified Approach to Interpreting Model Predictions (NIPS 2017) {{ cite lundberg_unified_2020 }}
 
-Books:
+## Books
 * [Interpreable Machine Learning Book A Guide for Making Black Box Models Explainable (Christoph Molnar, 2020)](https://christophm.github.io/interpretable-ml-book/)
 
-Tools:
+## Tools
 * [Lime](https://github.com/marcotcr/lime)
 * [Shap](https://github.com/slundberg/shap)
 * [Interpret ML](https://github.com/interpretml/interpret) Reference impl of EBMs

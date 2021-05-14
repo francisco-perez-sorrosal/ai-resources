@@ -116,6 +116,8 @@ The calculation of the next token in the sequence \[x_n\] can be modeled as:
 
 where \[ x_i \] represents the ith token in the sequence.
 
+For more information see {{ cite bengio_neural_2003 }}
+
 # Neural Network
 
 

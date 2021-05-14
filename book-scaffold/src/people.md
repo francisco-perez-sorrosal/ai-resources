@@ -4,8 +4,17 @@ Joint with [Richard Sutton](#Richard Sutton), [one of the most influential acade
 behind the recent successes and dissemination of reinforcement learning. [He was at University of Ahmerst](https://www.cics.umass.edu/faculty/directory/barto_andrew) 
 in Massachusets. Author of the already classic book on RL {{ #cite sutton_reinforcement_2018 }}
 
-# Yoshua Bengio
+# [Yoshua Bengio](yoshuabengio.org)
 
+Joint with [Geoffrey Hinton](#geoffrey-hinton) and [Yann LeCunn](#yann-lecunn), he received the Turing Award in 2018. In
+ the last decades, he's been one of the leading experts pushing the limits of field of AI contributing forward.
+
+A computer scientist by career, he is a professor at Université de Montréal. [Ian Goodfellow](#ian-goofellow) was one
+ of his students. He's also the Scientific Director of [Mila](books_and_resources.md#research-centerscommunities) in Quebec.
+
+He's been also an entrepreneur, although not very successful up to now. [Element AI](https://en.wikipedia.org/wiki/Element_AI)
+has been up to know his most well-known company.
+ 
 # Rodney Brooks
 
 Father of modern robotics. Strong believer in the [actionist approach](approaches.md#Actionist) of ML/AI.
@@ -116,15 +125,17 @@ learned playing against itself.
 
 Spanish neuroanatomist considered one of the fathers of modern neuroscience.
 
-# David Rumelhart (1943-2011)
+# David Rumelhart 
+(1943-2011)
 
 Known for being one of the persons developing [Backpropagation](vocabulary.md#backpropagation).
 He was diagnosed with FTD (frontotemporal dementia). In FTD, some areas of the frontal lobes of the brain suffer an 
 atrophy (they shrink), which in the end may cause problems with behavior and language depending on the area affected.
 
-# Terrence Sejnowsky (1947-)
+# Terrence Sejnowsky
+(1947-)
 
-One of the initial developers of connectionism
+One of the initial developers and advocates of connectionism.
 
 # Herbert A. Simon
 

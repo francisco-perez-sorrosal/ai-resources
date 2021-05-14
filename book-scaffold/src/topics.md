@@ -8,7 +8,7 @@ artificial intelligence.
 In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining 
 a general capability on fulfilling previous learned tasks.
 This artificial general intelligence requires that the agent does not forget what it has learn -what is called [catastrophic forgetting](#catastrophic_forgetting)
-in the literature- and assumes that the agent will continue learning new tasks -called [continual or lifelong learning](#continual_learning).
+in the literature- and assumes that the agent will continue learning new tasks -called [continual or lifelong learning](#continual-learning).
 
 ## Loss Function
 
@@ -118,6 +118,12 @@ equivalent of continual learning to be implemented in the field of artificial ne
 
 [This is a summary of the recent (2021) advances in continual learning in NLP.](https://www.aclweb.org/anthology/2020.coling-main.574.pdf)
 
+[Sejnowski](people.md#terrence-sejnowsky) et al. {{ cite tsuda_modeling_2020 }} have developed a NN
+ architecture that shows how
+ hierarchical gating supports adaptive learning while preserving memories from prior experience. 
+They show also how when introducing damages in the model, it recapitulates disorders found on the 
+ human Prefrontal Cortex.
+
 ### <a name="catastrophic_forgetting"></a>Protocols/Strategies for Solving Catastrophic Forgetting (CF)
 
 One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing
@@ -136,5 +142,7 @@ https://arxiv.org/pdf/1612.00796.pdf
 * [Generative replay with feedback connections as a general strategy for continual learning (ICLR2019)](https://arxiv.org/pdf/1809.10635v2.pdf)
 * [Three Scenarios for Continual Learning](https://arxiv.org/pdf/1904.07734.pdf)
 * [Compositional language continual learning](https://openreview.net/pdf?id=rklnDgHtDS)
+
+
 
 # GANs and Creativity

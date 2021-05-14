@@ -1,7 +1,7 @@
 # Productionizing ML/DL
 
 The software infrastructure stack that is required for ML projects in general, is quite different from the current stack
-of non-ML projects. [Andrej Karpathy](people.md#Andrej_Karpathy)
+of non-ML projects. [Andrej Karpathy](people.md#Andrej-Karpathy)
 
 [Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)](http://pages.cs.wisc.edu/~wentaowu/papers/kdd20-ci-for-ml.pdf)
 Interesting
