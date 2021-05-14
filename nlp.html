@@ -327,21 +327,34 @@ have been used successfully also for other NLP task such as classification. </p>
 <p>However, LMs per-se, despite promising for text generation, are limited in the control terms that humans
 have for &quot;influencing&quot; the generated content. The problem relies on the fact that, once the models are trained
 , it becomes difficult add control attributes without modifying the architecture to allow extra input
-attributes or tuning with extra data. </p>
-<p>Without these control attributes, model tend to <a href="vocabulary.html#hallucination">&quot;hallucinate&quot;</a>.
+attributes or tuning with extra data. The prompts written by humans or generated automatically act just a starting
+cue for the generator, but does not allow to control other properties such as define the topic of the generated
+text.</p>
+<p>Without these control attributes, models tend to <a href="vocabulary.html#hallucination">&quot;hallucinate&quot;</a>.
 More recent approaches to text generation include these control mechanism: CTRL {{ cite shirish_ctrl_2019 }} and PPLM
 {{ dathathri_plug_2020 }}.</p>
-<p>CTRL introduces control codes to condition the language model. These control codes govern the style, content, and task-specific
-behavior of the generated text. The control codes allow 1) preserve the advantages of unsupervise learning; 2) seamless
+<p><a href="https://github.com/salesforce/ctrl">Conditional Transformer Language (CTRL)</a> introduces control codes to condition the
+language model. These control
+codes govern
+the style, content, and task-specific
+behavior of the generated text. More specifically, the control codes allow 1) preserve the advantages of unsupervise
+learning; 2) seamless
 integration in the structure of the raw while providing the required control over generation, and 3) predict which
 parts  of the training data are most likely given a sequence.</p>
+<p>CTRL is trained on control codes that co-occur narurally with the original text typically used for training LMs.
+Big datasets such Wikipedia are assigned with a domain-related control code; other smaller datasets (e.g. content from
+specific online communities in Reddit are assigned to a broader domain name (Reddit) and with subdomain information
+(e.g. r/politics.) All control codes can be traced to a particular subset of the training data.
+Moreover, the codes can be combined with codes during generation to cross-over task-specific and domain/content
+behaviors.</p>
 <p>As CTRL, Plug and Play Language Model (PPLM) combines a pretrained LM with n &quot;attribute classifiers&quot; which allow to
 drive the text generation process externally without architectural changes. This work was influenced by the
 Plug &amp; Play Generative Networks (PPGN) work in computer vision (2017). In PPGN a discriminator (attribute model)
 [ p(a|x) ] is plugged with a generative model p(x), so that sampling from the resulting [ p(x|a) \propto p(a|x
 )p(x) ], effectively creates a generative model conditioned from the provided attribute a.
 As the attribute is plugged post facto in the activation space, no further fine-tuning is required.</p>
-<p>Another recent work is {{ cite rebuffel_controlling_2021 }}. This work addresses hallucination by treating it at a
+<p>Another recent work is {{ cite rebuffel_controlling_2021 }}, based on RNNs. This work addresses hallucination by
+treating it at a
 word level, which is a more fine-grained approach than other works, which deal with hallucination at the instance
 level. It proposes a procedure that consist of: 1) a word-level labeling procedure built on dependency parsing and
 based on co-ocurrences and sentence structure; 2) a weighted multi-branch decoder which, guided by the alignment
