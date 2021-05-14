@@ -1,4 +1,18 @@
 
+@article{agarwal_neural_2020,
+	title = {Neural Additive Models: Interpretable Machine Learning with Neural Nets},
+	url = {http://arxiv.org/abs/2004.13912},
+	shorttitle = {Neural Additive Models},
+	abstract = {Deep neural networks ({DNNs}) are powerful black-box predictors that have achieved impressive performance on a wide variety of tasks. However, their accuracy comes at the cost of intelligibility: it is usually unclear how they make their decisions. This hinders their applicability to high stakes decision-making domains such as healthcare. We propose Neural Additive Models ({NAMs}) which combine some of the expressivity of {DNNs} with the inherent intelligibility of generalized additive models. {NAMs} learn a linear combination of neural networks that each attend to a single input feature. These networks are trained jointly and can learn arbitrarily complex relationships between their input feature and the output. Our experiments on regression and classification datasets show that {NAMs} are more accurate than widely used intelligible models such as logistic regression and shallow decision trees. They perform similarly to existing state-of-the-art generalized additive models in accuracy, but can be more easily applied to real-world problems.},
+	journaltitle = {{arXiv}:2004.13912 [cs, stat]},
+	author = {Agarwal, Rishabh and Frosst, Nicholas and Zhang, Xuezhou and Caruana, Rich and Hinton, Geoffrey E.},
+	urldate = {2021-04-14},
+	date = {2020-04-28},
+	eprinttype = {arxiv},
+	eprint = {2004.13912},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Statistics - Machine Learning},
+}
+
 @book{akama_elements_2015,
 	location = {Cham},
 	title = {Elements of Quantum Computing},
@@ -65,6 +79,33 @@
 	eprinttype = {arxiv},
 	eprint = {1607.06450},
 	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+}
+
+@article{bengio_neural_2003,
+	title = {A neural probabilistic language model},
+	volume = {3},
+	issn = {1532-4435},
+	abstract = {A goal of statistical language modeling is to learn the joint probability function of sequences of words in a language. This is intrinsically difficult because of the curse of dimensionality: a word sequence on which the model will be tested is likely to be different from all the word sequences seen during training. Traditional but very successful approaches based on n-grams obtain generalization by concatenating very short overlapping sequences seen in the training set. We propose to fight the curse of dimensionality by learning a distributed representation for words which allows each training sentence to inform the model about an exponential number of semantically neighboring sentences. The model learns simultaneously (1) a distributed representation for each word along with (2) the probability function for word sequences, expressed in terms of these representations. Generalization is obtained because a sequence of words that has never been seen before gets high probability if it is made of words that are similar (in the sense of having a nearby representation) to words forming an already seen sentence. Training such large models (with millions of parameters) within a reasonable time is itself a significant challenge. We report on experiments using neural networks for the probability function, showing on two text corpora that the proposed approach significantly improves on state-of-the-art n-gram models, and that the proposed approach allows to take advantage of longer contexts.},
+	pages = {1137--1155},
+	issue = {null},
+	journaltitle = {The Journal of Machine Learning Research},
+	shortjournal = {J. Mach. Learn. Res.},
+	author = {Bengio, Yoshua and Ducharme, Réjean and Vincent, Pascal and Janvin, Christian},
+	date = {2003-03-01},
+}
+
+@article{besold_neural-symbolic_2017,
+	title = {Neural-Symbolic Learning and Reasoning: A Survey and Interpretation},
+	url = {http://arxiv.org/abs/1711.03902},
+	shorttitle = {Neural-Symbolic Learning and Reasoning},
+	abstract = {The study and understanding of human behaviour is relevant to computer science, artificial intelligence, neural computation, cognitive science, philosophy, psychology, and several other areas. Presupposing cognition as basis of behaviour, among the most prominent tools in the modelling of behaviour are computational-logic systems, connectionist models of cognition, and models of uncertainty. Recent studies in cognitive science, artificial intelligence, and psychology have produced a number of cognitive models of reasoning, learning, and language that are underpinned by computation. In addition, efforts in computer science research have led to the development of cognitive computational systems integrating machine learning and automated reasoning. Such systems have shown promise in a range of applications, including computational biology, fault diagnosis, training and assessment in simulators, and software verification. This joint survey reviews the personal ideas and views of several researchers on neural-symbolic learning and reasoning. The article is organised in three parts: Firstly, we frame the scope and goals of neural-symbolic computation and have a look at the theoretical foundations. We then proceed to describe the realisations of neural-symbolic computation, systems, and applications. Finally we present the challenges facing the area and avenues for further research.},
+	journaltitle = {{arXiv}:1711.03902 [cs]},
+	author = {Besold, Tarek R. and Garcez, Artur d'Avila and Bader, Sebastian and Bowman, Howard and Domingos, Pedro and Hitzler, Pascal and Kuehnberger, Kai-Uwe and Lamb, Luis C. and Lowd, Daniel and Lima, Priscila Machado Vieira and de Penning, Leo and Pinkas, Gadi and Poon, Hoifung and Zaverucha, Gerson},
+	urldate = {2021-04-15},
+	date = {2017-11-10},
+	eprinttype = {arxiv},
+	eprint = {1711.03902},
+	keywords = {Computer Science - Artificial Intelligence},
 }
 
 @article{biesialska_continual_2020,
@@ -250,6 +291,20 @@
 	keywords = {Computer Science - Computation and Language, Computer Science - Machine Learning, {NLP}, Statistics - Machine Learning, {XL}, language model, transformer},
 }
 
+@article{dathathri_plug_2020,
+	title = {Plug and Play Language Models: A Simple Approach to Controlled Text Generation},
+	url = {http://arxiv.org/abs/1912.02164},
+	shorttitle = {Plug and Play Language Models},
+	abstract = {Large transformer-based language models ({LMs}) trained on huge text corpora have shown unparalleled generation capabilities. However, controlling attributes of the generated language (e.g. switching topic or sentiment) is difficult without modifying the model architecture or fine-tuning on attribute-specific data and entailing the significant cost of retraining. We propose a simple alternative: the Plug and Play Language Model ({PPLM}) for controllable language generation, which combines a pretrained {LM} with one or more simple attribute classifiers that guide text generation without any further training of the {LM}. In the canonical scenario we present, the attribute models are simple classifiers consisting of a user-specified bag of words or a single learned layer with 100,000 times fewer parameters than the {LM}. Sampling entails a forward and backward pass in which gradients from the attribute model push the {LM}'s hidden activations and thus guide the generation. Model samples demonstrate control over a range of topics and sentiment styles, and extensive automated and human annotated evaluations show attribute alignment and fluency. {PPLMs} are flexible in that any combination of differentiable attribute models may be used to steer text generation, which will allow for diverse and creative applications beyond the examples given in this paper.},
+	journaltitle = {{arXiv}:1912.02164 [cs]},
+	author = {Dathathri, Sumanth and Madotto, Andrea and Lan, Janice and Hung, Jane and Frank, Eric and Molino, Piero and Yosinski, Jason and Liu, Rosanne},
+	urldate = {2021-05-12},
+	date = {2020-03-03},
+	eprinttype = {arxiv},
+	eprint = {1912.02164},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Computation and Language, Computer Science - Machine Learning},
+}
+
 @article{de_lange_continual_2020,
 	title = {A continual learning survey: Defying forgetting in classification tasks},
 	url = {http://arxiv.org/abs/1909.08383},
@@ -284,6 +339,20 @@
 	date = {2015-09-22},
 }
 
+@article{garcez_neural-symbolic_2019,
+	title = {Neural-Symbolic Computing: An Effective Methodology for Principled Integration of Machine Learning and Reasoning},
+	url = {http://arxiv.org/abs/1905.06088},
+	shorttitle = {Neural-Symbolic Computing},
+	abstract = {Current advances in Artificial Intelligence and machine learning in general, and deep learning in particular have reached unprecedented impact not only across research communities, but also over popular media channels. However, concerns about interpretability and accountability of {AI} have been raised by influential thinkers. In spite of the recent impact of {AI}, several works have identified the need for principled knowledge representation and reasoning mechanisms integrated with deep learning-based systems to provide sound and explainable models for such systems. Neural-symbolic computing aims at integrating, as foreseen by Valiant, two most fundamental cognitive abilities: the ability to learn from the environment, and the ability to reason from what has been learned. Neural-symbolic computing has been an active topic of research for many years, reconciling the advantages of robust learning in neural networks and reasoning and interpretability of symbolic representation. In this paper, we survey recent accomplishments of neural-symbolic computing as a principled methodology for integrated machine learning and reasoning. We illustrate the effectiveness of the approach by outlining the main characteristics of the methodology: principled integration of neural learning with symbolic knowledge representation and reasoning allowing for the construction of explainable {AI} systems. The insights provided by neural-symbolic computing shed new light on the increasingly prominent need for interpretable and accountable {AI} systems.},
+	journaltitle = {{arXiv}:1905.06088 [cs]},
+	author = {Garcez, Artur d'Avila and Gori, Marco and Lamb, Luis C. and Serafini, Luciano and Spranger, Michael and Tran, Son N.},
+	urldate = {2021-04-15},
+	date = {2019-05-15},
+	eprinttype = {arxiv},
+	eprint = {1905.06088},
+	keywords = {Computer Science - Artificial Intelligence},
+}
+
 @article{geiger_scaling_2020,
 	title = {Scaling description of generalization with number of parameters in deep learning},
 	volume = {2020},
@@ -301,6 +370,20 @@
 	eprinttype = {arxiv},
 	eprint = {1901.01608},
 	keywords = {Computer Science - Machine Learning, Condensed Matter - Disordered Systems and Neural Networks},
+}
+
+@article{goldberg_word2vec_2014,
+	title = {word2vec Explained: deriving Mikolov et al.'s negative-sampling word-embedding method},
+	url = {http://arxiv.org/abs/1402.3722},
+	shorttitle = {word2vec Explained},
+	abstract = {The word2vec software of Tomas Mikolov and colleagues (https://code.google.com/p/word2vec/ ) has gained a lot of traction lately, and provides state-of-the-art word embeddings. The learning models behind the software are described in two research papers. We found the description of the models in these papers to be somewhat cryptic and hard to follow. While the motivations and presentation may be obvious to the neural-networks language-modeling crowd, we had to struggle quite a bit to figure out the rationale behind the equations. This note is an attempt to explain equation (4) (negative sampling) in "Distributed Representations of Words and Phrases and their Compositionality" by Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado and Jeffrey Dean.},
+	journaltitle = {{arXiv}:1402.3722 [cs, stat]},
+	author = {Goldberg, Yoav and Levy, Omer},
+	urldate = {2021-04-15},
+	date = {2014-02-15},
+	eprinttype = {arxiv},
+	eprint = {1402.3722},
+	keywords = {Computer Science - Computation and Language, Computer Science - Machine Learning, Statistics - Machine Learning},
 }
 
 @article{gong_hierarchical_2020,
@@ -451,6 +534,20 @@
 	langid = {english},
 }
 
+@article{keskar_ctrl_2019,
+	title = {{CTRL}: A Conditional Transformer Language Model for Controllable Generation},
+	url = {http://arxiv.org/abs/1909.05858},
+	shorttitle = {{CTRL}},
+	abstract = {Large-scale language models show promising text generation capabilities, but users cannot easily control particular aspects of the generated text. We release {CTRL}, a 1.63 billion-parameter conditional transformer language model, trained to condition on control codes that govern style, content, and task-specific behavior. Control codes were derived from structure that naturally co-occurs with raw text, preserving the advantages of unsupervised learning while providing more explicit control over text generation. These codes also allow {CTRL} to predict which parts of the training data are most likely given a sequence. This provides a potential method for analyzing large amounts of data via model-based source attribution. We have released multiple full-sized, pretrained versions of {CTRL} at https://github.com/salesforce/ctrl.},
+	journaltitle = {{arXiv}:1909.05858 [cs]},
+	author = {Keskar, Nitish Shirish and {McCann}, Bryan and Varshney, Lav R. and Xiong, Caiming and Socher, Richard},
+	urldate = {2021-05-12},
+	date = {2019-09-20},
+	eprinttype = {arxiv},
+	eprint = {1909.05858},
+	keywords = {Computer Science - Computation and Language},
+}
+
 @article{kirkpatrick_overcoming_2017,
 	title = {Overcoming catastrophic forgetting in neural networks},
 	url = {http://arxiv.org/abs/1612.00796},
@@ -574,6 +671,19 @@ Section: Articles},
 	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning},
 }
 
+@article{lundberg_unified_2017,
+	title = {A Unified Approach to Interpreting Model Predictions},
+	url = {http://arxiv.org/abs/1705.07874},
+	abstract = {Understanding why a model makes a certain prediction can be as crucial as the prediction's accuracy in many applications. However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability. In response, various methods have recently been proposed to help users interpret the predictions of complex models, but it is often unclear how these methods are related and when one method is preferable over another. To address this problem, we present a unified framework for interpreting predictions, {SHAP} ({SHapley} Additive {exPlanations}). {SHAP} assigns each feature an importance value for a particular prediction. Its novel components include: (1) the identification of a new class of additive feature importance measures, and (2) theoretical results showing there is a unique solution in this class with a set of desirable properties. The new class unifies six existing methods, notable because several recent methods in the class lack the proposed desirable properties. Based on insights from this unification, we present new methods that show improved computational performance and/or better consistency with human intuition than previous approaches.},
+	journaltitle = {{arXiv}:1705.07874 [cs, stat]},
+	author = {Lundberg, Scott and Lee, Su-In},
+	urldate = {2021-04-14},
+	date = {2017-11-24},
+	eprinttype = {arxiv},
+	eprint = {1705.07874},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Statistics - Machine Learning},
+}
+
 @article{luo_have_2021,
 	title = {Have Attention Heads in {BERT} Learned Constituency Grammar?},
 	url = {http://arxiv.org/abs/2102.07926},
@@ -585,6 +695,20 @@ Section: Articles},
 	eprinttype = {arxiv},
 	eprint = {2102.07926},
 	keywords = {Computer Science - Computation and Language},
+}
+
+@article{marcus_next_2020,
+	title = {The Next Decade in {AI}: Four Steps Towards Robust Artificial Intelligence},
+	url = {http://arxiv.org/abs/2002.06177},
+	shorttitle = {The Next Decade in {AI}},
+	abstract = {Recent research in artificial intelligence and machine learning has largely emphasized general-purpose learning and ever-larger training sets and more and more compute. In contrast, I propose a hybrid, knowledge-driven, reasoning-based approach, centered around cognitive models, that could provide the substrate for a richer, more robust {AI} than is currently possible.},
+	journaltitle = {{arXiv}:2002.06177 [cs]},
+	author = {Marcus, Gary},
+	urldate = {2021-04-15},
+	date = {2020-02-19},
+	eprinttype = {arxiv},
+	eprint = {2002.06177},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, I.2, I.2.6},
 }
 
 @article{masse_alleviating_2018,
@@ -633,6 +757,19 @@ Section: Articles},
 	date = {2021-03-16},
 }
 
+@article{mikolov_efficient_2013,
+	title = {Efficient Estimation of Word Representations in Vector Space},
+	url = {http://arxiv.org/abs/1301.3781},
+	abstract = {We propose two novel model architectures for computing continuous vector representations of words from very large data sets. The quality of these representations is measured in a word similarity task, and the results are compared to the previously best performing techniques based on different types of neural networks. We observe large improvements in accuracy at much lower computational cost, i.e. it takes less than a day to learn high quality word vectors from a 1.6 billion words data set. Furthermore, we show that these vectors provide state-of-the-art performance on our test set for measuring syntactic and semantic word similarities.},
+	journaltitle = {{arXiv}:1301.3781 [cs]},
+	author = {Mikolov, Tomas and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+	urldate = {2021-04-15},
+	date = {2013-09-06},
+	eprinttype = {arxiv},
+	eprint = {1301.3781},
+	keywords = {Computer Science - Computation and Language},
+}
+
 @article{miller_explanation_2018,
 	title = {Explanation in Artificial Intelligence: Insights from the Social Sciences},
 	url = {http://arxiv.org/abs/1706.07269},
@@ -655,6 +792,20 @@ Section: Articles},
 	journaltitle = {{arXiv}:2004.03705 [cs, stat]},
 	author = {Minaee, Shervin and Kalchbrenner, Nal and Cambria, Erik and Nikzad, Narjes and Chenaghlu, Meysam and Gao, Jianfeng},
 	urldate = {2021-03-04},
+	date = {2021-01-04},
+	eprinttype = {arxiv},
+	eprint = {2004.03705},
+	keywords = {Computer Science - Computation and Language, Computer Science - Machine Learning, Statistics - Machine Learning},
+}
+
+@article{minaee_deep_2021-1,
+	title = {Deep Learning Based Text Classification: A Comprehensive Review},
+	url = {http://arxiv.org/abs/2004.03705},
+	shorttitle = {Deep Learning Based Text Classification},
+	abstract = {Deep learning based models have surpassed classical machine learning based approaches in various text classification tasks, including sentiment analysis, news categorization, question answering, and natural language inference. In this paper, we provide a comprehensive review of more than 150 deep learning based models for text classification developed in recent years, and discuss their technical contributions, similarities, and strengths. We also provide a summary of more than 40 popular datasets widely used for text classification. Finally, we provide a quantitative analysis of the performance of different deep learning models on popular benchmarks, and discuss future research directions.},
+	journaltitle = {{arXiv}:2004.03705 [cs, stat]},
+	author = {Minaee, Shervin and Kalchbrenner, Nal and Cambria, Erik and Nikzad, Narjes and Chenaghlu, Meysam and Gao, Jianfeng},
+	urldate = {2021-04-14},
 	date = {2021-01-04},
 	eprinttype = {arxiv},
 	eprint = {2004.03705},
@@ -706,6 +857,14 @@ Section: Articles},
 	urldate = {2020-02-19},
 	date = {2015-02},
 	langid = {english},
+}
+
+@book{molnar_interpretable_nodate,
+	title = {Interpretable Machine Learning},
+	url = {https://christophm.github.io/interpretable-ml-book/},
+	abstract = {Machine learning algorithms usually operate as black boxes and it is unclear how they derived a certain decision. This book is a guide for practitioners to make machine learning decisions interpretable.},
+	author = {Molnar, Christoph},
+	urldate = {2021-04-14},
 }
 
 @article{nakkiran_deep_2019,
@@ -798,6 +957,19 @@ Section: Articles},
 	keywords = {Computer Science - Information Retrieval, Computer Science - Machine Learning, Statistics - Machine Learning},
 }
 
+@article{peters_deep_2018,
+	title = {Deep contextualized word representations},
+	url = {http://arxiv.org/abs/1802.05365},
+	abstract = {We introduce a new type of deep contextualized word representation that models both (1) complex characteristics of word use (e.g., syntax and semantics), and (2) how these uses vary across linguistic contexts (i.e., to model polysemy). Our word vectors are learned functions of the internal states of a deep bidirectional language model ({biLM}), which is pre-trained on a large text corpus. We show that these representations can be easily added to existing models and significantly improve the state of the art across six challenging {NLP} problems, including question answering, textual entailment and sentiment analysis. We also present an analysis showing that exposing the deep internals of the pre-trained network is crucial, allowing downstream models to mix different types of semi-supervision signals.},
+	journaltitle = {{arXiv}:1802.05365 [cs]},
+	author = {Peters, Matthew E. and Neumann, Mark and Iyyer, Mohit and Gardner, Matt and Clark, Christopher and Lee, Kenton and Zettlemoyer, Luke},
+	urldate = {2021-04-15},
+	date = {2018-03-22},
+	eprinttype = {arxiv},
+	eprint = {1802.05365},
+	keywords = {Computer Science - Computation and Language},
+}
+
 @inproceedings{polyzotis_slice_2019,
 	title = {Slice Finder: Automated Data Slicing for Model Validation},
 	url = {https://arxiv.org/pdf/1807.06068.pdf},
@@ -841,6 +1013,19 @@ Section: Articles},
 	eprinttype = {arxiv},
 	eprint = {2003.03384},
 	keywords = {Computer Science - Machine Learning, Computer Science - Neural and Evolutionary Computing, I.2.2, I.2.6, Statistics - Machine Learning},
+}
+
+@article{rebuffel_controlling_2021,
+	title = {Controlling Hallucinations at Word Level in Data-to-Text Generation},
+	url = {http://arxiv.org/abs/2102.02810},
+	abstract = {Data-to-Text Generation ({DTG}) is a subfield of Natural Language Generation aiming at transcribing structured data in natural language descriptions. The field has been recently boosted by the use of neural-based generators which exhibit on one side great syntactic skills without the need of hand-crafted pipelines; on the other side, the quality of the generated text reflects the quality of the training data, which in realistic settings only offer imperfectly aligned structure-text pairs. Consequently, state-of-art neural models include misleading statements - usually called hallucinations - in their outputs. The control of this phenomenon is today a major challenge for {DTG}, and is the problem addressed in the paper. Previous work deal with this issue at the instance level: using an alignment score for each table-reference pair. In contrast, we propose a finer-grained approach, arguing that hallucinations should rather be treated at the word level. Specifically, we propose a Multi-Branch Decoder which is able to leverage word-level labels to learn the relevant parts of each training instance. These labels are obtained following a simple and efficient scoring procedure based on co-occurrence analysis and dependency parsing. Extensive evaluations, via automated metrics and human judgment on the standard {WikiBio} benchmark, show the accuracy of our alignment labels and the effectiveness of the proposed Multi-Branch Decoder. Our model is able to reduce and control hallucinations, while keeping fluency and coherence in generated texts. Further experiments on a degraded version of {ToTTo} show that our model could be successfully used on very noisy settings.},
+	journaltitle = {{arXiv}:2102.02810 [cs]},
+	author = {Rebuffel, Clément and Roberti, Marco and Soulier, Laure and Scoutheeten, Geoffrey and Cancelliere, Rossella and Gallinari, Patrick},
+	urldate = {2021-05-13},
+	date = {2021-02-04},
+	eprinttype = {arxiv},
+	eprint = {2102.02810},
+	keywords = {68T50 (Primary), 68T07 (Secondary), 68T05, Computer Science - Artificial Intelligence, Computer Science - Computation and Language, Computer Science - Machine Learning, Computer Science - Neural and Evolutionary Computing, I.2.6, I.2.7},
 }
 
 @article{ribeiro_beyond_2020,
@@ -1153,6 +1338,27 @@ our smaller portable model, for reproducibility.},
 	eprint = {1811.11298},
 	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Statistics - Machine Learning},
 }
+@article{tsuda_modeling_2020,
+	title = {A modeling framework for adaptive lifelong learning with transfer and savings through gating in the prefrontal cortex},
+	volume = {117},
+	rights = {© 2020 . https://www.pnas.org/site/aboutpnas/licenses.{xhtmlPublished} under the {PNAS} license.},
+	issn = {0027-8424, 1091-6490},
+	url = {https://www.pnas.org/content/117/47/29872},
+	doi = {10.1073/pnas.2009591117},
+	abstract = {The prefrontal cortex encodes and stores numerous, often disparate, schemas and flexibly switches between them. Recent research on artificial neural networks trained by reinforcement learning has made it possible to model fundamental processes underlying schema encoding and storage. Yet how the brain is able to create new schemas while preserving and utilizing old schemas remains unclear. Here we propose a simple neural network framework that incorporates hierarchical gating to model the prefrontal cortex’s ability to flexibly encode and use multiple disparate schemas. We show how gating naturally leads to transfer learning and robust memory savings. We then show how neuropsychological impairments observed in patients with prefrontal damage are mimicked by lesions of our network. Our architecture, which we call {DynaMoE}, provides a fundamental framework for how the prefrontal cortex may handle the abundance of schemas necessary to navigate the real world.},
+	pages = {29872--29882},
+	number = {47},
+	journaltitle = {Proceedings of the National Academy of Sciences},
+	shortjournal = {{PNAS}},
+	author = {Tsuda, Ben and Tye, Kay M. and Siegelmann, Hava T. and Sejnowski, Terrence J.},
+	urldate = {2021-05-13},
+	date = {2020-11-24},
+	langid = {english},
+	pmid = {33154155},
+	note = {Publisher: National Academy of Sciences
+Section: Biological Sciences},
+	keywords = {gating, lifelong learning, neural networks, prefrontal cortex, reinforcement learning},
+}
 
 @article{van_de_ven_three_2019,
 	title = {Three scenarios for continual learning},
@@ -1340,6 +1546,7 @@ Publisher: Nature Publishing Group},
 	date = {2018-02},
 	keywords = {Computer Science - Computer Vision and Pattern Recognition},
 }
+
 @article{wu_lite_2020,
 	title = {Lite Transformer with Long-Short Range Attention},
 	url = {http://arxiv.org/abs/2004.11886},
@@ -1530,4 +1737,10 @@ In our last article about Deep Q Learning with Tensorflow
 	titleaddon = {{MIT} Technology Review},
 	urldate = {2020-11-04},
 	langid = {english},
+}
+
+@online{noauthor_explainable_nodate,
+	title = {Explainable Artificial Intelligence},
+	url = {https://www.darpa.mil/program/explainable-artificial-intelligence},
+	urldate = {2021-04-13},
 }

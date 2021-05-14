@@ -1,5 +1,17 @@
 # NLP
 
+Initially, the NLP or Computational Linguistics field was focused on applying the generative grammar approach described 
+by [Noam Chomsky](people.md#noam_comsky) in [the mid 60s](https://en.wikipedia.org/wiki/Generative_grammar).
+However, the results of applying that approach was never impressive.
+
+Since then, other approachs like tagging Part of Speech (PoS) in sentences and applying statistical techniques have been
+demostrated to be more successful in the NLP field. As it's usually described in any other modern ML field, the successful
+application of these techniques has been only possible due to the increase in computing power and the tagging and recollection
+of big datasets that have occurred in the last coupule of decades.
+
+Nowadays, in the start of the third decade of the XXI century, the so called language models are predominant and applied 
+in many of the problems related to NLP. 
+   
 ## Frameworks
 
 * [Huggingface](https://huggingface.co/) The de-facto standard framework for modern NLP.

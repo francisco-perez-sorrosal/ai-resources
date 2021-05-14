@@ -19,6 +19,7 @@ of the advances and applications of well proven knowledge and battle-tested tech
 - Biology
 - Physics
 - Economics
+- Algorithmic Biology
 
 However, as it is true with most of the things in life, and despite the current advances and breakthroughs in the field, 
 nothing is set in stone; we are and we'll continue being forever human & machine learners. As Newton stated in 1675, 

@@ -84,6 +84,9 @@ university (although I have to say that at that time, AI wasn't very popular due
 the WWW flying around). This evolved years later in his broader theory for memory published in 1979 in the book 
 “K-lines: A Theory of Memory” {{ #cite minsky_k-lines_1979 }}.
 
+In the 2006 AI@50 conference, he critized the AI community in not being focused on trying to solve the "general intelligence"
+problem and be just focused on applications. According to T. Sejnosky, Dr. Minsky recognized in that conference to have
+been the "devil" that caused the 1st winter period in AI in the 70s {{ #cite sejnowski_deep_2018 }}.
 
 - [DBLP Papers](https://dblp.org/pid/m/MarvinMinsky.html)
 

@@ -110,17 +110,15 @@ Sequences of tokens can be found almost anywhere, being the words in a text, pix
  sequence of tokens, capturing the correlation with other nearby tokens, either consecutive or not. In NLP, the tokens 
  use to represent words or n-grams.
 
-The calculation of the next token in the sequence \[x_n\] can be modeled as:
+The calculation of the next token in the sequence \\( x_n \\) can be modeled as:
 
-\[ p(x_n | x_{n-1}, x_{n-2}...x_{1}) \]
+\\( p(x_n | x_{n-1}, x_{n-2}...x_{1}) \\)
 
-where \[ x_i \] represents the ith token in the sequence.
+where \\( x_i \\) represents the ith token in the sequence.
 
-For more information see {{ cite bengio_neural_2003 }}
+For more information see {{ #cite bengio_neural_2003 }}.
 
 # Neural Network
-
-
 
 # Neuromorphic Computing
 

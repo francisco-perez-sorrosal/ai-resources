@@ -9,6 +9,6 @@ theme = "src/theme"
 mathjax-support = true
 
 [preprocessor.bib]
-bibliography = "my_zotero.bib"
+#bibliography = "my_zotero.bib"
 zotero-uid = "6957968"
 render-bib = 'all'
