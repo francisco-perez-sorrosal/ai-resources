@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html" class="active"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html" class="active"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">11.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">12.</strong> People</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">13.</strong> Timeline/History</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,12 +163,57 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#tools-and-frameworks-for-ml" id="tools-and-frameworks-for-ml">Tools and Frameworks for ML</a></h1>
+<h2><a class="header" href="#data" id="data">Data</a></h2>
+<h3><a class="header" href="#storage" id="storage">Storage</a></h3>
+<ul>
+<li>Filesystem</li>
+<li>Databases</li>
+<li><a href="https://aws.amazon.com/s3/">Amazon S3</a> Provides object storage through a web service interface.</li>
+</ul>
+<h3><a class="header" href="#data-formats" id="data-formats">Data Formats</a></h3>
+<ul>
+<li><a href="https://parquet.apache.org/">Parquet</a> A column-oriented data storage format of the Apache Hadoop ecosystem.</li>
+<li><a href="https://arrow.apache.org/">Arrow</a> A language-independent columnar memory format for flat and hierarchical data.</li>
+</ul>
+<h3><a class="header" href="#datawarehousingdatalakes" id="datawarehousingdatalakes">Datawarehousing/DataLakes</a></h3>
+<ul>
+<li><a href="https://www.snowflake.com/">Snowflake</a></li>
+<li><a href="https://databricks.com/">Databricks</a> Tries to unify data, analytics, and AI in a common platform.</li>
+</ul>
+<h3><a class="header" href="#data-analysisprocessingpipelining" id="data-analysisprocessingpipelining">Data Analysis/Processing/Pipelining</a></h3>
+<ul>
+<li><a href="https://pandas.pydata.org">Pandas</a> Python lib. for data manipulation and analysis.</li>
+<li><a href="https://github.com/modin-project/modin">Modin</a> Faster Pandas</li>
+<li><a href="https://rapids.ai/about.html">Rapids</a> Suite of OSS libraries and APIs to 
+execute end-to-end data pipelines entirely on GPUs.</li>
+<li><a href="https://www.getdbt.com/">dbt</a> Dev environment for data management; from writing data transformation code to 
+deployment and documentation. SQL based.</li>
+<li><a href="https://spark.apache.org/">Spark/PySpark</a> A unified analytics engine for large-scale data processing.</li>
+</ul>
+<h3><a class="header" href="#data-versioning" id="data-versioning">Data Versioning</a></h3>
+<ul>
+<li><a href="https://www.pachyderm.com/">Pachiderm</a> Data layer for ML lifecycles.</li>
+<li><a href="https://www.dolthub.com/">Liquidata/Dolt</a> SQL database that supports clone, branch and merge.</li>
+<li><a href="https://dvc.org/">dvc Data Version Control</a></li>
+</ul>
+<h3><a class="header" href="#data-labeling" id="data-labeling">Data Labeling</a></h3>
+<ul>
+<li><a href="https://appen.com/blog/data-labeling/">Figure Eight/Appen</a></li>
+<li><a href="https://www.aquariumlearning.com/">Aquarium</a> Data management platform to improve datasets</li>
+<li><a href="https://scale.com/">Scale</a> Data-centric, end-to-end solution to manage the entire ML lifecycle.</li>
+</ul>
+<h3><a class="header" href="#dataset-frameworks" id="dataset-frameworks">Dataset Frameworks</a></h3>
+<ul>
+<li><a href="https://huggingface.co/datasets">Huggingface Datasets</a></li>
+</ul>
+<h2><a class="header" href="#model-training-and-testing" id="model-training-and-testing">Model Training and Testing</a></h2>
+<h3><a class="header" href="#ml-frameworks" id="ml-frameworks">ML Frameworks</a></h3>
 <ul>
 <li><a href="">Scikit-learn</a></li>
 <li><a href="">JAX</a></li>
 <li><a href="">Caffe2</a></li>
 </ul>
-<h2><a class="header" href="#deep-learning" id="deep-learning">Deep Learning</a></h2>
+<h3><a class="header" href="#deep-learning-frameworks" id="deep-learning-frameworks">Deep Learning Frameworks</a></h3>
 <ul>
 <li><a href="https://pytorch.org/">Pytorch</a>
 Recent trend in Research Community. Improving a lot to get into production.</li>
@@ -176,22 +221,18 @@ Recent trend in Research Community. Improving a lot to get into production.</li>
 Google's big hit in 2015.</li>
 <li><a href="https://mxnet.apache.org/versions/1.6/">MxNet</a> Apache</li>
 </ul>
-<h2><a class="header" href="#nlp" id="nlp">NLP</a></h2>
+<h3><a class="header" href="#nlp-frameworks" id="nlp-frameworks">NLP Frameworks</a></h3>
 <ul>
 <li><a href="https://huggingface.co/">Huggingface</a></li>
 <li><a href="https://github.com/NervanaSystems/nlp-architect">NLP Architect</a></li>
 <li><a href="https://github.com/dmlc/gluon-nlp">GluonNlp</a></li>
 </ul>
-<h2><a class="header" href="#distributed-environments" id="distributed-environments">Distributed Environments</a></h2>
+<h3><a class="header" href="#distributed-environments" id="distributed-environments">Distributed Environments</a></h3>
 <ul>
 <li><a href="https://github.com/horovod/horovod">Horovod</a></li>
 <li><a href="https://github.com/microsoft/DeepSpeed">DeepSpeed</a></li>
 </ul>
-<h1><a class="header" href="#d" id="d">D</a></h1>
-<h2><a class="header" href="#datasets" id="datasets">Datasets</a></h2>
-<ul>
-<li><a href="https://huggingface.co/datasets">Huggingface Datasets</a></li>
-</ul>
+<h2><a class="header" href="#deployment" id="deployment">Deployment</a></h2>
 
                     </main>
 

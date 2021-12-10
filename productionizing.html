@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html" class="active"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html" class="active"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">11.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">12.</strong> People</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">13.</strong> Timeline/History</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,8 +165,11 @@
                         <h1><a class="header" href="#productionizing-mldl" id="productionizing-mldl">Productionizing ML/DL</a></h1>
 <p>The software infrastructure stack that is required for ML projects in general, is quite different from the current stack
 of non-ML projects. <a href="people.html#Andrej-Karpathy">Andrej Karpathy</a></p>
-<p><a href="http://pages.cs.wisc.edu/%7Ewentaowu/papers/kdd20-ci-for-ml.pdf">Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)</a>
-Interesting</p>
+<p>These 2 papers from Sculley et al. from 2014 &amp; 2015 at NIPS [<a href="bibliography.html#sculley_machine_2014">sculley_machine_2014</a>] 
+[<a href="bibliography.html#sculley_hidden_2015">sculley_hidden_2015</a>] already pointed out the complexity in building the scaffolding surrounding a machine 
+learning model when has to be put into production.</p>
+<p><img src="images/ml_infra.png" alt="ML Infrastructure (Source: http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)" /></p>
+<p>As it can be in the picture above, the ML model is just a very small part of the puzzle.</p>
 <h2><a class="header" href="#challenges-in-putting-a-ml-model-into-production" id="challenges-in-putting-a-ml-model-into-production">Challenges in Putting a ML Model into Production</a></h2>
 <ul>
 <li><strong>Infrastructure and Tooling</strong>: As of 2021, current tools and platforms, mainly CI/CD do not have great support for data and/or
@@ -176,7 +179,7 @@ steps that conform a modern ML pipeline for any use case at hand.</li>
 software systems based on a ML model. The standard model for software development does not fit here. But that doesn't mean
 that data scientists should not adopt norms, techniques and tools from the traditional software development (such as 
 testing) and adapt them to their needs.</li>
-<li><strong>Decision Making</strong>: How to decide that a model is &quot;good enough&quot;? Check <a href="topics.html#Model_Interpretability">Interpretability</a> </li>
+<li><strong>Decision Making</strong>: How to decide that a model is &quot;good enough&quot;? Check <a href="topics.html#model-interpretability">Interpretability</a> </li>
 </ul>
 <h1><a class="header" href="#data" id="data">Data</a></h1>
 <h2><a class="header" href="#data-management-at-scale" id="data-management-at-scale">Data Management At Scale</a></h2>
@@ -256,7 +259,8 @@ despite recognizing you added data to a dataset incrementally, it would allow yo
 for training/testing based on the deltas added (e.g. by skipping certain delta increments, combining only the base datasets
 and two specific deltas, etc). This kind of tools that allow user to create versioned datasets and then aggregate them
 by following a workflow-based data combination approach is what it would be nice to have to manage data used in ML model/experiments.</p>
-<p>In Lecture 8, Slide 76 of the [Full Stack DL of 2021] there a summary of the approaches that currently are followed by the practitioners:</p>
+<p>In Lecture 8, Slide 76 of the <a href="https://fullstackdeeplearning.com/">Full Stack DL of 2021</a> there a summary of the approaches that currently are followed
+by the practitioners:</p>
 <ul>
 <li>Level 0 - No data versioning. Unfortunately, the most common approach.</li>
 <li>Level 1 - Snapshot at training time. The next level if you are a little bit more careful when developing a new model.</li>
@@ -428,7 +432,7 @@ relation to the context where it's gonna be applied (business part)</li>
 <ul>
 <li>Testing in production and compare with the results in the offline</li>
 <li>Detect issues in production</li>
-<li>Apply the <a href="">strangler fig pattern</a> to not impact users</li>
+<li>Apply the <a href="https://martinfowler.com/bliki/StranglerFigApplication.html">strangler fig pattern</a> to not impact users</li>
 </ul>
 </li>
 </ul>

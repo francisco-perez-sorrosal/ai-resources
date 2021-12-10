@@ -96,7 +96,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">11.</strong> People</a></li><li class="chapter-item expanded "><a href="vocabulary.html" class="active"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">5.</strong> ML/DL Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">6.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">7.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">8.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">9.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">10.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="vocabulary.html" class="active"><strong aria-hidden="true">11.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">12.</strong> People</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">13.</strong> Timeline/History</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -207,6 +207,28 @@ Some of the properties that a good feature should have for being selected are:</
 of using domain knowledge to extract features from raw data. This was an &quot;art&quot; in itself usually done by domain experts.
 In the age of DL, this has been substituted by the DL models themselves, which represents also the features on top of
 which the learning of a task is done.</p>
+<h2><a class="header" href="#few-shot-learning" id="few-shot-learning">Few-Shot Learning</a></h2>
+<p>Humans, and more specifically children, are able to learn how to transfer their experience in similar tasks to a new one
+by using only a small set of examples. For example a kid can learn how to multiply if she already knows how addition
+works and with just a bunch of examples of  multiplications. It's even clearer in the world of images, in
+which once they have learn to recognize a particular human face, children are able to identify the same face in a
+bunch of photographs containing different faces.</p>
+<p>In general, up to know, ML algorithms had to be trained in a supervised manner using a large number of examples to
+learn. This is not the best scenario, as this poses many limitations, from the availability of datasets for the
+task at hand to the energy consumption used for training those models. </p>
+<p>Few-Shot Learning (FSL) [<a href="bibliography.html#fei-fei_one-shot_2006">fei-fei_one-shot_2006</a>] [<a href="bibliography.html#fink_object_2004">fink_object_2004</a>] are a type of ML problems in
+which a model is trained -in what is called a meta -training phase- on
+different related tasks. This step is supposed to give the model the ability to generalize adequately to unseen related 
+supervised tasks using only a few bunch of new input data/examples in the testing/few-shot phase.</p>
+<p>How many examples are considered few-shot training? [Unknown bib ref: rios_few_2018] mentions from 1 to 5.</p>
+<p>A recent survey of few shot learning can be found in [<a href="bibliography.html#wang_generalizing_2020">wang_generalizing_2020</a>].
+Different subdomains of FSL can be extrapolated from the regular ML domains such as:</p>
+<ul>
+<li>Few-shot classification</li>
+<li>Few-shot regression</li>
+<li>Few-shot reinforcement learning</li>
+<li>...</li>
+</ul>
 <h1><a class="header" href="#g" id="g">G</a></h1>
 <h2><a class="header" href="#generalization" id="generalization">Generalization</a></h2>
 <p>The capability of an already trained ML model of adapting to previously unseen data taken from the same distribution as
@@ -244,6 +266,8 @@ use to represent words or n-grams.</p>
 <p>\( p(x_n | x_{n-1}, x_{n-2}...x_{1}) \)</p>
 <p>where \( x_i \) represents the ith token in the sequence.</p>
 <p>For more information see [<a href="bibliography.html#bengio_neural_2003">bengio_neural_2003</a>].</p>
+<p>The best language model would be that which could best predict unseen data. To measure the quality of a language model
+metrics such as <a href="#perplexity">Perplexity</a> can be used.</p>
 <h1><a class="header" href="#neural-network" id="neural-network">Neural Network</a></h1>
 <h1><a class="header" href="#neuromorphic-computing" id="neuromorphic-computing">Neuromorphic Computing</a></h1>
 <p>A computing approach which model neurons as asynchronous and independent computation units which are stimulated by the
@@ -251,11 +275,21 @@ spikes triggered by other interconnected neurons, in a similar way as brain neur
 <p>Relying on asynchronous communication between the neurons, these neuromorphic systems do not need to rely on a system 
 clock. So, this async communication of pulses to simulate neuron spikes is more enegy efficient, as it consumes less 
 power.</p>
+<h1><a class="header" href="#normalization" id="normalization">Normalization</a></h1>
+<p>NN work best when input vectors/tensors are normalized, i.e. have lower mean and std in each dimension.
+You can do input scaling and according weight initialization, but as the training goes, the mean and standard deviation
+are blown up by the new inputs.</p>
+<p>Layer normalization can be seen like a 'reset' of the weights between layers. </p>
+<p>These are some references for weight norm [Unknown bib ref: saliman_weight_2016], batch norm [<a href="bibliography.html#ioffe_batch_2015">ioffe_batch_2015</a>], layer norm [<a href="bibliography.html#ba_layer_2016">ba_layer_2016</a>] and group norm [<a href="bibliography.html#wu_group_2018">wu_group_2018</a>].</p>
 <h1><a class="header" href="#o" id="o">O</a></h1>
 <h2><a class="header" href="#overfitting" id="overfitting">Overfitting</a></h2>
 <p>The effect seen in a ML model when it seems to fit the training data so closely to the target goal that its unable to 
 <a href="#Generalization">generalize</a> well to unseen data. When a model is said to be overfitted, usually we observe a low
 error in the metrics from the train dataset and a high error in the metrics from the test dataset. </p>
+<h1><a class="header" href="#p" id="p">P</a></h1>
+<h2><a class="header" href="#perplexity" id="perplexity">Perplexity</a></h2>
+<p>A measure for evaluating NLP models. It measures how good or bad a probability distribution/model predicts a sample.</p>
+<p><img src="images/perplexity.png" alt="Perplexity (Source: https://towardsdatascience.com/perplexity-intuition-and-derivation-105dd481c8f3)" /></p>
 <h1><a class="header" href="#s" id="s">S</a></h1>
 <h2><a class="header" href="#simulated-annealing" id="simulated-annealing">Simulated Annealing</a></h2>
 <p>Inspired by the process of annealing in metal works, it describes a probabilistic approach to solve problems by 
@@ -299,13 +333,13 @@ share the encoder/decoder architecture, so it resembles a traditional autoencode
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="people.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="conferences.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="bibliography.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="people.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -317,13 +351,13 @@ share the encoder/decoder architecture, so it resembles a traditional autoencode
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="people.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="conferences.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="bibliography.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="people.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
