@@ -44,6 +44,10 @@ which was acquired by Google in 2013.
 # Step Hochreiter
 LSTM
 
+# Jeremy Howard
+
+
+
 # Andrej Karpathy
 
 AI Researcher mainly in the field of vision. He focused also on model [Interpretability](topics.md#Interpretability). 
@@ -128,6 +132,10 @@ learned playing against itself.
 
 Spanish neuroanatomist considered one of the fathers of modern neuroscience.
 
+# Sebastian Ruder
+
+Author of {{ howard_umlfit_2018 }} and [NLP Progress](http://nlpprogress.com/)
+
 # David Rumelhart 
 (1943-2011)
 
@@ -158,7 +166,9 @@ Co-Founder of Open AI
 
 # Richard Sutton
 
-One of the current popes of Reinforcement Learning
+One of the current popes of Reinforcement Learning.
+His short blog post [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) is a nice summary
+ of this view on the evolution of certain parts of AI.
 
 # Seymour Papert
 

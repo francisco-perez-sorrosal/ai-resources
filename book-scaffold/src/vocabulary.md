@@ -61,6 +61,32 @@ of using domain knowledge to extract features from raw data. This was an "art" i
 In the age of DL, this has been substituted by the DL models themselves, which represents also the features on top of
  which the learning of a task is done.
 
+## Few-Shot Learning
+
+Humans, and more specifically children, are able to learn how to transfer their experience in similar tasks to a new one
+ by using only a small set of examples. For example a kid can learn how to multiply if she already knows how addition
+  works and with just a bunch of examples of  multiplications. It's even clearer in the world of images, in
+  which once they have learn to recognize a particular human face, children are able to identify the same face in a
+  bunch of photographs containing different faces.
+
+In general, up to know, ML algorithms had to be trained in a supervised manner using a large number of examples to
+ learn. This is not the best scenario, as this poses many limitations, from the availability of datasets for the
+  task at hand to the energy consumption used for training those models. 
+  
+Few-Shot Learning (FSL) {{ #cite fei-fei_one-shot_2006 }} {{ #cite fink_object_2004 }} are a type of ML problems in
+ which a model is trained -in what is called a meta -training phase- on
+ different related tasks. This step is supposed to give the model the ability to generalize adequately to unseen related 
+supervised tasks using only a few bunch of new input data/examples in the testing/few-shot phase.
+
+How many examples are considered few-shot training? {{ #cite rios_few_2018 }} mentions from 1 to 5.
+
+A recent survey of few shot learning can be found in {{ #cite wang_generalizing_2020 }}.
+Different subdomains of FSL can be extrapolated from the regular ML domains such as:
+- Few-shot classification
+- Few-shot regression
+- Few-shot reinforcement learning
+- ...
+
 # G
 
 ## Generalization
@@ -118,6 +144,11 @@ where \\( x_i \\) represents the ith token in the sequence.
 
 For more information see {{ #cite bengio_neural_2003 }}.
 
+The best language model would be that which could best predict unseen data. To measure the quality of a language model
+metrics such as [Perplexity](#perplexity) can be used.
+
+
+
 # Neural Network
 
 # Neuromorphic Computing
@@ -129,6 +160,19 @@ Relying on asynchronous communication between the neurons, these neuromorphic sy
 clock. So, this async communication of pulses to simulate neuron spikes is more enegy efficient, as it consumes less 
 power.
 
+# Normalization 
+
+NN work best when input vectors/tensors are normalized, i.e. have lower mean and std in each dimension.
+You can do input scaling and according weight initialization, but as the training goes, the mean and standard deviation
+are blown up by the new inputs.
+
+Layer normalization can be seen like a 'reset' of the weights between layers. 
+
+These are some references for weight norm {{ #cite saliman_weight_2016 }}, batch norm {{ #cite ioffe_batch_2015
+ }}, layer norm {{ #cite ba_layer_2016 }} and group norm {{ #cite wu_group_2018 }}.
+
+
+
 # O
 
 ## Overfitting 
@@ -136,6 +180,14 @@ power.
 The effect seen in a ML model when it seems to fit the training data so closely to the target goal that its unable to 
 [generalize](#Generalization) well to unseen data. When a model is said to be overfitted, usually we observe a low
 error in the metrics from the train dataset and a high error in the metrics from the test dataset. 
+
+# P
+
+## Perplexity
+
+A measure for evaluating NLP models. It measures how good or bad a probability distribution/model predicts a sample.
+
+![Perplexity (Source: https://towardsdatascience.com/perplexity-intuition-and-derivation-105dd481c8f3)](images/perplexity.png)
 
 # S
 

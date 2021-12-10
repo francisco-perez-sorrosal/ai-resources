@@ -1,10 +1,18 @@
-# Web Resources
+# Web Resources for Learning AI/ML/DL
 
 * [AI & DL Wiki](https://wiki.pathmind.com/) Wiki from Pathmind, a deep reinforcement learning company focused on improving efficiency, throughput and cost of operations and chains.
 * [The Gradient](https://thegradient.pub/) Magazine about research, recent developments and current/long-term trends in 
 AI/ML. Origin: 2017 by students and researchers @ Stanford Artificial Intelligence Laboratory (SAIL).
 Status: non-profit and volunteers in the AI community.
+* [The Batch](https://www.deeplearning.ai/the-batch/) From Andrew Ng/DeepLearning.ai
+* [Import AI](https://jack-clark.net/) Newsletter by Jack Clark, the ex OpenAI Policy Director.
 * [AI Camp Webminars](https://learn.xnextcon.com/)
+* [TopBots](https://www.topbots.com/)
+* [fast.ai](http://fast.ai/) A community which aims to make deep learning easier to use.
+* [Yannic Kilcher Youtube Channel](https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew)
+* [Two Minute Papers](https://www.youtube.com/c/K%C3%A1rolyZsolnai/search?query=machine%20learning)
+* [Arxiv](https://arxiv.org/) Main archive for scholarly articles.
+* [Arxiv Sanity](http://arxiv-sanity.com/) To keep your mind healthy after trying to deal with all the arxiv content.
 
 # Books
 
@@ -17,8 +25,11 @@ Status: non-profit and volunteers in the AI community.
 * The Deep Learning Revolution {{ #cite sejnowski_deep_2018 }}
 * A Brief History of Artificial Intelligence: What It Is, Where We Are, and Where We Are Going {{ #cite wooldridge_brief_2021 }}
 
-# Research Centers/Communities
+# Research Centers/Communities/Companies
 
+* [OpenAI](https://openai.com/) Mission: Ensure that artificial general intelligence (AGI) benefits all of humanity.
+* [EleutherAI](https://www.eleuther.ai/) Group of researchers devoted to GPT-Neo, a family of models designed to
+ replicate OpenAI's GPT-3.
 * [Mila](https://mila.quebec/en/) A community of researchers specializing in ML and dedicated to scientific excellence 
 and innovation.
 * [Salk Institute](https://www.salk.edu/) A well-known institute researching the foundations of life, seeking new

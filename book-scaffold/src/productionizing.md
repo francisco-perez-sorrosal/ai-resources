@@ -3,8 +3,13 @@
 The software infrastructure stack that is required for ML projects in general, is quite different from the current stack
 of non-ML projects. [Andrej Karpathy](people.md#Andrej-Karpathy)
 
-[Multimodal Learning with Incomplete Modalities by Knowledge Distillation (KDD 2020)](http://pages.cs.wisc.edu/~wentaowu/papers/kdd20-ci-for-ml.pdf)
-Interesting
+These 2 papers from Sculley et al. from 2014 & 2015 at NIPS {{#cite sculley_machine_2014 }} 
+{{#cite sculley_hidden_2015 }} already pointed out the complexity in building the scaffolding surrounding a machine 
+learning model when has to be put into production.  
+
+![ML Infrastructure (Source: http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)](images/ml_infra.png)
+
+As it can be in the picture above, the ML model is just a very small part of the puzzle.
 
 ## Challenges in Putting a ML Model into Production
 
@@ -15,7 +20,7 @@ steps that conform a modern ML pipeline for any use case at hand.
 software systems based on a ML model. The standard model for software development does not fit here. But that doesn't mean
 that data scientists should not adopt norms, techniques and tools from the traditional software development (such as 
 testing) and adapt them to their needs.
-- __Decision Making__: How to decide that a model is "good enough"? Check [Interpretability](topics.md#Model_Interpretability) 
+- __Decision Making__: How to decide that a model is "good enough"? Check [Interpretability](topics.md#model-interpretability) 
 
 # Data
 
@@ -82,7 +87,8 @@ for training/testing based on the deltas added (e.g. by skipping certain delta i
 and two specific deltas, etc). This kind of tools that allow user to create versioned datasets and then aggregate them
 by following a workflow-based data combination approach is what it would be nice to have to manage data used in ML model/experiments.
 
-In Lecture 8, Slide 76 of the [Full Stack DL of 2021] there a summary of the approaches that currently are followed by the practitioners:
+In Lecture 8, Slide 76 of the [Full Stack DL of 2021](https://fullstackdeeplearning.com/) there a summary of the approaches that currently are followed
+ by the practitioners:
 
 - Level 0 - No data versioning. Unfortunately, the most common approach.   
 - Level 1 - Snapshot at training time. The next level if you are a little bit more careful when developing a new model.
@@ -214,7 +220,7 @@ relation to the context where it's gonna be applied (business part)
     - Shadow tests
       - Testing in production and compare with the results in the offline
       - Detect issues in production
-      - Apply the [strangler fig pattern]() to not impact users
+      - Apply the [strangler fig pattern](https://martinfowler.com/bliki/StranglerFigApplication.html) to not impact users
   - Compare model against previous one and the baselines
   - This is done only at a particular point in time; so run these tests when you've selected a candidate
   model from the training phase and you want to put it in production.

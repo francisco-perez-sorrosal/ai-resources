@@ -10,5 +10,6 @@
 - [Frameworks](tools_and_frameworks.md)
 - [Books and Resources](books_and_resources.md)
 - [Conferences](conferences.md)
-- [People](people.md)
 - [Vocabulary](vocabulary.md)
+- [People](people.md)
+- [Timeline/History](history.md)
