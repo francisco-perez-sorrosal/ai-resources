@@ -1,6 +1,6 @@
 # Applications
 
-* [DeepFace](https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf) always remind me of how Schwarzenegger is framed for the murder of almost a hundred unarmed civilians in [The Running Man](https://www.imdb.com/title/tt0093894/) 
+* [DeepFace](https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf) always remind me of how Schwarzenegger is framed for the murder of almost a hundred unarmed civilians in [The Running Man](https://www.imdb.com/title/tt0093894/)
 
 ## Prediction
 
@@ -8,7 +8,15 @@
 
 ## Classification
 
-## Recommender systems
+## Personalization/Recommender systems
+
+Make decisions is a key part of what we consider intelligence. Learn from limited samples to make good decissions.
+
+Multi-arm banditds (Contextual) Subcase of RL
+
+Emma Brunskill
+
+[Personalization, Recommendation and Search (PRS) Workshop by Netflix](https://prs2021.splashthat.com/)
 
 ## Recognition (images, audio/speech, text)
 
@@ -81,6 +89,3 @@ Even traditional fields of Computer Science such as DBMSs can't escape from the 
  {{ #cite krasa_case_2017 }} the authors
 replace DBMS core components with NNs being able to improve the performance of caches of classical data structures
  for data management -such as B-Trees- while using less system resources such as memory/disk space.
-
-
-

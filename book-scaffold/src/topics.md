@@ -148,7 +148,6 @@ https://arxiv.org/pdf/1612.00796.pdf
 # GANs and Creativity
 
 
-
 # Research Topics
 
 Unsupervised Learning
@@ -156,3 +155,113 @@ Unsupervised Learning
 Reinforcement Learning
 - Unsupervised RL
 - Meta-Reinforcement Learning
+
+# Personalization
+
+## Problems
+
+
+Model <-> User interaction
+- In general a model recommends items, and user actions based on those recomendations are used as training data for improving the model.
+- Missrepresentation of New items - a group that suffers from algorithmic bias.
+- It's interesting to study how recommendation feedback loops disproportionally hurt users with minority preferences
+- Features:
+  - Empiric (CTR)
+  - User history
+
+
+### Cold start
+  - Can be looked as a fairness problems
+  - Metrics should be tailored to use cases
+  - Fairness methods as a solution.
+  - Fairness in new advertisers: measure the severity of the advertiser cold start using fairness metrics and use 
+  fairness methods to mitigate it.
+
+Individual fairness -> Similar individuals should be treated similar by the algo
+Group fairness -> Individuals from the protected group should get similar treatment as individuals without the protected
+attribute. Protected attribute, gender, race...
+
+Methods: Balance for positive class and Calibration
+
+Fairness correction techniques:
+- Preprocessing: Correct the training data
+- inprocessing: Penalty term to the loss function
+- postprocessing: Apply corrections
+
+Address multi-side fairness: Satisfy constraints of all stakeholders (e.g. old/new advertisers). We take the side of the
+new items.
+
+Fairness in Ranking
+
+Small changes in scores can lead to large changes in exposure
+Static fairness constraints may cause harm in fairness over time
+Decomposition of fairness in complex systems: Candidate Generation -> Engagement A model, Engagement B model...
+ - Fairness doesn't necessarily decompose
+ 
+ 
+Faire recommendations with Biased Data (Thorsten Joachims)
+History of ranking dates back to the 1960 for finding books in a library
+In 1994 with search engines that moved to finding everything
+   Maximize the utility of the rankings for the users
+In 2020, still we look for Maximize the utility of the rankings. But there are two sides for the utility: 1) for the users (buyers, listeners, readers) but also for the items 2) 
+(sellers, artists, writers), etc.! That is the variety of use cases is more diverse
+
+However utility maximization it may not be fair for many candidates, specially if the probability of the top candidates it's very close together
+ 
+Fairness: If two items has similar merits, their exposure should be the same. There are endogenous and exogenous factors:
+Fairness of exposure: Endogenous (merit), Exogenous (biases)
+ 
+# Recommendation feedback loops disproportionally hurt users with minority preferences
+ - Called "Algorithmic confounding". Perspective
+   Users:
+   - "I don't get whwat I'm looking for"
+   - "This sistem sucks"
+   Company:
+   - User segmentation
+   Technical:
+   - Bad training and evaluation protocols
+   
+Recommendation feedback:
+ - Provokes homogeneization of user behaviour
+ - Users experience losses in utility
+ - Amplifies the impact of the rec system on the distribution of the item consumption
+ 
+Initial data may not be enough 
+Poorly tuned models hurt user with minority preferences recommending items further from their preferences
+A/B test can weaken overall performance. Too many of them can delay recommending the most relevant items.
+
+ 
+
+
+Matrix factorization
+   
+  
+## Causal modeling applied to messaging at Netflix
+
+
+ 
+# Conversational Recommmendation with Natural Language
+
+We want:
+- Speaking the user language is essential for a conversational recommendation
+- Model that understands natural requests: "I'd like to watch something relaxing"
+
+Soft attribbutes: Property of an item that
+ - is not a verifiable fact
+ - can be universally agreed on
+ - meaningful to compare
+ - we can say that one is great than the other
+ 
+Answers to questions
+- Polar yes/no question
+  - Direct answer
+  - Indirect answer (e.g. for being polite). Can include more information. - Do you have kids? - I have 2 daughers
+Richness of language
+
+Explainable User Models (Why?)
+- What does the system know about me
+- How does the system interprets that
+- How does it go from user model to recommendations
+
+
+Observing the language of the user requires new approaches for data collection and models
