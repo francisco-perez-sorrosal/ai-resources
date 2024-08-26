@@ -1,17 +1,13 @@
 # NLP
 
-Initially, the NLP or Computational Linguistics field was focused on applying the generative grammar approach described 
-by [Noam Chomsky](people.md#noam_comsky) in [the mid 60s](https://en.wikipedia.org/wiki/Generative_grammar).
+Initially, the NLP or Computational Linguistics field was focused on applying the generative grammar approach described by [Noam Chomsky](people.md#noam_comsky) in [the mid 60s](https://en.wikipedia.org/wiki/Generative_grammar).
 However, the results of applying that approach was never impressive.
 
-Since then, other approachs like tagging Part of Speech (PoS) in sentences and applying statistical techniques have been
-demostrated to be more successful in the NLP field. As it's usually described in any other modern ML field, the successful
-application of these techniques has been only possible due to the increase in computing power and the tagging and recollection
+Since then, other approachs like tagging Part of Speech (PoS) in sentences and applying statistical techniques have been demostrated to be more successful in the NLP field. As it's usually described in any other modern ML field, the successful application of these techniques has been only possible due to the increase in computing power and the tagging and recollection
 of big datasets that have occurred in the last coupule of decades.
 
-Nowadays, in the start of the third decade of the XXI century, the so called language models are predominant and applied 
-in many of the problems related to NLP. 
-   
+Nowadays, in the start of the third decade of the XXI century, the so called language models are predominant and applied in many of the problems related to NLP.
+
 ## Frameworks
 
 * [Huggingface](https://huggingface.co/) The de-facto standard framework for modern NLP.
@@ -27,7 +23,6 @@ in many of the problems related to NLP.
 * [NLP Bootcamp](https://github.com/neubig/lowresource-nlp-bootcamp-2020) CMU lectures on NLP by visitors to the
  Language Technologies Institute.
 
-
 # NLP Topics
 
 ## Text Categorization
@@ -36,21 +31,22 @@ One of the classical problems in NLP.
 
 **Goal**: Assign labels/tags to text examples (e.g. sentences, paragraphs, documents...)
 **Options for doing text annotation**:
-- Manual - Reliess on humnans; Because of that fact this approachss doesn't scale, is costly, and error prone.
-- Automatic - The current trend due to the increasingly amount of text examples required for many applications in the
+* Manual - Reliess on humnans; Because of that fact this approachss doesn't scale, is costly, and error prone.
+* Automatic - The current trend due to the increasingly amount of text examples required for many applications in the
 industry.
-  - Rule-based methods
-    - Use a set of predefined rules
-    - Require domain knowledge from experts
-  - ML-driven methods
-    - Use a set of prelabeled examples to train models.
-    - Learn -during a training phase- based on observations of data contrasted against the true/gold labels already
+  * Rule-based methods
+    * Use a set of predefined rules
+    * Require domain knowledge from experts
+  * ML-driven methods
+    * Use a set of prelabeled examples to train models.
+    * Learn -during a training phase- based on observations of data contrasted against the true/gold labels already
     tagged by domain experts for a certain number of the so-called train examples.
-    - The final model obtained with this method has learned associations between the text and the labels
+    * The final model obtained with this method has learned associations between the text and the labels
 
 We will focus on this approach only, and mainly on the ML-driven methods.
 
-__Applications__:
+**Applications**:
+
 1. Sentiment analysis
 2. News classification
 3. Content moderation
@@ -80,18 +76,13 @@ Popular Algorithms used for text classification are [Naive Bayes](algorithms_and
 [GBTs](algorithms_and_model_architectures.md#gradient-boosting-trees) and [random forests
 ](algorithms_and_model_architectures.md#random-forests)
 
-
-
-
-
 ## Entity Recognition
-
 
 ## Question-Answering
 
-
-
 # NLP Architectures
+
+# NLP Papers
 
 ## Recent Origins
 
@@ -104,9 +95,11 @@ These papers influenced a paradigm shift towards what will be called [Deep Learn
 Representations of Words and Phrases and their Compositionality" {{ #cite mikolov_distributed_2013 }} or simply the
  Word2Vec papers by Mikolov et al. at Google marked a paradigm shift in NLP, as it showed the potential of an embedding
  model trained in large amounts of data (1.6 Billion data words). In particular, they showed the quality of the 
+
 representations obtained after training by using a word similarity task.
 A deeper explanation can be found in "word2vec Explained: deriving Mikolov et al.'s negative-sampling word-embedding
  method" {{ cite goldbert_word2vec_2014 }}
+
 
 [Google Source code](https://code.google.com/archive/p/word2vec/) 
 [Source code](https://github.com/tmikolov/word2vec)
@@ -141,8 +134,8 @@ A 2018 LM from [Jeremy Howard](people.md#jeremy-howard) and other [fast.ai](http
 ## Attention
 
 This was a game changer paper when it appeared in 2017 {{ cite vaswani_attention_2017 }}.
-The concept of attention is taken, as many others, from cognitive sciences (e.g. psycology, neuroscience, education.) It 
-describes the process of focusing on certain concrete stimulus/stimuli while ignoring the rest of stimuli in an 
+The concept of attention is taken, as many others, from cognitive sciences (e.g. psycology, neuroscience, education.) It
+describes the process of focusing on certain concrete stimulus/stimuli while ignoring the rest of stimuli in an
 environment. In the case of NLP for example, the context/environment can be a sentence and the stimulus a word.
   
 * [Attention and Memory-Augmented Networks for Dual-View Sequential Learning (KDD 2020)]()
@@ -193,7 +186,7 @@ The [ELMO](#elmo) paper started a trend to name many NLP model architectures and
 Sesame Street/Muppets. Some refer to this fenomenon as ["Muppetware"](https://www.theverge.com/2019/12/11/20993407/ai-language-models-muppets-sesame-street-muppetware-elmo-bert-ernie)
 These are the most relevant ones.  
 
-TODO mention at least ~~ELMo,~~ BERT, Grover, Big BIRD, Rosita, RoBERTa, ERNIEs, and KERMIT. 
+TODO mention at least ~~ELMo,~~ BERT, Grover, Big BIRD, Rosita, RoBERTa, ERNIEs, and KERMIT.
 
 #### BERT
 
@@ -209,6 +202,24 @@ It shows improvements on most of the SotA results by BERT and followers. Questio
 It uses a single sentence for the document-level input like SpanBERT.
 
 [Original Code](https://github.com/pytorch/fairseq)
+
+* [BERT](https://arxiv.org/abs/1810.04805) The reference model for NLP since 2018.
+* [SpanBERT](https://arxiv.org/pdf/1907.10529.pdf)
+ Masks spans of words instead of random subwords. Spans of words refers to global entities or loca/domain-specific meaning (e.g. American Football)
+ Span Boundary Objective(SBO) predicts the span context from boundary token representations. Uses single sentence document-level inputs instead of
+ the two sentences in BERT.
+ Code: <https://github.com/facebookresearch/SpanBERT>
+* [RoBERTa](https://arxiv.org/abs/1907.11692)
+Replication study of BERT pretraining that measures the impact of many key hyperparameters (Bigger Batch size and LR) and training data size (10X).
+It shows improvements on most of the SotA results by BERT and followers. Questions the results of some post-BERT models.
+It uses a single sentence for the document-level input like SpanBERT.
+Code: <https://github.com/pytorch/fairseq>
+
+#### Sparse Transformers
+
+* [Sparse Tansformer](refs.md#sparse) Self-attention complexity from O(n2) to O(n*sqrt(n)).
+* [Reformer](refs.md#reformer) Self-attention complexity O(L2) to O(LlogL), where L is the length of the sequence.
+* [Linformer](refs.md#linformer) Self-attention complexity from O(n2) to O(n) in both time and space.
 
 
 #### [SpanBERT](https://arxiv.org/pdf/1907.10529.pdf)
@@ -236,13 +247,12 @@ O(N^2) attention mechanism. The attention in Big Bird is summarized in the follo
 ![Big Bird Attention](images/big_bird_att.png)
 
 
-
 ##### Small Models/Small Devices
+
 * [Lite transformer with Long-Short Range Attention](refs.md#lite)
 Uses Long-Short Range Attention (LSRA) in which a group of heads specializes in
 the local context (using convolution) and another group specializes in the
 long-distance relationships (ussing the attention mechanism.) Focus on edge (mobile) devices.
-
 
 <details>
   <summary>Small Models</summary>
@@ -253,9 +263,10 @@ long-distance relationships (ussing the attention mechanism.) Focus on edge (mob
 <details>
   <summary>Other Sesame Street Papers</summary>
 
- * [FinBERT](https://arxiv.org/abs/1908.10063) Bert applied to Financial Sentiment Analysis.
- Code: https://github.com/ProsusAI/finBERT]
- * [FinBERT](refs.md#abcd)
+* [FinBERT](https://arxiv.org/abs/1908.10063) Bert applied to Financial Sentiment Analysis.
+ Code: <https://github.com/ProsusAI/finBERT>]
+* [FinBERT](refs.md#abcd)
+
 </details>
 
 ### Non-Sesame Street Environment
@@ -315,12 +326,12 @@ This compensates for the lack of benchmark data set for FSL tasks in natural lan
 
 Data-to-Text Generation (DTG) or simpy, text generation is a subfield of NLP which pursues the automatic generation of
  human-readable text using computational linguistics and AI.
- 
+
 Approaches to text generation use a [language model (LM)](vocabulary.md#language-model) to generate the probability
  distribution from we can sample to generate the next token in a sentence.
- 
+
 In the last few years, one of the most used generative models is the so-called Recurrent Neural Networks (RNN) that
- have been used successfully also for other NLP task such as classification. 
+ have been used successfully also for other NLP task such as classification.
 
 However, LMs per-se, despite promising for text generation, are limited in the control terms that humans
  have for "influencing" the generated content. The problem relies on the fact that, once the models are trained
@@ -328,7 +339,7 @@ However, LMs per-se, despite promising for text generation, are limited in the c
 attributes or tuning with extra data. The prompts written by humans or generated automatically act just a starting
 cue for the generator, but does not allow to control other properties such as define the topic of the generated
  text.
- 
+
 Without these control attributes, models tend to ["hallucinate"](vocabulary.md#hallucination).
 More recent approaches to text generation include these control mechanism: CTRL {{ #cite shirish_ctrl_2019 }} and PPLM
  {{ #cite dathathri_plug_2020 }}.
@@ -348,7 +359,7 @@ specific online communities in Reddit are assigned to a broader domain name (Red
  (e.g. r/politics.) All control codes can be traced to a particular subset of the training data.
 Moreover, the codes can be combined with codes during generation to cross-over task-specific and domain/content
  behaviors.
- 
+
 As CTRL, Plug and Play Language Model (PPLM) combines a pretrained LM with n "attribute classifiers" which allow to
  drive the text generation process externally without architectural changes. This work was influenced by the
 Plug & Play Generative Networks (PPGN) work in computer vision (2017). In PPGN a discriminator (attribute model)
