@@ -163,15 +163,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#nlp" id="nlp">NLP</a></h1>
-<p>Initially, the NLP or Computational Linguistics field was focused on applying the generative grammar approach described 
-by <a href="people.html#noam_comsky">Noam Chomsky</a> in <a href="https://en.wikipedia.org/wiki/Generative_grammar">the mid 60s</a>.
+<p>Initially, the NLP or Computational Linguistics field was focused on applying the generative grammar approach described by <a href="people.html#noam_comsky">Noam Chomsky</a> in <a href="https://en.wikipedia.org/wiki/Generative_grammar">the mid 60s</a>.
 However, the results of applying that approach was never impressive.</p>
-<p>Since then, other approachs like tagging Part of Speech (PoS) in sentences and applying statistical techniques have been
-demostrated to be more successful in the NLP field. As it's usually described in any other modern ML field, the successful
-application of these techniques has been only possible due to the increase in computing power and the tagging and recollection
+<p>Since then, other approachs like tagging Part of Speech (PoS) in sentences and applying statistical techniques have been demostrated to be more successful in the NLP field. As it's usually described in any other modern ML field, the successful application of these techniques has been only possible due to the increase in computing power and the tagging and recollection
 of big datasets that have occurred in the last coupule of decades.</p>
-<p>Nowadays, in the start of the third decade of the XXI century, the so called language models are predominant and applied 
-in many of the problems related to NLP. </p>
+<p>Nowadays, in the start of the third decade of the XXI century, the so called language models are predominant and applied in many of the problems related to NLP.</p>
 <h2><a class="header" href="#frameworks" id="frameworks">Frameworks</a></h2>
 <ul>
 <li><a href="https://huggingface.co/">Huggingface</a> The de-facto standard framework for modern NLP.</li>
@@ -246,14 +242,15 @@ examples and calculate the required <a href="metrics.html">metrics</a> for the c
 <h2><a class="header" href="#entity-recognition" id="entity-recognition">Entity Recognition</a></h2>
 <h2><a class="header" href="#question-answering" id="question-answering">Question-Answering</a></h2>
 <h1><a class="header" href="#nlp-architectures" id="nlp-architectures">NLP Architectures</a></h1>
+<h1><a class="header" href="#nlp-papers" id="nlp-papers">NLP Papers</a></h1>
 <h2><a class="header" href="#recent-origins" id="recent-origins">Recent Origins</a></h2>
 <p>These papers influenced a paradigm shift towards what will be called <a href="vocabulary.html#deep-learning">Deep Learning</a>, which will imply the massive adoption of neural networks for ML tasks.</p>
 <h3><a class="header" href="#word2vec" id="word2vec">Word2Vec</a></h3>
 <p>&quot;Efficient Estimation of Word Representations in Vector Space&quot; [<a href="bibliography.html#mikolov_efficient_2013">mikolov_efficient_2013</a>] and &quot;Distributed 
 Representations of Words and Phrases and their Compositionality&quot; [Unknown bib ref: mikolov_distributed_2013] or simply the
 Word2Vec papers by Mikolov et al. at Google marked a paradigm shift in NLP, as it showed the potential of an embedding
-model trained in large amounts of data (1.6 Billion data words). In particular, they showed the quality of the 
-representations obtained after training by using a word similarity task.
+model trained in large amounts of data (1.6 Billion data words). In particular, they showed the quality of the </p>
+<p>representations obtained after training by using a word similarity task.
 A deeper explanation can be found in &quot;word2vec Explained: deriving Mikolov et al.'s negative-sampling word-embedding
 method&quot; {{ cite goldbert_word2vec_2014 }}</p>
 <p><a href="https://code.google.com/archive/p/word2vec/">Google Source code</a> 
@@ -277,8 +274,8 @@ text corpus. Essentially the model architecture is a stacked LSTM. This marked t
 <p>A 2018 LM from <a href="people.html#jeremy-howard">Jeremy Howard</a> and other <a href="http://fast.ai/">fast.ai</a> guys.</p>
 <h2><a class="header" href="#attention" id="attention">Attention</a></h2>
 <p>This was a game changer paper when it appeared in 2017 {{ cite vaswani_attention_2017 }}.
-The concept of attention is taken, as many others, from cognitive sciences (e.g. psycology, neuroscience, education.) It 
-describes the process of focusing on certain concrete stimulus/stimuli while ignoring the rest of stimuli in an 
+The concept of attention is taken, as many others, from cognitive sciences (e.g. psycology, neuroscience, education.) It
+describes the process of focusing on certain concrete stimulus/stimuli while ignoring the rest of stimuli in an
 environment. In the case of NLP for example, the context/environment can be a sentence and the stimulus a word.</p>
 <ul>
 <li><a href="">Attention and Memory-Augmented Networks for Dual-View Sequential Learning (KDD 2020)</a></li>
@@ -320,7 +317,7 @@ effectively.</p>
 <p>The <a href="#elmo">ELMO</a> paper started a trend to name many NLP model architectures and variations after the characters of
 Sesame Street/Muppets. Some refer to this fenomenon as <a href="https://www.theverge.com/2019/12/11/20993407/ai-language-models-muppets-sesame-street-muppetware-elmo-bert-ernie">&quot;Muppetware&quot;</a>
 These are the most relevant ones.</p>
-<p>TODO mention at least <del>ELMo,</del> BERT, Grover, Big BIRD, Rosita, RoBERTa, ERNIEs, and KERMIT. </p>
+<p>TODO mention at least <del>ELMo,</del> BERT, Grover, Big BIRD, Rosita, RoBERTa, ERNIEs, and KERMIT.</p>
 <h4><a class="header" href="#bert" id="bert">BERT</a></h4>
 <p>By 2018 Google developed what is still as of 2021, the SotA of embedding-based models for the majority of the industry.
 Based on the Transformer architecture, it was trained on 3.3 billion words. Comming in two different flavours, base
@@ -331,6 +328,25 @@ and large, they mainly differ on the number of parameters.</p>
 It shows improvements on most of the SotA results by BERT and followers. Questions the results of some post-BERT models.
 It uses a single sentence for the document-level input like SpanBERT.</p>
 <p><a href="https://github.com/pytorch/fairseq">Original Code</a></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1810.04805">BERT</a> The reference model for NLP since 2018.</li>
+<li><a href="https://arxiv.org/pdf/1907.10529.pdf">SpanBERT</a>
+Masks spans of words instead of random subwords. Spans of words refers to global entities or loca/domain-specific meaning (e.g. American Football)
+Span Boundary Objective(SBO) predicts the span context from boundary token representations. Uses single sentence document-level inputs instead of
+the two sentences in BERT.
+Code: <a href="https://github.com/facebookresearch/SpanBERT">https://github.com/facebookresearch/SpanBERT</a></li>
+<li><a href="https://arxiv.org/abs/1907.11692">RoBERTa</a>
+Replication study of BERT pretraining that measures the impact of many key hyperparameters (Bigger Batch size and LR) and training data size (10X).
+It shows improvements on most of the SotA results by BERT and followers. Questions the results of some post-BERT models.
+It uses a single sentence for the document-level input like SpanBERT.
+Code: <a href="https://github.com/pytorch/fairseq">https://github.com/pytorch/fairseq</a></li>
+</ul>
+<h4><a class="header" href="#sparse-transformers-1" id="sparse-transformers-1">Sparse Transformers</a></h4>
+<ul>
+<li><a href="refs.html#sparse">Sparse Tansformer</a> Self-attention complexity from O(n2) to O(n*sqrt(n)).</li>
+<li><a href="refs.html#reformer">Reformer</a> Self-attention complexity O(L2) to O(LlogL), where L is the length of the sequence.</li>
+<li><a href="refs.html#linformer">Linformer</a> Self-attention complexity from O(n2) to O(n) in both time and space.</li>
+</ul>
 <h4><a class="header" href="#a-hrefhttpsarxivorgpdf190710529pdfspanberta" id="a-hrefhttpsarxivorgpdf190710529pdfspanberta"><a href="https://arxiv.org/pdf/1907.10529.pdf">SpanBERT</a></a></h4>
 <p>Masks spans of words instead of random subwords. Spans of words refers to global entities or loca/domain-specific meaning (e.g. American Football)
 Span Boundary Objective(SBO) predicts the span context from boundary token representations. Uses single sentence document-level inputs instead of
@@ -364,7 +380,7 @@ long-distance relationships (ussing the attention mechanism.) Focus on edge (mob
   <summary>Other Sesame Street Papers</summary>
 <ul>
 <li><a href="https://arxiv.org/abs/1908.10063">FinBERT</a> Bert applied to Financial Sentiment Analysis.
-Code: https://github.com/ProsusAI/finBERT]</li>
+Code: <a href="https://github.com/ProsusAI/finBERT">https://github.com/ProsusAI/finBERT</a>]</li>
 <li><a href="refs.html#abcd">FinBERT</a></li>
 </ul>
 </details>
@@ -413,7 +429,7 @@ human-readable text using computational linguistics and AI.</p>
 <p>Approaches to text generation use a <a href="vocabulary.html#language-model">language model (LM)</a> to generate the probability
 distribution from we can sample to generate the next token in a sentence.</p>
 <p>In the last few years, one of the most used generative models is the so-called Recurrent Neural Networks (RNN) that
-have been used successfully also for other NLP task such as classification. </p>
+have been used successfully also for other NLP task such as classification.</p>
 <p>However, LMs per-se, despite promising for text generation, are limited in the control terms that humans
 have for &quot;influencing&quot; the generated content. The problem relies on the fact that, once the models are trained
 , it becomes difficult add control attributes without modifying the architecture to allow extra input

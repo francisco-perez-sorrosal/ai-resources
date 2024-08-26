@@ -298,6 +298,111 @@ the effectiveness of the techniques. This has been addressed by studies like <a 
 <li>Unsupervised RL</li>
 <li>Meta-Reinforcement Learning</li>
 </ul>
+<h1><a class="header" href="#personalization" id="personalization">Personalization</a></h1>
+<h2><a class="header" href="#problems" id="problems">Problems</a></h2>
+<p>Model &lt;-&gt; User interaction</p>
+<ul>
+<li>In general a model recommends items, and user actions based on those recomendations are used as training data for improving the model.</li>
+<li>Missrepresentation of New items - a group that suffers from algorithmic bias.</li>
+<li>It's interesting to study how recommendation feedback loops disproportionally hurt users with minority preferences</li>
+<li>Features:
+<ul>
+<li>Empiric (CTR)</li>
+<li>User history</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#cold-start" id="cold-start">Cold start</a></h3>
+<ul>
+<li>Can be looked as a fairness problems</li>
+<li>Metrics should be tailored to use cases</li>
+<li>Fairness methods as a solution.</li>
+<li>Fairness in new advertisers: measure the severity of the advertiser cold start using fairness metrics and use 
+fairness methods to mitigate it.</li>
+</ul>
+<p>Individual fairness -&gt; Similar individuals should be treated similar by the algo
+Group fairness -&gt; Individuals from the protected group should get similar treatment as individuals without the protected
+attribute. Protected attribute, gender, race...</p>
+<p>Methods: Balance for positive class and Calibration</p>
+<p>Fairness correction techniques:</p>
+<ul>
+<li>Preprocessing: Correct the training data</li>
+<li>inprocessing: Penalty term to the loss function</li>
+<li>postprocessing: Apply corrections</li>
+</ul>
+<p>Address multi-side fairness: Satisfy constraints of all stakeholders (e.g. old/new advertisers). We take the side of the
+new items.</p>
+<p>Fairness in Ranking</p>
+<p>Small changes in scores can lead to large changes in exposure
+Static fairness constraints may cause harm in fairness over time
+Decomposition of fairness in complex systems: Candidate Generation -&gt; Engagement A model, Engagement B model...</p>
+<ul>
+<li>Fairness doesn't necessarily decompose</li>
+</ul>
+<p>Faire recommendations with Biased Data (Thorsten Joachims)
+History of ranking dates back to the 1960 for finding books in a library
+In 1994 with search engines that moved to finding everything
+Maximize the utility of the rankings for the users
+In 2020, still we look for Maximize the utility of the rankings. But there are two sides for the utility: 1) for the users (buyers, listeners, readers) but also for the items 2) 
+(sellers, artists, writers), etc.! That is the variety of use cases is more diverse</p>
+<p>However utility maximization it may not be fair for many candidates, specially if the probability of the top candidates it's very close together</p>
+<p>Fairness: If two items has similar merits, their exposure should be the same. There are endogenous and exogenous factors:
+Fairness of exposure: Endogenous (merit), Exogenous (biases)</p>
+<h1><a class="header" href="#recommendation-feedback-loops-disproportionally-hurt-users-with-minority-preferences" id="recommendation-feedback-loops-disproportionally-hurt-users-with-minority-preferences">Recommendation feedback loops disproportionally hurt users with minority preferences</a></h1>
+<ul>
+<li>Called &quot;Algorithmic confounding&quot;. Perspective
+Users:
+<ul>
+<li>&quot;I don't get whwat I'm looking for&quot;</li>
+<li>&quot;This sistem sucks&quot;
+Company:</li>
+<li>User segmentation
+Technical:</li>
+<li>Bad training and evaluation protocols</li>
+</ul>
+</li>
+</ul>
+<p>Recommendation feedback:</p>
+<ul>
+<li>Provokes homogeneization of user behaviour</li>
+<li>Users experience losses in utility</li>
+<li>Amplifies the impact of the rec system on the distribution of the item consumption</li>
+</ul>
+<p>Initial data may not be enough 
+Poorly tuned models hurt user with minority preferences recommending items further from their preferences
+A/B test can weaken overall performance. Too many of them can delay recommending the most relevant items.</p>
+<p>Matrix factorization</p>
+<h2><a class="header" href="#causal-modeling-applied-to-messaging-at-netflix" id="causal-modeling-applied-to-messaging-at-netflix">Causal modeling applied to messaging at Netflix</a></h2>
+<h1><a class="header" href="#conversational-recommmendation-with-natural-language" id="conversational-recommmendation-with-natural-language">Conversational Recommmendation with Natural Language</a></h1>
+<p>We want:</p>
+<ul>
+<li>Speaking the user language is essential for a conversational recommendation</li>
+<li>Model that understands natural requests: &quot;I'd like to watch something relaxing&quot;</li>
+</ul>
+<p>Soft attribbutes: Property of an item that</p>
+<ul>
+<li>is not a verifiable fact</li>
+<li>can be universally agreed on</li>
+<li>meaningful to compare</li>
+<li>we can say that one is great than the other</li>
+</ul>
+<p>Answers to questions</p>
+<ul>
+<li>Polar yes/no question
+<ul>
+<li>Direct answer</li>
+<li>Indirect answer (e.g. for being polite). Can include more information. - Do you have kids? - I have 2 daughers
+Richness of language</li>
+</ul>
+</li>
+</ul>
+<p>Explainable User Models (Why?)</p>
+<ul>
+<li>What does the system know about me</li>
+<li>How does the system interprets that</li>
+<li>How does it go from user model to recommendations</li>
+</ul>
+<p>Observing the language of the user requires new approaches for data collection and models</p>
 
                     </main>
 
