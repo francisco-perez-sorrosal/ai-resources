@@ -35,6 +35,10 @@ and innovation.
 * [Salk Institute](https://www.salk.edu/) A well-known institute researching the foundations of life, seeking new
  understandings in neuroscience, genetics, immunology, plant biology and more.
 
+# [Courses and Q/A]
+
+* [ML Code Challenges](https://www.deep-ml.com/)
+
 # Opinion
 * [Machine Learning: The Great Stagnation](https://marksaroufim.substack.com/p/machine-learning-the-great-stagnation) Defines the current (early 2021) situation of DS/ML roles in industry, at least in US.
   - [Video](https://learn.xnextcon.com/event/eventdetails/W2021031810)
