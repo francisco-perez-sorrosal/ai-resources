@@ -169,6 +169,41 @@
 <h2><a class="header" href="#prediction" id="prediction">Prediction</a></h2>
 <h2><a class="header" href="#regression" id="regression">Regression</a></h2>
 <h2><a class="header" href="#classification" id="classification">Classification</a></h2>
+<h3><a class="header" href="#binary-classification" id="binary-classification">Binary Classification</a></h3>
+<p>In this kind of applications there are only two possible classes or outcomes. The task is to assign an instance to one of these two classes, so the output is a single class label indicating one of the two possible outcomes.</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Spam detection (spam vs. not spam)</li>
+<li>Disease diagnosis (positive vs. negative)</li>
+</ul>
+<p><strong>Algorithms</strong>
+Logistic Regression, Support Vector Machine (SVM), Decision Trees, Random Forest, etc.</p>
+<p><strong>Evaluation Metrics</strong>
+Accuracy, Precision, Recall, F1-Score, Area Under the Receiver Operating Characteristic Curve (AUC-ROC).</p>
+<h3><a class="header" href="#multiclass-classification" id="multiclass-classification">Multiclass Classification</a></h3>
+<p>These appplications involve the classification of two or more disjoint classes The output is a single class label indicating one of the multiple possible classes.</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Handwritten digit recognition (digits 0-9)</li>
+<li>Animal classification (cat, dog, bird, etc.)</li>
+<li>Sentiment analysis (positive, negative, neutral)</li>
+</ul>
+<p><strong>Algorithms</strong>
+Logistic Regression (softmax for multiclass), k-Nearest Neighbors (k-NN), Decision Trees, Random Forest, Neural Networks, etc.</p>
+<p><strong>Evaluation Metrics</strong>
+Accuracy, Precision, Recall, F1-Score (macro, micro, and weighted versions), Confusion Matrix.</p>
+<h3><a class="header" href="#multilabel-classification" id="multilabel-classification">Multilabel Classification</a></h3>
+<p>In multilabel classification applications, each instance can belong to multiple classes simultaneously. Unlike binary and multiclass classification, where an instance is assigned a single label, multilabel classification assigns multiple labels; so the output will be a set of class labels indicating multiple possible classes for each instance.</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Document categorization (e.g., a document could be about &quot;Sports&quot; and &quot;Health&quot; simultaneously)</li>
+<li>Image tagging (an image could be tagged as &quot;Beach,&quot; &quot;Sunset,&quot; and &quot;Vacation&quot;)</li>
+<li>Music genre classification (a song could belong to both &quot;Jazz&quot; and &quot;Blues&quot;)</li>
+</ul>
+<p><strong>Algorithms</strong></p>
+<p>Problem Transformation Methods (e.g., One-vs-Rest, Classifier Chains), Adapted Algorithms (e.g., Adapted k-NN, Adapted Decision Trees), Deep Learning models (e.g., Convolutional Neural Networks (CNNs) with sigmoid activation in the output layer).</p>
+<p><strong>Evaluation Metrics</strong></p>
+<p>Hamming Loss, Precision, Recall, F1-Score (macro, micro, weighted), Subset Accuracy, Coverage Error, Ranking Loss.</p>
 <h2><a class="header" href="#personalizationrecommender-systems" id="personalizationrecommender-systems">Personalization/Recommender systems</a></h2>
 <p>Make decisions is a key part of what we consider intelligence. Learn from limited samples to make good decissions.</p>
 <p>Multi-arm banditds (Contextual) Subcase of RL</p>
@@ -200,7 +235,7 @@ was massive:</p>
 <p>Most of those models are also multilingual, meaning that a single model is capable of translating from any source
 language to any target language.</p>
 <h2><a class="header" href="#financial" id="financial">Financial</a></h2>
-<p>Models like FinBERT have been finetuned with a large financial corpora of articles [<a href="bibliography.html#yang_finbert_2020">yang_finbert_2020</a>] </p>
+<p>Models like FinBERT have been finetuned with a large financial corpora of articles [<a href="bibliography.html#yang_finbert_2020">yang_finbert_2020</a>]</p>
 <h2><a class="header" href="#medicine" id="medicine">Medicine</a></h2>
 <p>Dermatology - Detect skin cancer or problematic skin-related diseases.</p>
 <h2><a class="header" href="#legallaw" id="legallaw">Legal/Law</a></h2>
@@ -218,10 +253,7 @@ humans.</p>
 <li><a href="https://arxiv.org/pdf/2006.03511.pdf">Unsupervised Translation of Programming Languages</a></li>
 </ul>
 <h3><a class="header" href="#databases" id="databases">Databases</a></h3>
-<p>Even traditional fields of Computer Science such as DBMSs can't escape from the influence of AI these days. In
-[Unknown bib ref: krasa_case_2017] the authors
-replace DBMS core components with NNs being able to improve the performance of caches of classical data structures
-for data management -such as B-Trees- while using less system resources such as memory/disk space.</p>
+<p>Even traditional fields of Computer Science such as DBMSs can't escape from the influence of AI these days. In [Unknown bib ref: krasa_case_2017] the authors replace DBMS core components with NNs being able to improve the performance of caches of classical data structures for data management -such as B-Trees- while using less system resources such as memory/disk space.</p>
 
                     </main>
 

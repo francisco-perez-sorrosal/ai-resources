@@ -180,10 +180,23 @@ reaching the input layer. </p>
 <h1><a class="header" href="#causality" id="causality">Causality</a></h1>
 <p>Correlations is not causation. In ML causality tries to understand the relationships between data in order to create models
 that generalize well.</p>
+<h1><a class="header" href="#confusion-matrix" id="confusion-matrix">Confusion Matrix</a></h1>
+<p>A confusion matrix is a tool used to evaluate the performance of a classification model by comparing the predicted labels to the actual labels. It provides a more detailed analysis of the model's performance than simple accuracy metrics. The confusion matrix is typically presented as a table with four main outcomes:</p>
+<ul>
+<li>True Positive (TP): Correctly predicted positive instances.</li>
+<li>True Negative (TN): Correctly predicted negative instances.</li>
+<li>False Positive (FP): Incorrectly predicted positive instances (Type I error).</li>
+<li>False Negative (FN): Incorrectly predicted negative instances (Type II error).</li>
+</ul>
+<p>By examining the values in the confusion matrix, we can calculate various evaluation metrics such as precision, recall, and F1 score, which provide insights into the model's performance for different classes. The confusion matrix is an essential tool for understanding the strengths and weaknesses of a classification model.</p>
+<p>Example of a confusion matrix:
+<img src="images/conf_matrix_example.png" alt="Confusion Matrix Example" /></p>
+<p>Main metrics derived from a confusion matrix:
+<img src="images/metrics_from_conf_matrix.png" alt="Confusion Matrix Example" /></p>
 <h1><a class="header" href="#e" id="e">E</a></h1>
 <h2><a class="header" href="#expert-system" id="expert-system">Expert System</a></h2>
 <h2><a class="header" href="#a-hrefvocabularyhtmlinterpretabilityexplainabilitya" id="a-hrefvocabularyhtmlinterpretabilityexplainabilitya"><a href="vocabulary.html#Interpretability">Explainability</a></a></h2>
-<p><a href="vocabulary.html#Interpretability">See Interpretability</a>.</p>
+<p><a href="#Interpretability">See Interpretability</a>.</p>
 <h2><a class="header" href="#explanation" id="explanation">Explanation</a></h2>
 <p>The explicit ability expected in an intelligent agent to give &quot;good&quot; explanations of its decisions to humans. As usual,
 the problem here is to define what is a &quot;good&quot; explanation. If we try to mimic in the intelligent agent world, how 
@@ -290,6 +303,15 @@ error in the metrics from the train dataset and a high error in the metrics from
 <h2><a class="header" href="#perplexity" id="perplexity">Perplexity</a></h2>
 <p>A measure for evaluating NLP models. It measures how good or bad a probability distribution/model predicts a sample.</p>
 <p><img src="images/perplexity.png" alt="Perplexity (Source: https://towardsdatascience.com/perplexity-intuition-and-derivation-105dd481c8f3)" /></p>
+<h1><a class="header" href="#r" id="r">R</a></h1>
+<h2><a class="header" href="#roc-receiver-operating-characteristic-curve" id="roc-receiver-operating-characteristic-curve">RoC (Receiver Operating Characteristic) Curve</a></h2>
+<p>The Receiver Operating Characteristic (ROC) curve is a graphical representation of the trade-off between the true positive rate (sensitivity) and the false positive rate (1 - specificity) for a binary classification model.</p>
+<p>The true positive rate (TPR) is the proportion of actual positive samples that are correctly classified as positive, while the false positive rate (FPR) is the proportion of actual negative samples that are incorrectly classified as positive.</p>
+<p>The ROC curve is created by plotting the TPR against the FPR. Each point on the curve represents a different threshold, so the curve provides a visual representation of the model's performance across all possible thresholds.</p>
+<p>The shape of the ROC curve can also provide insights into the model's performance. A curve that is closer to the top-left corner indicates a better model; a curve closer to the diagonal line represents a weaker model.</p>
+<p>The area under the ROC curve (AUC) is commonly used to evaluate the performance of a binary classification model. An AUC of 0.5 indicates that the model performs no better than random guessing, while an AUC of 1.0 indicates a perfect classifier.</p>
+<p>A model with a higher AUC has better discrimination ability, which means it can better distinguish between positive and negative samples.</p>
+<p><img src="images/roc_curve.png" alt="ROC Curve" /></p>
 <h1><a class="header" href="#s" id="s">S</a></h1>
 <h2><a class="header" href="#simulated-annealing" id="simulated-annealing">Simulated Annealing</a></h2>
 <p>Inspired by the process of annealing in metal works, it describes a probabilistic approach to solve problems by 

@@ -164,16 +164,58 @@
                     <main>
                         <h1><a class="header" href="#machinedeep-learning-topics" id="machinedeep-learning-topics">Machine/Deep Learning Topics</a></h1>
 <h2><a class="header" href="#artificial-general-inteligence" id="artificial-general-inteligence">(Artificial) General Inteligence</a></h2>
-<p>This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of 
-artificial intelligence.</p>
-<p>In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining 
-a general capability on fulfilling previous learned tasks.
-This artificial general intelligence requires that the agent does not forget what it has learn -what is called <a href="#catastrophic_forgetting">catastrophic forgetting</a>
-in the literature- and assumes that the agent will continue learning new tasks -called <a href="#continual-learning">continual or lifelong learning</a>.</p>
+<p>This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of artificial intelligence.</p>
+<p>In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining a general capability on fulfilling previous learned tasks.</p>
+<p>This artificial general intelligence requires that the agent does not forget what it has learn -what is called <a href="#catastrophic_forgetting">catastrophic forgetting</a></p>
+<p>in the literature- and assumes that the agent will continue learning new tasks -called <a href="#continual-learning">continual or lifelong learning</a>.</p>
+<p>Since the advent of ChatGPT on November 30th of 2022, there's been a lot of hype about this.</p>
 <h2><a class="header" href="#loss-function" id="loss-function">Loss Function</a></h2>
-<p>Papers:</p>
+<h3><a class="header" href="#mean-squared-error-mse" id="mean-squared-error-mse">Mean Squared Error (MSE)</a></h3>
+<p>MSE measures the average squared difference between the actual values and the predicted values, penalizing larger errors more significantly due to the squaring of the differences.</p>
+<p>$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$</p>
 <ul>
-<li><a href="https://arxiv.org/abs/2006.13593">Retrospective Loss: Looking Back to Improve Training of Deep Neural Networks (KDD 2020)</a>	
+<li>$n$ is the number of data points.</li>
+<li>$y_i$ is the true value for the $i$ th data point.</li>
+<li>$\hat{y}_i$ is the predicted value for the $i$ th data point.</li>
+</ul>
+<p><strong>Advantages</strong>: Easy to compute and differentiate. It is suitable for regression problems where the goal is to minimize the squared difference between predicted and actual values.</p>
+<p><strong>Disadvantages</strong>: Sensitive to outliers, as large errors are squared, potentially leading to  overemphasis on outliers.</p>
+<h3><a class="header" href="#cross-entropy-loss" id="cross-entropy-loss">Cross-Entropy Loss</a></h3>
+<p>Cross-entropy loss measures the performance of a classification model whose output is a probability value between 0 and 1. It increases as the predicted probability diverges from the actual label.</p>
+<p>The formula for cross-entropy loss, often used in classification tasks, particularly with softmax output in neural networks, is given by:</p>
+<p>For binary classification:</p>
+<p>$$
+\text{Cross-Entropy Loss} = - \left[ y \cdot \log(p) + (1 - y) \cdot \log(1 - p) \right]
+$$</p>
+<p>For multi-class classification:</p>
+<p>$$
+\text{Cross-Entropy Loss} = - \sum_{i=1}^{C} y_i \cdot \log(p_i)
+$$</p>
+<ul>
+<li>$y$ (in binary classification) is the true label, either 0 or 1.</li>
+<li>$p$ is the predicted probability of the positive class.</li>
+<li>$y_i$ (in multi-class classification) is a binary indicator (0 or 1) if class $i$ is the correct classification.</li>
+<li>$p_i$ is the predicted probability of class $i$.</li>
+<li>$C$ is the total number of classes.</li>
+</ul>
+<p><strong>Advantages</strong>: Ideal for classification problems, particularly binary and multi-class classification. It measures the performance of a classification model whose output is a probability value between 0 and 1.</p>
+<p><strong>Disadvantages</strong>: Can be sensitive to class imbalance and may lead to slower convergence in some cases.</p>
+<h3><a class="header" href="#hinge-loss" id="hinge-loss">Hinge Loss</a></h3>
+<p>The hinge loss penalizes predictions that are on the wrong side of the decision boundary or too close to it. For a correct prediction with a margin greater than 1, the hinge loss is zero; otherwise, the loss increases linearly as the prediction moves further away from the correct classification.</p>
+<p>$$
+\text{Hinge Loss} = \max(0, 1 - y \cdot f(x))
+$$</p>
+<ul>
+<li>$y$ is the true label of the data point, which is typically either +1 or -1.</li>
+<li>$f(x)$ is the predicted value (or the decision function output) for the input $x$.</li>
+</ul>
+<p><strong>Advantages</strong>: Commonly used with Support Vector Machines (SVMs) for classification tasks. It encourages correct classification with a margin.</p>
+<p><strong>Disadvantages</strong>: Not suitable for regression tasks. It can be sensitive to the choice of the margin.</p>
+<h4><a class="header" href="#papers" id="papers">Papers</a></h4>
+<ul>
+<li><a href="https://arxiv.org/abs/2006.13593">Retrospective Loss: Looking Back to Improve Training of Deep Neural Networks (KDD 2020)</a>
 Learns from prior training experiences in the form of DNN model states during to guide weight updates and improve DNN 
 training performance. The retrospective loss seeks to ensure that the predictions at a particular training step are more 
 similar to the ground truth than to the predictions from a previous training step (which has relatively
@@ -265,11 +307,8 @@ Learning paradigm to estimate invariant correlations across multiple training di
 on top of that data representation, matches for all training distributions.</li>
 </ul>
 <h2><a class="header" href="#a-namecontinual_learningacontinual-learning-and-catastrophic-forgetting" id="a-namecontinual_learningacontinual-learning-and-catastrophic-forgetting"><a name="continual_learning"></a>Continual Learning and Catastrophic Forgetting</a></h2>
-<p>In biology, <em>Continual Learning</em> refers to the process of continually gather, update, and transfer skills/knowledge 
-throughout life (lifespan).</p>
-<p>In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget 
-previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the 
-equivalent of continual learning to be implemented in the field of artificial neural networks.</p>
+<p>In biology, <em>Continual Learning</em> refers to the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).</p>
+<p>In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the equivalent of continual learning to be implemented in the field of artificial neural networks.</p>
 <p><a href="https://www.aclweb.org/anthology/2020.coling-main.574.pdf">This is a summary of the recent (2021) advances in continual learning in NLP.</a></p>
 <p><a href="people.html#terrence-sejnowsky">Sejnowski</a> et al. {{ cite tsuda_modeling_2020 }} have developed a NN
 architecture that shows how
@@ -277,8 +316,7 @@ hierarchical gating supports adaptive learning while preserving memories from pr
 They show also how when introducing damages in the model, it recapitulates disorders found on the 
 human Prefrontal Cortex.</p>
 <h3><a class="header" href="#a-namecatastrophic_forgettingaprotocolsstrategies-for-solving-catastrophic-forgetting-cf" id="a-namecatastrophic_forgettingaprotocolsstrategies-for-solving-catastrophic-forgetting-cf"><a name="catastrophic_forgetting"></a>Protocols/Strategies for Solving Catastrophic Forgetting (CF)</a></h3>
-<p>One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing
-the effectiveness of the techniques. This has been addressed by studies like <a href="refs.html#vandeven2019">vandeven2019</a> and <a href="refs.html#vandeven2019b">vandeven2019b</a>.</p>
+<p>One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing the effectiveness of the techniques. This has been addressed by studies like <a href="refs.html#vandeven2019">vandeven2019</a> and <a href="refs.html#vandeven2019b">vandeven2019b</a>.</p>
 <p>The approaches to solve Catastrophic Forgetting can be classified in:</p>
 <h4><a class="header" href="#regularization-approaches" id="regularization-approaches">Regularization Approaches</a></h4>
 <p>https://arxiv.org/pdf/1612.00796.pdf</p>
