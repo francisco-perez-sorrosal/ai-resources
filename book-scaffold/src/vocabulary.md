@@ -25,13 +25,30 @@ reaching the input layer.
 Correlations is not causation. In ML causality tries to understand the relationships between data in order to create models
 that generalize well.
 
+# Confusion Matrix
+
+A confusion matrix is a tool used to evaluate the performance of a classification model by comparing the predicted labels to the actual labels. It provides a more detailed analysis of the model's performance than simple accuracy metrics. The confusion matrix is typically presented as a table with four main outcomes:
+
+- True Positive (TP): Correctly predicted positive instances.
+- True Negative (TN): Correctly predicted negative instances.
+- False Positive (FP): Incorrectly predicted positive instances (Type I error).
+- False Negative (FN): Incorrectly predicted negative instances (Type II error).
+
+By examining the values in the confusion matrix, we can calculate various evaluation metrics such as precision, recall, and F1 score, which provide insights into the model's performance for different classes. The confusion matrix is an essential tool for understanding the strengths and weaknesses of a classification model.
+
+Example of a confusion matrix:
+![Confusion Matrix Example](images/conf_matrix_example.png)
+
+Main metrics derived from a confusion matrix:
+![Confusion Matrix Example](images/metrics_from_conf_matrix.png)
+
 # E
 
 ## Expert System
 
 ## [Explainability](vocabulary.md#Interpretability)
 
-[See Interpretability](vocabulary.md#Interpretability).
+[See Interpretability](#Interpretability).
 
 ## Explanation
 
@@ -147,8 +164,6 @@ For more information see {{ #cite bengio_neural_2003 }}.
 The best language model would be that which could best predict unseen data. To measure the quality of a language model
 metrics such as [Perplexity](#perplexity) can be used.
 
-
-
 # Neural Network
 
 # Neuromorphic Computing
@@ -172,7 +187,6 @@ These are some references for weight norm {{ #cite saliman_weight_2016 }}, batch
  }}, layer norm {{ #cite ba_layer_2016 }} and group norm {{ #cite wu_group_2018 }}.
 
 
-
 # O
 
 ## Overfitting 
@@ -188,6 +202,25 @@ error in the metrics from the train dataset and a high error in the metrics from
 A measure for evaluating NLP models. It measures how good or bad a probability distribution/model predicts a sample.
 
 ![Perplexity (Source: https://towardsdatascience.com/perplexity-intuition-and-derivation-105dd481c8f3)](images/perplexity.png)
+
+
+# R
+
+## RoC (Receiver Operating Characteristic) Curve
+
+The Receiver Operating Characteristic (ROC) curve is a graphical representation of the trade-off between the true positive rate (sensitivity) and the false positive rate (1 - specificity) for a binary classification model.
+
+The true positive rate (TPR) is the proportion of actual positive samples that are correctly classified as positive, while the false positive rate (FPR) is the proportion of actual negative samples that are incorrectly classified as positive.
+
+The ROC curve is created by plotting the TPR against the FPR. Each point on the curve represents a different threshold, so the curve provides a visual representation of the model's performance across all possible thresholds.
+
+The shape of the ROC curve can also provide insights into the model's performance. A curve that is closer to the top-left corner indicates a better model; a curve closer to the diagonal line represents a weaker model.
+
+The area under the ROC curve (AUC) is commonly used to evaluate the performance of a binary classification model. An AUC of 0.5 indicates that the model performs no better than random guessing, while an AUC of 1.0 indicates a perfect classifier.
+
+A model with a higher AUC has better discrimination ability, which means it can better distinguish between positive and negative samples.
+
+![ROC Curve](images/roc_curve.png)
 
 # S
 

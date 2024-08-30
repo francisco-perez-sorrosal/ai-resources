@@ -2,18 +2,80 @@
 
 ## (Artificial) General Inteligence
 
-This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of 
-artificial intelligence.
+This has been, is, and will be for some more time at least, the dream of scientist/researchers/engineers in the field of artificial intelligence.
 
-In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining 
-a general capability on fulfilling previous learned tasks.
+In short, achieving a general artificial intelligence assumes the ability of an agent to learn new tasks whilst maintaining a general capability on fulfilling previous learned tasks.
+
 This artificial general intelligence requires that the agent does not forget what it has learn -what is called [catastrophic forgetting](#catastrophic_forgetting)
+
 in the literature- and assumes that the agent will continue learning new tasks -called [continual or lifelong learning](#continual-learning).
+
+Since the advent of ChatGPT on November 30th of 2022, there's been a lot of hype about this.
 
 ## Loss Function
 
-Papers:
-* [Retrospective Loss: Looking Back to Improve Training of Deep Neural Networks (KDD 2020)](https://arxiv.org/abs/2006.13593)	
+### Mean Squared Error (MSE)
+
+MSE measures the average squared difference between the actual values and the predicted values, penalizing larger errors more significantly due to the squaring of the differences.
+
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$
+
+- $n$ is the number of data points.
+- $y_i$ is the true value for the $i$ th data point.
+- $\hat{y}_i$ is the predicted value for the $i$ th data point.
+
+**Advantages**: Easy to compute and differentiate. It is suitable for regression problems where the goal is to minimize the squared difference between predicted and actual values.
+
+**Disadvantages**: Sensitive to outliers, as large errors are squared, potentially leading to  overemphasis on outliers.
+
+### Cross-Entropy Loss
+
+Cross-entropy loss measures the performance of a classification model whose output is a probability value between 0 and 1. It increases as the predicted probability diverges from the actual label.
+
+The formula for cross-entropy loss, often used in classification tasks, particularly with softmax output in neural networks, is given by:
+
+For binary classification:
+
+$$
+\text{Cross-Entropy Loss} = - \left[ y \cdot \log(p) + (1 - y) \cdot \log(1 - p) \right]
+$$
+
+For multi-class classification:
+
+$$
+\text{Cross-Entropy Loss} = - \sum_{i=1}^{C} y_i \cdot \log(p_i)
+$$
+
+- $y$ (in binary classification) is the true label, either 0 or 1.
+- $p$ is the predicted probability of the positive class.
+- $y_i$ (in multi-class classification) is a binary indicator (0 or 1) if class $i$ is the correct classification.
+- $p_i$ is the predicted probability of class $i$.
+- $C$ is the total number of classes.
+
+**Advantages**: Ideal for classification problems, particularly binary and multi-class classification. It measures the performance of a classification model whose output is a probability value between 0 and 1.
+
+**Disadvantages**: Can be sensitive to class imbalance and may lead to slower convergence in some cases.
+
+### Hinge Loss
+
+The hinge loss penalizes predictions that are on the wrong side of the decision boundary or too close to it. For a correct prediction with a margin greater than 1, the hinge loss is zero; otherwise, the loss increases linearly as the prediction moves further away from the correct classification.
+
+$$
+\text{Hinge Loss} = \max(0, 1 - y \cdot f(x))
+$$
+
+- $y$ is the true label of the data point, which is typically either +1 or -1.
+- $f(x)$ is the predicted value (or the decision function output) for the input $x$.
+
+**Advantages**: Commonly used with Support Vector Machines (SVMs) for classification tasks. It encourages correct classification with a margin.
+
+**Disadvantages**: Not suitable for regression tasks. It can be sensitive to the choice of the margin.
+
+#### Papers
+
+- [Retrospective Loss: Looking Back to Improve Training of Deep Neural Networks (KDD 2020)](https://arxiv.org/abs/2006.13593)
 Learns from prior training experiences in the form of DNN model states during to guide weight updates and improve DNN 
 training performance. The retrospective loss seeks to ensure that the predictions at a particular training step are more 
 similar to the ground truth than to the predictions from a previous training step (which has relatively
@@ -75,11 +137,12 @@ A measure of the confidence of the predictions of a model. Concept comes from we
 
 Main Methods:
 
-- Platt Scaling
-- Matrix Vector Scaling
-- Temperature scaling
+* Platt Scaling
+* Matrix Vector Scaling
+* Temperature scaling
 
 Papers:
+
 * [On Calibration of Modern Neural Networks (ICML 2017)](https://arxiv.org/abs/1706.04599)
 * [Beyond temperature scaling: Obtaining well-calibrated multiclass probabilities with Dirichlet calibration (NeurIPS 2019)](https://papers.nips.cc/paper/9397-beyond-temperature-scaling-obtaining-well-calibrated-multi-class-probabilities-with-dirichlet-calibration.pdf)
 
@@ -97,8 +160,6 @@ Papers:
  * [Calibration Tutorial](https://www.youtube.com/watch?v=rhnqZV6eKlg&feature=youtu.be)
 </details>
 
-
-
 ## Causality
 
 * [The Book of Why (Judea Perl)](http://bayes.cs.ucla.edu/WHY/)
@@ -109,12 +170,9 @@ on top of that data representation, matches for all training distributions.
 
 ## <a name="continual_learning"></a>Continual Learning and Catastrophic Forgetting
 
-In biology, *Continual Learning* refers to the process of continually gather, update, and transfer skills/knowledge 
-throughout life (lifespan).
+In biology, *Continual Learning* refers to the process of continually gather, update, and transfer skills/knowledge throughout life (lifespan).
 
-In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget 
-previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the 
-equivalent of continual learning to be implemented in the field of artificial neural networks.
+In ML, it is still a major research problem to solve the fact that neural networks use to catastrophically forget previously learned tasks when they are trained in new ones. This fact it is the main obstacle that prevents the equivalent of continual learning to be implemented in the field of artificial neural networks.
 
 [This is a summary of the recent (2021) advances in continual learning in NLP.](https://www.aclweb.org/anthology/2020.coling-main.574.pdf)
 
@@ -126,8 +184,7 @@ They show also how when introducing damages in the model, it recapitulates disor
 
 ### <a name="catastrophic_forgetting"></a>Protocols/Strategies for Solving Catastrophic Forgetting (CF)
 
-One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing
-the effectiveness of the techniques. This has been addressed by studies like [vandeven2019](refs.md#vandeven2019) and [vandeven2019b](refs.md#vandeven2019b).
+One problem with all the different strategies proposed for solving CF is that the field lacks a framework for comparing the effectiveness of the techniques. This has been addressed by studies like [vandeven2019](refs.md#vandeven2019) and [vandeven2019b](refs.md#vandeven2019b).
 
 The approaches to solve Catastrophic Forgetting can be classified in:
 

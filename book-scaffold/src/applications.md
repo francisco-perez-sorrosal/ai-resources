@@ -8,6 +8,52 @@
 
 ## Classification
 
+### Binary Classification
+
+In this kind of applications there are only two possible classes or outcomes. The task is to assign an instance to one of these two classes, so the output is a single class label indicating one of the two possible outcomes.
+
+**Examples**
+- Spam detection (spam vs. not spam)
+- Disease diagnosis (positive vs. negative)
+
+**Algorithms**
+Logistic Regression, Support Vector Machine (SVM), Decision Trees, Random Forest, etc.
+
+**Evaluation Metrics**
+Accuracy, Precision, Recall, F1-Score, Area Under the Receiver Operating Characteristic Curve (AUC-ROC).
+
+### Multiclass Classification
+
+These appplications involve the classification of two or more disjoint classes The output is a single class label indicating one of the multiple possible classes.
+
+**Examples**
+- Handwritten digit recognition (digits 0-9)
+- Animal classification (cat, dog, bird, etc.)
+- Sentiment analysis (positive, negative, neutral)
+
+**Algorithms**
+Logistic Regression (softmax for multiclass), k-Nearest Neighbors (k-NN), Decision Trees, Random Forest, Neural Networks, etc.
+
+**Evaluation Metrics**
+Accuracy, Precision, Recall, F1-Score (macro, micro, and weighted versions), Confusion Matrix.
+
+### Multilabel Classification
+In multilabel classification applications, each instance can belong to multiple classes simultaneously. Unlike binary and multiclass classification, where an instance is assigned a single label, multilabel classification assigns multiple labels; so the output will be a set of class labels indicating multiple possible classes for each instance.
+
+**Examples**
+- Document categorization (e.g., a document could be about "Sports" and "Health" simultaneously)
+- Image tagging (an image could be tagged as "Beach," "Sunset," and "Vacation")
+- Music genre classification (a song could belong to both "Jazz" and "Blues")
+
+**Algorithms**
+
+Problem Transformation Methods (e.g., One-vs-Rest, Classifier Chains), Adapted Algorithms (e.g., Adapted k-NN, Adapted Decision Trees), Deep Learning models (e.g., Convolutional Neural Networks (CNNs) with sigmoid activation in the output layer).
+
+**Evaluation Metrics**
+
+Hamming Loss, Precision, Recall, F1-Score (macro, micro, weighted), Subset Accuracy, Coverage Error, Ranking Loss.
+
+
 ## Personalization/Recommender systems
 
 Make decisions is a key part of what we consider intelligence. Learn from limited samples to make good decissions.
@@ -57,7 +103,7 @@ Most of those models are also multilingual, meaning that a single model is capab
 
 ## Financial
 
-Models like FinBERT have been finetuned with a large financial corpora of articles {{ #cite yang_finbert_2020 }} 
+Models like FinBERT have been finetuned with a large financial corpora of articles {{ #cite yang_finbert_2020 }}
 
 ## Medicine
 
@@ -85,7 +131,4 @@ humans.
 
 ### Databases
 
-Even traditional fields of Computer Science such as DBMSs can't escape from the influence of AI these days. In
- {{ #cite krasa_case_2017 }} the authors
-replace DBMS core components with NNs being able to improve the performance of caches of classical data structures
- for data management -such as B-Trees- while using less system resources such as memory/disk space.
+Even traditional fields of Computer Science such as DBMSs can't escape from the influence of AI these days. In {{ #cite krasa_case_2017 }} the authors replace DBMS core components with NNs being able to improve the performance of caches of classical data structures for data management -such as B-Trees- while using less system resources such as memory/disk space.
