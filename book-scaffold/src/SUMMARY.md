@@ -1,16 +1,18 @@
 # Sections
 
 - [Overview](overview.md)
+- [Timeline/History](history.md)
 - [Applications](applications.md)
 - [A Multidisciplinary Approach](multidisciplinary_approach.md)
 - [Approaches](approaches.md)
 - ["Classical" Machine Learning](classical_ml.md)
 - [Advanced Machine and Deep Learning Topics](topics.md)
 - [NLP](nlp.md)
+- [System Design](system_design.md)
 - [To Production](productionizing.md)
-- [Frameworks](tools_and_frameworks.md)
+- [Tools and Frameworks](tools_and_frameworks.md)
 - [Books and Resources](books_and_resources.md)
 - [Conferences](conferences.md)
 - [Vocabulary](vocabulary.md)
 - [People](people.md)
-- [Timeline/History](history.md)
+
