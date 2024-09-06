@@ -98,7 +98,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">2.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">3.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">4.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="classical_ml.html"><strong aria-hidden="true">5.</strong> &quot;Classical&quot; Machine Learning</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">6.</strong> Advanced Machine and Deep Learning Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">7.</strong> NLP</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">8.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">9.</strong> Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">10.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">11.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">12.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">13.</strong> People</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">14.</strong> Timeline/History</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">2.</strong> Timeline/History</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">4.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">5.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="classical_ml.html"><strong aria-hidden="true">6.</strong> &quot;Classical&quot; Machine Learning</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">7.</strong> Advanced Machine and Deep Learning Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">8.</strong> NLP</a></li><li class="chapter-item expanded "><a href="system_design.html"><strong aria-hidden="true">9.</strong> System Design</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">10.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">11.</strong> Tools and Frameworks</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">12.</strong> Books and Resources</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">13.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">14.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">15.</strong> People</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -213,7 +213,8 @@ scientific field, <a href="https://en.wikipedia.org/wiki/Bioinformatics">bioinfo
 quantum computing in the next few years, guarantee endless fun for scientist and engineers in the next decades. This 
 book pretends to be my modest log and diary on the topics depicted above and others that will arise along the way.</p>
 <h1><a class="header" href="#mindmap" id="mindmap">Mindmap</a></h1>
-<iframe width='853' height='480' src='https://gitmind.com/app/doc/0f62047898' frameborder='0' allowfullscreen></iframe><h1><a class="header" href="#applications" id="applications">Applications</a></h1>
+<iframe width='853' height='480' src='https://gitmind.com/app/doc/0f62047898' frameborder='0' allowfullscreen></iframe><h1><a class="header" href="#timelinehistory" id="timelinehistory">Timeline/History</a></h1>
+<h1><a class="header" href="#applications" id="applications">Applications</a></h1>
 <ul>
 <li><a href="https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf">DeepFace</a> always remind me of how Schwarzenegger is framed for the murder of almost a hundred unarmed civilians in <a href="https://www.imdb.com/title/tt0093894/">The Running Man</a></li>
 </ul>
@@ -897,6 +898,108 @@ C C C C C</p>
 </ul>
 <h3><a class="header" href="#superglue" id="superglue">SuperGLUE</a></h3>
 <p>TODO</p>
+<h1><a class="header" href="#designing-machinedeep-learning-systems" id="designing-machinedeep-learning-systems">Designing Machine/Deep Learning Systems</a></h1>
+<p>When a business problem involves machine learning and deep learning system, designing such a system to be suitable for production involves much more than just choosing the right model. Several components and/or third party systems will need to be designed, developed and/or integrated in order to ensure a sytem meeting the business expectations and ready to deliver real value.</p>
+<p>On one side, careful consideration of the entire training/evaluation/deployment lifecycle will be required, from data collection and preprocessing to model training, deployment, and maintenance.</p>
+<p>On the oter side, taking into consideration non-functional features, like ensuring that the system is scalable, secure, and compliant with regulations will be also critical. By taking a holistic approach, you can build a robust, efficient, and effective machine learning system that delivers real value to the business.</p>
+<p>So, as we will see below, putting a complex system like that into production can be really challenging and convoluted.</p>
+<p>In the sections below, I will outline whay I consider the main topics to address when designing an ML system. These guidelines can also serve as a useful reference for interviews.</p>
+<p>Designing a machine learning (ML) system involves a thoughtful balance of various considerations to ensure the system is effective, scalable, and maintainable. Below there is a set of general considerations (described as a sequential pipeline of tasks) when designing an ML system, explained in an educational manner:</p>
+<h2><a class="header" href="#problem-definition-and-scope" id="problem-definition-and-scope">Problem Definition and Scope</a></h2>
+<h3><a class="header" href="#understanding-the-business-objective" id="understanding-the-business-objective">Understanding the Business Objective</a></h3>
+<p>Way before diving into the technical aspects, it is critical to understand the problem at hand. The initial question we should ask is, &quot;What is the business need?&quot; Following that, &quot;How will success be measured?&quot;, which would allow us determine how to determine the success of the solution. Only once we have a high-level view of the business objective and understand the basic success criteria, can we proceed with more technical aspects such as the selection of data, models, and evaluation metrics.</p>
+<h3><a class="header" href="#project-scope-and-constraints" id="project-scope-and-constraints">Project Scope and Constraints</a></h3>
+<p>As with any software project, it is essential to understand the <strong>scope and constraints</strong> of the task at hand. Defining the scope of the problem is critical to avoid setting unrealistic expectations. Also, it is important to identify any constraints, such as time, budget, or computational resources, that could poetentially impact our project's scope. This comprehensive understanding is key to establishing <em>realistic goals and expectations</em> for our project.</p>
+<h2><a class="header" href="#data-management" id="data-management">Data Management</a></h2>
+<h3><a class="header" href="#data-collection" id="data-collection">Data Collection</a></h3>
+<p>Data is critical for (almost) any ML/DL problem. So, <strong>identify the sources  where the data will come from</strong> is one of the first things we'll need to figure out. Do we already have that data, is it generated internally from our current systems?, is it sourced from third-party APIs, or collected from sensors? are the kind of questions we'll have to answer here.</p>
+<p>If the data sources are key, its <strong>quality</strong> is even more important. Ensuring the data is of high quality—clean, complete, and relevant will be the next step, as poor data quality will most likely lead to unreliable and useless models.</p>
+<h3><a class="header" href="#data-preprocessing" id="data-preprocessing">Data Preprocessing</a></h3>
+<p>If the data is of poor quality we most likely will have to do some <strong>data clieaning</strong>; this involves for example handle missing values, remove duplicates, or correct inconsistencies.</p>
+<p>In addition to that we will probably need to do certain <strong>data transformations</strong> to prepare the data as input to the different building blocks of our training/production systems. This encompasses tasks liken normalize/standardize the data, or apply feature engineering to make the data suitable for certain models.</p>
+<p>Very close to the tasks above will be the consideration of <strong>data storage</strong> solutions that suit each part of the process best. Choosing appropriately these solutions depending on the data volume and access speed requirements may be influenced by the constrains identified at the begining. Options include shared/cloud fault-tolerant filesystems, data streams, relational databases, NoSQL databases, data lakes, etc.</p>
+<h2><a class="header" href="#model-selection-and-training" id="model-selection-and-training">Model Selection and Training</a></h2>
+<p>The tasks of <strong>choosing an algorithm/model</strong> may come next. The algorithm/model(s) should align with the problem at hand: type—regression, classification, clustering, etc. For example, linear regression for continuous output prediction, or decision trees for classification.</p>
+<p>Along with this, a <strong>trade-off between model complexity and interpretability</strong> may be necessary to consider, again, depending on the project constraints. Complex models like the ones involved in deep learning, may offer higher accuracy but may harder to interpret if there's no budget for the adequate tools.</p>
+<p>The <strong>training process</strong> shoule be examined next. The <strong>infrastructure</strong> used will need to be considered. Deciding whether to use on-premise servers (if available,) cloud-based solutions, or a hybrid approach for training the model will be put under perspective here. These decisions again will depend on the available computational resources.</p>
+<p><strong>Hyperparameter tuning</strong>, that is, adjust the model’s hyperparameters to optimize performance will have to be considered too at some point. Do we think that the off-the shelf model standard training process will be enough to meet the identified metrics, or we would have to apply techniques like grid search or random search to boost those?</p>
+<p>This step will link the training to the <strong>evaluation process</strong>. Here, the <strong>metrics</strong> identified in the first step will be the guiding principle. As we showed, those were selected appropriately based on the problem, but may need to be revisited or complemented here, in case we missed someting. For example, for classification problems, accuracy, precision, recall, and F1-score are commonly used. In regression problems, mean squared error (MSE) or R-squared are more relevant.</p>
+<p>Also, in classical ML problems, applying techniques such as <strong>cross-validation</strong> (described in Chapter <a href="classical_ml.html">Classical ML</a>)-e.g. k-fold cross-validation- to ensure that the <strong>model generalizes well to unseen data</strong> may be encouraged. Deep learning-based solutions will have their own protocols, such as proper creation of high quality train/dev/test splits.</p>
+<h2><a class="header" href="#deployment" id="deployment">Deployment</a></h2>
+<p>The next step in the pipeline turns around thinking the proper infrastructure bells and whistles for deploying the trained model.</p>
+<h3><a class="header" href="#model-serving" id="model-serving">Model Serving</a></h3>
+<p>Here, the <strong>serving infrastructure</strong> will need to be evaluated. Decisions on how the model will be served need to be considered here. Options may include REST APIs, batch processing, real-time streaming predictions or ad-hoc approaches, depending on the problem at hand.</p>
+<p>Close to the serving infrastructure decision will come questions related to the <strong>scalability of the system</strong>. These questions will have to do to with ensuring that the system can scale to handle increased loads. Techniques like load balancing and horizontal scaling are of essential consideration here.</p>
+<p><strong>Latency and Throughput</strong> may determine also the quality of the final solution for certain problems. <strong>Optimizing</strong> the model and/or certain architectural solutions considering latency requirements —how quickly does the system need to respond? will need to be adressed here. <strong>Caching</strong> mechanisms may help also to reduce load and speed up response times for frequently requested predictions.</p>
+<h2><a class="header" href="#monitoring-and-maintenance" id="monitoring-and-maintenance">Monitoring and Maintenance</a></h2>
+<p>This involves mainly the following tasks:</p>
+<h3><a class="header" href="#performance-monitoring" id="performance-monitoring">Performance Monitoring</a></h3>
+<p>In the Context of ML/DL, performance monitoring refers to the process of continuously tracking and evaluating the performance of the ML model deployed in the system. It involves monitoring various metrics and indicators to ensure that the model is functioning as expected and delivering accurate results. It is an essential non-functional aspect of ML systems design as it is aimed to guarantee that the current model deployed continues to deliver accurate results over time. It enables proactive measures to maintain the model's accuracy, diagnose issues, optimize performance, and enhance the overall system's reliability.</p>
+<p>More in detail, this monitoring serves:</p>
+<h4><a class="header" href="#model-drift-detection" id="model-drift-detection">Model Drift Detection</a></h4>
+<p>Identifying model drift is maybe the most important aspect of ML monitoring. A model drift is said to occur when the input data distribution feeding the model changes over time, which may lead to a decline in the model's accuracy. A good monitoring can detect that degradation and raise the alarms or trigger the appropriate actions to maintain the model's accuracy.</p>
+<h4><a class="header" href="#logging-and-error-tracking" id="logging-and-error-tracking">Logging and Error Tracking</a></h4>
+<p>Monitoring has implied recording predictions, errors, and other key performance metrics along the inference pipeline. This information will be critical for diagnosing issues, optimizing performance, and enhancing the overall system's reliability. It will also allow us to track the model's behavior, identify patterns, and troubleshoot any errors or anomalies that may arise during the life of the system.</p>
+<h4><a class="header" href="#optimization-and-improvement" id="optimization-and-improvement">Optimization and Improvement</a></h4>
+<p>Overall, by monitoring the performance of the ML system, we will gain insights into its strengths and weaknesses. This information can be used to optimize the model, fine-tune hyperparameters, and improve the overall system's performance. Performance monitoring helps you identify areas where the model may be underperforming or where there is room for improvement.</p>
+<h3><a class="header" href="#continual-learning-automated-retraining" id="continual-learning-automated-retraining">Continual Learning (Automated Retraining)</a></h3>
+<p>This concept is also know continuous learning or lifelong learning; it refers to the capability of a ML/DL model to continually update and adapt over time as it receives new data, without needing to be retrained from scratch. If a process like this is incorporated into our final system, it will ensure that the model can &quot;evolve&quot; and stay resilient to data distribution changes or as new patterns emerge in the real world input data.</p>
+<p>This concept is particularly important in dynamic environments where the data is not static, and the model’s utility depends on its ability to keep learning from (aligning to) &quot;new experiences&quot; encoded in the new data distributions coming into the system.</p>
+<p>This will be implemented generally by setting up automated retraining pipelines to update the model as new data becomes available. A proactive approach will help maintain the metrics in shape by adapting the model weights to the evolving data patterns. Also during the retraining we need to keep an eye on preserving the past knowledge to avoid the so-called <a href="advanced_ml_dl_topics.html#continual-learning-and-catastrophic-forgetting"><em>catastrophic forgetting</em></a></p>
+<h3><a class="header" href="#alerts-and-notifications" id="alerts-and-notifications">Alerts and Notifications</a></h3>
+<p>Any system is suitable from having sudden drops in model accuracy, unusual input data, or unexpected output patterns, or having some of the resources saturated/underutilized; when this happens, having a good notification subsystem is vital to the life of the system. This will enable our teams to give prompt response to those alerts.</p>
+<h3><a class="header" href="#security-and-privacy" id="security-and-privacy">Security and Privacy</a></h3>
+<p>When designing a ML/DL learning system, it is paramount to consider security and privacy non-functional aspects to protect sensitive data and comply with relevant regulations. </p>
+<p>We will have to consider at least:</p>
+<h3><a class="header" href="#data-security" id="data-security">Data Security</a></h3>
+<p>Incorporating security and privacy considerations into the design of a ML/DL system, will allow us to safeguard sensitive data, protect against unauthorized access, and ensure compliance with applicable regulations/policies. This will help building trust with our users and stakeholders and mitigate potential risks associated with data breaches and/or privacy violations.</p>
+<h4><a class="header" href="#access-control" id="access-control">Access Control</a></h4>
+<p>Strict access control policies will ensure that only authorized users can access sensitive data and the system itself. This will help preventing unauthorized access and potential data breaches.</p>
+<h4><a class="header" href="#encryption" id="encryption">Encryption</a></h4>
+<p>Implement encryption techniques to protect data both at rest and in transit will complement the point above. This ensures that even if eavesdroppers gain access to the data, they won't be able to decipher it.</p>
+<h3><a class="header" href="#privacy-compliance" id="privacy-compliance">Privacy Compliance</a></h3>
+<p>Regulatory Compliance will ensure that the ML/DL system complies with relevant (and relative new since 2018) data protection regulations, such as the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA). This is particularly important when dealing with personal data. Compliance with these regulations helps protect individuals' privacy rights and ensures that their data is handled appropriately.</p>
+<h2><a class="header" href="#collaboration-and-documentation" id="collaboration-and-documentation">Collaboration and Documentation</a></h2>
+<p>Collaboration and documentation go hand in hand in ML/DL system design and are essential to the success of the final system. Both will ensure that the system is well-integrated, meets business needs, and can be easily maintained and updated.</p>
+<h3><a class="header" href="#cross-functional-collaboration" id="cross-functional-collaboration">Cross-functional Collaboration</a></h3>
+<p>As it happens with any complex system, building an ML/DL system is an humoungous effort. So building an effective collaboration process will ensure us that all team members are aligned and working towards a common goal. Involving stakeholders from various departments, such as data curators, data engineers, software developers, and domain experts, will be crucial in our endeavor to designing and implementing a successful system. Each team member will bring unique expertise and perspectives, contributing to the overall effectiveness and efficiency of the final system. Collaborating across functions helps ensure that the system aligns with business objectives and addresses the needs of different stakeholders.</p>
+<h3><a class="header" href="#documentation" id="documentation">Documentation</a></h3>
+<p>Having a comprehensive knowledge base of documentation of the entire ML/DL system is essential for future updates, maintenance, or onboarding our new new team members. It should cover various aspects, including data sources, preprocessing steps, model selection rationale, deployment processes, and maintenance plans. With these details documented, the team can easily refer back to them, understand the system's design choices, and make more informed decisions. </p>
+<p>Comprehensive documentation also facilitates knowledge sharing and collaboration among team members, enabling smoother transitions and reducing the risk of knowledge gaps.</p>
+<h2><a class="header" href="#ethics-and-bias" id="ethics-and-bias">Ethics and Bias</a></h2>
+<p>In the context of ML/DL system design, it is crucial to address ethics and bias considerations.
+By addressing ethics and bias, we will ensure that our system is fair, unbiased, and accountable. It will prevent discriminatory outcomes and will promote trust and confidence in the outputs delivered by our system. Incorporating, fairness and transparency in our design process will ground and align us more with the ethical considerations our users and stakeholders may have.</p>
+<p>Some concepts to consider are related to <strong>Bias Mitigation</strong>. &quot;Bias&quot; in this context refers to systematic errors or prejudices that can affect the performance, fairness, and outcomes of a ML/DL system.</p>
+<h3><a class="header" href="#fairness" id="fairness">Fairness</a></h3>
+<p>When designing such a system, it is important to ensure fairness. Fairness in this context means analyzing and mitigating any biases that could result from the data or model design. These biases can arise from various sources, such as the training data itself or other biased features used in the model.</p>
+<p>The main forms in which biases can manifest are:</p>
+<h4><a class="header" href="#data-bias" id="data-bias">Data Bias</a></h4>
+<p>The training data used to develop our system does not represent the real-world population or contains inherent biases.</p>
+<h4><a class="header" href="#algorithmic" id="algorithmic">Algorithmic</a></h4>
+<p>Our models produce results that are systematically prejudiced, most likely due to erroneous assumptions in the machine learning system design process</p>
+<h4><a class="header" href="#user-bias" id="user-bias">User Bias</a></h4>
+<p>The final design of a system reflects the biases either of its designers or of their users, potentially leading to exclusion or unfair treatment of certain groups.</p>
+<p>So it will be essential to carefully examine our data and final model to identify and address  potential biases to ensure fair and equitable outcomes.</p>
+<h3><a class="header" href="#transparency" id="transparency">Transparency</a></h3>
+<p>Transparency is the other important aspect for addressing ethics and bias considerations in our ML system design. </p>
+<p>Being transparent about how decisions are made by the model, especially in high-stakes applications like finance or healthcare will build trust with our users. </p>
+<p>In the same way, providing explanations for our model's predictions or decisions can help building trust and understanding among our users and stakeholders. </p>
+<p>Finally, transparency can also help us identifying and rectifying any biases or unfairness in the system.</p>
+<h2><a class="header" href="#resources" id="resources">Resources</a></h2>
+<h3><a class="header" href="#books" id="books">Books</a></h3>
+<h4><a class="header" href="#overall-system-design" id="overall-system-design">Overall System Design</a></h4>
+<p><a href="https://www.manning.com/books/acing-the-system-design-interview">Acing the System Design Interview, Zhiyong Tan</a></p>
+<p><a href="https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF">System Design Interview – An insider's guide, Alex Xu</a></p>
+<p><a href="https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119">System Design Interview – An insider's guide Vol.2, Alex Xu</a></p>
+<h4><a class="header" href="#machine-learning-system-design" id="machine-learning-system-design">Machine Learning System Design</a></h4>
+<p><a href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">Designing Machine Learning Systems, Chip Huyen</a></p>
+<ul>
+<li><a href="https://github.com/chiphuyen/machine-learning-systems-design">DMLS Booklet</a></li>
+</ul>
+<p><a href="https://www.amazon.com/Machine-Learning-System-Design-Interview/dp/1736049127">Machine Learning System Design Interview, Ali Aminian, Alex Xu</a></p>
+<p><a href="https://www.oreilly.com/library/view/ai-engineering/9781098166298/">AI Engineering, Chip Huyen</a></p>
+<h3><a class="header" href="#github-resources" id="github-resources">Github Resources</a></h3>
+<p><a href="https://github.com/alirezadir/Machine-Learning-Interviews/tree/main/src/MLSD">Interview Questions</a></p>
 <h1><a class="header" href="#productionizing-mldl" id="productionizing-mldl">Productionizing ML/DL</a></h1>
 <p>The software infrastructure stack that is required for ML projects in general, is quite different from the current stack
 of non-ML projects. <a href="people.html#Andrej-Karpathy">Andrej Karpathy</a></p>
@@ -1323,7 +1426,7 @@ Google's big hit in 2015.</li>
 <li><a href="https://github.com/horovod/horovod">Horovod</a></li>
 <li><a href="https://github.com/microsoft/DeepSpeed">DeepSpeed</a></li>
 </ul>
-<h2><a class="header" href="#deployment" id="deployment">Deployment</a></h2>
+<h2><a class="header" href="#deployment-1" id="deployment-1">Deployment</a></h2>
 <h1><a class="header" href="#web-resources-for-learning-aimldl" id="web-resources-for-learning-aimldl">Web Resources for Learning AI/ML/DL</a></h1>
 <ul>
 <li><a href="https://wiki.pathmind.com/">AI &amp; DL Wiki</a> Wiki from Pathmind, a deep reinforcement learning company focused on improving efficiency, throughput and cost of operations and chains.</li>
@@ -1340,7 +1443,7 @@ Status: non-profit and volunteers in the AI community.</li>
 <li><a href="https://arxiv.org/">Arxiv</a> Main archive for scholarly articles.</li>
 <li><a href="http://arxiv-sanity.com/">Arxiv Sanity</a> To keep your mind healthy after trying to deal with all the arxiv content.</li>
 </ul>
-<h1><a class="header" href="#books" id="books">Books</a></h1>
+<h1><a class="header" href="#books-1" id="books-1">Books</a></h1>
 <ul>
 <li><a href="https://www.deeplearningbook.org/">Deep Learning (Online version)</a> <em>Ian Goodfellow and Yoshua Bengio and Aaron Courville</em> [<a href="bibliography.html#goodfellow_deep_2016">goodfellow_deep_2016</a>] </li>
 <li><a href="http://d2l.ai/">Dive into Deep Learning</a> Interactive book</li>
@@ -1726,7 +1829,6 @@ Super-Turing computation. This is related to the <a href="approaches.html#Adapta
 through cellular automatas (e.g. Conway's Game of Life.) John von Neuman also studied cellullar automata, in this case
 for self-replication. <a href="https://science.sciencemag.org/content/157/3785/180.1">He found an automata</a> with 29 states 
 and a large memory that was able to self-replicate.</p>
-<h1><a class="header" href="#timelinehistory" id="timelinehistory">Timeline/History</a></h1>
 <h1><a class="header" href="#bibliography" id="bibliography">Bibliography</a></h1>
 <script type="text/javascript">
 function defaultCopyTextToClipboard(text) {
