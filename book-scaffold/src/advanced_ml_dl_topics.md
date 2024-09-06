@@ -1,4 +1,4 @@
-# Machine/Deep Learning Topics
+# Advance Machine and Deep Learning Topics
 
 ## (Artificial) General Inteligence
 

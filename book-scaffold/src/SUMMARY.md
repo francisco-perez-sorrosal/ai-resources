@@ -5,7 +5,7 @@
 - [A Multidisciplinary Approach](multidisciplinary_approach.md)
 - [Approaches](approaches.md)
 - ["Classical" Machine Learning](classical_ml.md)
-- [ML/DL Topics](topics.md)
+- [Advanced Machine and Deep Learning Topics](topics.md)
 - [NLP](nlp.md)
 - [To Production](productionizing.md)
 - [Frameworks](tools_and_frameworks.md)
