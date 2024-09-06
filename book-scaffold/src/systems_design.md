@@ -6,9 +6,9 @@ On one side, careful consideration of the entire training/evaluation/deployment 
 
 On the oter side, taking into consideration non-functional features, like ensuring that the system is scalable, secure, and compliant with regulations will be also critical. By taking a holistic approach, you can build a robust, efficient, and effective machine learning system that delivers real value to the business.
 
-So, as we will see, putting a complex system like that into production can be challenging.
+So, as we will see below, putting a complex system like that into production can be really challenging and convoluted.
 
-In the following sections below, there are described the main considerations when designing an ML system.
+In the sections below, I will outline whay I consider the main topics to address when designing an ML system. These guidelines can also serve as a useful reference for interviews.
 
 Designing a machine learning (ML) system involves a thoughtful balance of various considerations to ensure the system is effective, scalable, and maintainable. Below there is a set of general considerations (described as a sequential pipeline of tasks) when designing an ML system, explained in an educational manner:
 
@@ -20,7 +20,7 @@ Way before diving into the technical aspects, it is critical to understand the p
 
 ### Project Scope and Constraints
 
-As with any software project, it is essential to understand the **scope and constraints** of the task at hand. Defining the scope of the problem is critical to avoid setting unrealistic expectations. Also, it is important to identify any constraints, such as time, budget, or computational resources, that could poetentially impact the project's scope. This comprehensive understanding is key to establishing *realistic goals and expectations* for the project.
+As with any software project, it is essential to understand the **scope and constraints** of the task at hand. Defining the scope of the problem is critical to avoid setting unrealistic expectations. Also, it is important to identify any constraints, such as time, budget, or computational resources, that could poetentially impact our project's scope. This comprehensive understanding is key to establishing *realistic goals and expectations* for our project.
 
 ## Data Management
 
@@ -65,33 +65,130 @@ Close to the serving infrastructure decision will come questions related to the 
 
 **Latency and Throughput** may determine also the quality of the final solution for certain problems. **Optimizing** the model and/or certain architectural solutions considering latency requirements —how quickly does the system need to respond? will need to be adressed here. **Caching** mechanisms may help also to reduce load and speed up response times for frequently requested predictions.
 
-### 5. **Monitoring and Maintenance**
+## Monitoring and Maintenance
 
-- **Performance Monitoring**:
-  - **Model Drift**: Regularly monitor the model’s performance to detect any decline due to changes in the input data distribution (model drift).
-  - **Logging**: Implement logging to track predictions, errors, and other important metrics. This is vital for debugging and improving the system.
-- **Automated Retraining**:
-  - **Continuous Learning**: Set up pipelines for automated retraining of the model when new data becomes available, ensuring the model remains accurate over time.
-- **Alerts and Notifications**:
-  - **Anomaly Detection**: Implement alerts to notify the team of any unusual patterns, like a sudden drop in model accuracy or unexpected input data.
+This involves mainly the following tasks:
 
-### 6. **Security and Privacy**
+### Performance Monitoring
 
-- **Data Security**:
-  - **Encryption**: Ensure data is encrypted both at rest and in transit to protect it from unauthorized access.
-  - **Access Control**: Implement strict access controls to ensure only authorized personnel can access sensitive data and the ML system.
-- **Privacy Compliance**:
-  - **Regulatory Compliance**: Ensure the system complies with relevant data protection regulations like GDPR or CCPA, especially when dealing with personal data.
+In the Context of ML/DL, performance monitoring refers to the process of continuously tracking and evaluating the performance of the ML model deployed in the system. It involves monitoring various metrics and indicators to ensure that the model is functioning as expected and delivering accurate results. It is an essential non-functional aspect of ML systems design as it is aimed to guarantee that the current model deployed continues to deliver accurate results over time. It enables proactive measures to maintain the model's accuracy, diagnose issues, optimize performance, and enhance the overall system's reliability.
 
-### 7. **Collaboration and Documentation**
+More in detail, this monitoring serves:
 
-- **Cross-functional Collaboration**:
-  - **Team Involvement**: Involve stakeholders from various departments (e.g., data engineers, software developers, domain experts) to ensure the system is well-integrated and meets business needs.
-- **Documentation**:
-  - **Comprehensive Documentation**: Document the entire system—data sources, preprocessing steps, model selection rationale, deployment processes, and maintenance plans. Good documentation is crucial for future updates and onboarding new team members.
+#### Model Drift Detection
+Identifying model drift is maybe the most important aspect of ML monitoring. A model drift is said to occur when the input data distribution feeding the model changes over time, which may lead to a decline in the model's accuracy. A good monitoring can detect that degradation and raise the alarms or trigger the appropriate actions to maintain the model's accuracy.
 
-### 8. **Ethics and Bias**
+#### Logging and Error Tracking
+Monitoring has implied recording predictions, errors, and other key performance metrics along the inference pipeline. This information will be critical for diagnosing issues, optimizing performance, and enhancing the overall system's reliability. It will also allow us to track the model's behavior, identify patterns, and troubleshoot any errors or anomalies that may arise during the life of the system.
 
-- **Bias Mitigation**:
-  - **Fairness**: Ensure the model is fair and unbiased. Analyze and mitigate any biases that could result from the data or model design.
-  - **Transparency**: Be transparent about how decisions are made by the model, especially in high-stakes applications like finance or healthcare.
+#### Optimization and Improvement
+Overall, by monitoring the performance of the ML system, we will gain insights into its strengths and weaknesses. This information can be used to optimize the model, fine-tune hyperparameters, and improve the overall system's performance. Performance monitoring helps you identify areas where the model may be underperforming or where there is room for improvement.
+  
+### Continual Learning (Automated Retraining)
+
+This concept is also know continuous learning or lifelong learning; it refers to the capability of a ML/DL model to continually update and adapt over time as it receives new data, without needing to be retrained from scratch. If a process like this is incorporated into our final system, it will ensure that the model can "evolve" and stay resilient to data distribution changes or as new patterns emerge in the real world input data.
+
+This concept is particularly important in dynamic environments where the data is not static, and the model’s utility depends on its ability to keep learning from (aligning to) "new experiences" encoded in the new data distributions coming into the system.
+
+This will be implemented generally by setting up automated retraining pipelines to update the model as new data becomes available. A proactive approach will help maintain the metrics in shape by adapting the model weights to the evolving data patterns. Also during the retraining we need to keep an eye on preserving the past knowledge to avoid the so-called [*catastrophic forgetting*](advanced_ml_dl_topics.md#continual-learning-and-catastrophic-forgetting)
+
+### Alerts and Notifications
+
+Any system is suitable from having sudden drops in model accuracy, unusual input data, or unexpected output patterns, or having some of the resources saturated/underutilized; when this happens, having a good notification subsystem is vital to the life of the system. This will enable our teams to give prompt response to those alerts.
+
+### Security and Privacy
+
+When designing a ML/DL learning system, it is paramount to consider security and privacy non-functional aspects to protect sensitive data and comply with relevant regulations. 
+
+We will have to consider at least:
+
+### Data Security
+
+Incorporating security and privacy considerations into the design of a ML/DL system, will allow us to safeguard sensitive data, protect against unauthorized access, and ensure compliance with applicable regulations/policies. This will help building trust with our users and stakeholders and mitigate potential risks associated with data breaches and/or privacy violations.
+
+#### Access Control
+Strict access control policies will ensure that only authorized users can access sensitive data and the system itself. This will help preventing unauthorized access and potential data breaches.
+
+#### Encryption
+Implement encryption techniques to protect data both at rest and in transit will complement the point above. This ensures that even if eavesdroppers gain access to the data, they won't be able to decipher it.
+
+### Privacy Compliance
+
+Regulatory Compliance will ensure that the ML/DL system complies with relevant (and relative new since 2018) data protection regulations, such as the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA). This is particularly important when dealing with personal data. Compliance with these regulations helps protect individuals' privacy rights and ensures that their data is handled appropriately.
+
+
+## Collaboration and Documentation
+
+Collaboration and documentation go hand in hand in ML/DL system design and are essential to the success of the final system. Both will ensure that the system is well-integrated, meets business needs, and can be easily maintained and updated.
+
+### Cross-functional Collaboration
+
+As it happens with any complex system, building an ML/DL system is an humoungous effort. So building an effective collaboration process will ensure us that all team members are aligned and working towards a common goal. Involving stakeholders from various departments, such as data curators, data engineers, software developers, and domain experts, will be crucial in our endeavor to designing and implementing a successful system. Each team member will bring unique expertise and perspectives, contributing to the overall effectiveness and efficiency of the final system. Collaborating across functions helps ensure that the system aligns with business objectives and addresses the needs of different stakeholders.
+
+### Documentation
+  
+Having a comprehensive knowledge base of documentation of the entire ML/DL system is essential for future updates, maintenance, or onboarding our new new team members. It should cover various aspects, including data sources, preprocessing steps, model selection rationale, deployment processes, and maintenance plans. With these details documented, the team can easily refer back to them, understand the system's design choices, and make more informed decisions. 
+
+Comprehensive documentation also facilitates knowledge sharing and collaboration among team members, enabling smoother transitions and reducing the risk of knowledge gaps.
+
+## Ethics and Bias
+
+In the context of ML/DL system design, it is crucial to address ethics and bias considerations.
+By addressing ethics and bias, we will ensure that our system is fair, unbiased, and accountable. It will prevent discriminatory outcomes and will promote trust and confidence in the outputs delivered by our system. Incorporating, fairness and transparency in our design process will ground and align us more with the ethical considerations our users and stakeholders may have.
+
+
+Some concepts to consider are related to **Bias Mitigation**. "Bias" in this context refers to systematic errors or prejudices that can affect the performance, fairness, and outcomes of a ML/DL system.
+
+### Fairness
+
+When designing such a system, it is important to ensure fairness. Fairness in this context means analyzing and mitigating any biases that could result from the data or model design. These biases can arise from various sources, such as the training data itself or other biased features used in the model.
+
+The main forms in which biases can manifest are:
+
+#### Data Bias
+The training data used to develop our system does not represent the real-world population or contains inherent biases.
+
+#### Algorithmic
+Our models produce results that are systematically prejudiced, most likely due to erroneous assumptions in the machine learning system design process
+
+#### User Bias
+The final design of a system reflects the biases either of its designers or of their users, potentially leading to exclusion or unfair treatment of certain groups.
+
+So it will be essential to carefully examine our data and final model to identify and address  potential biases to ensure fair and equitable outcomes.
+
+### Transparency
+
+Transparency is the other important aspect for addressing ethics and bias considerations in our ML system design. 
+
+Being transparent about how decisions are made by the model, especially in high-stakes applications like finance or healthcare will build trust with our users. 
+
+In the same way, providing explanations for our model's predictions or decisions can help building trust and understanding among our users and stakeholders. 
+
+Finally, transparency can also help us identifying and rectifying any biases or unfairness in the system.
+
+## Resources
+
+### Books
+
+#### Overall System Design
+
+[Acing the System Design Interview, Zhiyong Tan](https://www.manning.com/books/acing-the-system-design-interview)
+
+[System Design Interview – An insider's guide, Alex Xu](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF)
+
+[System Design Interview – An insider's guide Vol.2, Alex Xu](https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119)
+
+
+#### Machine Learning System Design
+
+[Designing Machine Learning Systems, Chip Huyen](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/)
+- [DMLS Booklet](https://github.com/chiphuyen/machine-learning-systems-design)
+
+[Machine Learning System Design Interview, Ali Aminian, Alex Xu](https://www.amazon.com/Machine-Learning-System-Design-Interview/dp/1736049127)
+
+[AI Engineering, Chip Huyen](https://www.oreilly.com/library/view/ai-engineering/9781098166298/)
+
+### Github Resources
+
+[Interview Questions](https://github.com/alirezadir/Machine-Learning-Interviews/tree/main/src/MLSD)
+
