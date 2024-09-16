@@ -188,6 +188,8 @@ Finally, transparency can also help us identifying and rectifying any biases or 
 
 [AI Engineering, Chip Huyen](https://www.oreilly.com/library/view/ai-engineering/9781098166298/)
 
+[Machine Learning Systems Principles and Practices of Engineering Artificially Intelligent Systems (Harvard Univ.)](https://mlsysbook.ai/)
+
 ### Github Resources
 
 [Interview Questions](https://github.com/alirezadir/Machine-Learning-Interviews/tree/main/src/MLSD)

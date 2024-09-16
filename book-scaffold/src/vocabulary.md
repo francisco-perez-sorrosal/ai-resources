@@ -164,6 +164,14 @@ For more information see {{ #cite bengio_neural_2003 }}.
 The best language model would be that which could best predict unseen data. To measure the quality of a language model
 metrics such as [Perplexity](#perplexity) can be used.
 
+## Loss Function
+
+A loss function is a way to measure how well or poorly a model is performing. It calculates the difference (error) between the model’s predictions (the guess your model is doing based on the input data) and the actual values (the labeled data we have, representing the correct answers).
+
+The smaller the difference, the better the model is doing. The larger the difference, the worse it’s performing.
+
+The goal of training a model is to minimize this loss by adjusting the model’s parameters, so its predictions get closer to the actual answers over time.
+
 # Neural Network
 
 # Neuromorphic Computing

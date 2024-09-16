@@ -14,7 +14,43 @@ Since the advent of ChatGPT on November 30th of 2022, there's been a lot of hype
 
 ## Loss Function
 
+ It is an essential element in the training of a model, quantifying the error between the predicted output of a model and the true target values (true labels or ground truth) from the dataset. It provides a metric that guides (or, in other words, provides feedback) the optimization process, allowing the model to adjust its parameters (weights and biases) in a way that minimizes this error and improves the model's performance.
+
+ The **loss function** is also called the *cost function* or *objective function* in ML/DL.
+
+### Formal Definition
+
+Given a dataset $D = \{(x_i, y_i)\}_{i=1}^n$ where $x_i$ represents the input data and $y_i$ represents the corresponding target values (the so-called labels or ground truth), and a model $f(x, \theta)$ parameterized by $\theta$, the loss function $L(y_i, f(x_i, \theta))$ measures the difference between the true value $y_i$ and the predicted value $\hat{y_i} = f(x_i, \theta)$.
+
+The goal is to minimize the **total loss** across the entire dataset, which is often expressed as the **empirical risk** or **average loss**:
+
+$$
+\mathcal{L}(\theta) = \frac{1}{n} \sum_{i=1}^{n} L(y_i, f(x_i, \theta))
+$$
+
+Here, $L(y_i, f(x_i, \theta))$ could take different forms depending on the type of task (See [MSE](#mean-squared-error-mse) and [Cross-Entropy Loss](#cross-entropy-loss) below).
+
+### Optimization
+
+The model's parameters $\theta$ are adjusted iteratively through optimization techniques like [*gradient descent*](vobulary.md#gradien_descent), which seeks to minimize the loss function by updating the parameters in the direction of the steepest descent of the loss function's gradient:
+
+$$
+\theta_{new} = \theta_{old} - \eta \nabla_\theta \mathcal{L}(\theta)
+$$
+
+where $\eta$ is the learning rate, and $\nabla_\theta \mathcal{L}(\theta)$ is the gradient of the loss function with respect to the parameters.
+
+### Simple Example
+
+Let's imagine we’re teaching a child to play basketball. The goal is to get the ball into a hoop. Every time the ball misses, we measure how far away the ball landed from the hoop. This distance would be represented by the loss. As the kid practices and adjusts her technique, we ideally should see that distance is getting smaller and smaller (ideally minimizing the loss over time). Similarly, in the ML/DL realm, we want the model’s “misses” to get smaller over time by reducing the loss function.
+
 ### Mean Squared Error (MSE)
+  
+- **For classification tasks**, a typical loss function is the **Cross-Entropy Loss**:
+  $$
+  L(y_i, f(x_i, \theta)) = - \sum_{k=1}^{K} y_{i,k} \log(f(x_{i,k}, \theta))
+  $$
+  where \( K \) is the number of classes, and \( y_{i,k} \) is a one-hot encoded vector representing the true label.
 
 MSE measures the average squared difference between the actual values and the predicted values, penalizing larger errors more significantly due to the squaring of the differences.
 
@@ -25,6 +61,11 @@ $$
 - $n$ is the number of data points.
 - $y_i$ is the true value for the $i$ th data point.
 - $\hat{y}_i$ is the predicted value for the $i$ th data point.
+
+In loss terms that would be:
+$$
+L(y_i, f(x_i, \theta)) = (y_i - f(x_i, \theta))^2
+$$
 
 **Advantages**: Easy to compute and differentiate. It is suitable for regression problems where the goal is to minimize the squared difference between predicted and actual values.
 
@@ -53,6 +94,13 @@ $$
 - $y_i$ (in multi-class classification) is a binary indicator (0 or 1) if class $i$ is the correct classification.
 - $p_i$ is the predicted probability of class $i$.
 - $C$ is the total number of classes.
+
+In the loss terms we described above would be:
+
+$$
+L(y_i, f(x_i, \theta)) = - \sum_{k=1}^{C} y_{i,k} \log(f(x_{i,k}, \theta))
+$$
+where $C$ is the number of classes, and $y_{i,k}$ is a one-hot encoded vector representing the true label.
 
 **Advantages**: Ideal for classification problems, particularly binary and multi-class classification. It measures the performance of a classification model whose output is a probability value between 0 and 1.
 
