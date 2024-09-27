@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Generative AI - AI Resources</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">2.</strong> Timeline/History</a></li><li class="chapter-item expanded "><a href="applications.html"><strong aria-hidden="true">3.</strong> Applications</a></li><li class="chapter-item expanded "><a href="multidisciplinary_approach.html"><strong aria-hidden="true">4.</strong> A Multidisciplinary Approach</a></li><li class="chapter-item expanded "><a href="approaches.html"><strong aria-hidden="true">5.</strong> Approaches</a></li><li class="chapter-item expanded "><a href="classical_ml.html"><strong aria-hidden="true">6.</strong> &quot;Classical&quot; Machine Learning</a></li><li class="chapter-item expanded "><a href="topics.html"><strong aria-hidden="true">7.</strong> Advanced Machine and Deep Learning Topics</a></li><li class="chapter-item expanded "><a href="nlp.html"><strong aria-hidden="true">8.</strong> NLP</a></li><li class="chapter-item expanded "><a href="transformers.html"><strong aria-hidden="true">9.</strong> Transformers</a></li><li class="chapter-item expanded "><a href="genai.html" class="active"><strong aria-hidden="true">10.</strong> Generative AI</a></li><li class="chapter-item expanded "><a href="agents.html"><strong aria-hidden="true">11.</strong> Agents</a></li><li class="chapter-item expanded "><a href="agi.html"><strong aria-hidden="true">12.</strong> AGI</a></li><li class="chapter-item expanded "><a href="system_design.html"><strong aria-hidden="true">13.</strong> System Design</a></li><li class="chapter-item expanded "><a href="productionizing.html"><strong aria-hidden="true">14.</strong> To Production</a></li><li class="chapter-item expanded "><a href="tools_and_frameworks.html"><strong aria-hidden="true">15.</strong> Tools and Frameworks</a></li><li class="chapter-item expanded "><a href="conferences.html"><strong aria-hidden="true">16.</strong> Conferences</a></li><li class="chapter-item expanded "><a href="vocabulary.html"><strong aria-hidden="true">17.</strong> Vocabulary</a></li><li class="chapter-item expanded "><a href="people.html"><strong aria-hidden="true">18.</strong> People</a></li><li class="chapter-item expanded "><a href="books_and_resources.html"><strong aria-hidden="true">19.</strong> Books and Resources</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">AI Resources</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#generative-ai" id="generative-ai">Generative AI</a></h1>
+<h2><a class="header" href="#origins-of-generative-ai" id="origins-of-generative-ai">Origins of Generative AI</a></h2>
+<p>We can say that Generative AI has been an active area of research since -at least- the decade of 1960s, although it wasn't referred like that. During the period of 1964 to 1967, J. Weizenbaum developed what we can consider one of the first expert systems with the form of a chatbot, <a href="origins.html#expert-systems">ELIZA</a> {[Unknown bib ref: cite] weizenbaumELIZAComputerProgram1966}. At that time, it looked like computers where going to take over the work of many experts; the posibilities seemed endless. However the optimism came to an end with the <a href="origins.html#ai_winter_70s">AI Winter of the 70s</a>.</p>
+<p>If we fast forward in time to the last few-years, the now called Generative AI -or just GenAI- has revolutionized (again?) the field of artificial intelligence. The generative models enable machines to create content that is becoming indistinguishable from human-generated content. Although not completely fair, the recent origins of this transformative technology can be traced back to the development of the Generative Pre-trained Transformer (GPT) models and their parent company, OpenAI.</p>
+<p>We can put the first significant milestone in the release of the original GPT paper in 2018 {[Unknown bib ref: cite] radfordImprovingLanguageUnderstanding}. Originally entitled &quot;Improving Language Understanding by Generative Pre-Training&quot;, the model presented in the paper demonstrated the power of pre-training a <a href="transformers.html">transformer architecture</a> with a large corpus of text data and then subsequently fine-tuning it for specific tasks. GPT  followed the original transformer work {[Unknown bib ref: cite] vaswani_attention_2017}, having a 12-layer decoder-only transformer blocks with masked self-attention heads with 768 dimensional states and 12 attention heads. The total number of parameter was 117 million, which was a significant achievement at the time (although BERT large had 340M). This contrasts the bi-directional encoder-decoder transformer architecture of <a href="nlp.html#bert">BERT</a> (also published in 2018) {[Unknown bib ref: cite] devlin}.</p>
+<p>The success of the original GPT model just set the groundwork for more advanced models in the forthcoming years. OpenAI introduced GPT-2 in 2019 {[Unknown bib ref: cite] radfordLanguageModelsAre}. First, GPT-2 showcased a significant leap in scale, getting 1.5 billion parameters. But also in performance, as this model was capable of generating coherent and contextually relevant text, pushing the boundaries of what was possible with GenAI.</p>
+<p>GPT-3 was released the following year, 2020; and it marked another significant milestone in the evolution of generative models. Again, it's an order of magnitude larger than its predecessor, reaching the ashtonishing figure at that time of 175 billion parameters. The massive increase in scale allowed GPT-3 to generate even more coherent and contextually accurate text, making it one of the most powerful language models ever created.</p>
+<p>Architecturally, GPT-3 was not very surprinsing; it followed the same transformer-based design as its predecessors. However, it benefited from an extensive training process on a selected and diverse set of datasets. This enabled GPT-3 to perform a wide range of NLP tasks this time with minimal fine-tuning, including translation, question-answering, and creative writing.</p>
+<p>The release of GPT-3 beyond demonstrating the potential of large-scale generative models, started sparking discussions about the ethical implications and societal impact of this new breed of powerful AI technologies.</p>
+<p>But maybe was on November 30, 2022 when the true inflection point for GenAI became aparent; In those days, during the annual Neurips conference, OpenAI released the so-called ChatGPT. This chatbot -like many others before- was an experimental AI model, but quickly became viral due to the &quot;sensation&quot; it created for the users of &quot;being truly chatting with some other persona&quot; on the other side.</p>
+<p>According to OpenAI, ChatGPT was fine-tuned from GPT-3.5 series models on an Azure AI supercomputing infrastructure. It re-introduced the so-called Reinforcement Learning from Human Feedback (RLHF) technique, presented in the paper InstructGPT {[Unknown bib ref: cite] ouyangTrainingLanguageModels2022} in January of 2022, with minor differences in the data collection process.</p>
+<p>The human-supervised fine-tuning task, means that humans &quot;trained an AI&quot; by providing examples of dialogues/conversations playing the two roles: a human and an AI. These humans were given specific training to help them with that task. These dialogues were mized with the transformation of the original InstructGPT dataset into a dialogue format.</p>
+<p>The reinforcement learning (RL) part comes into play when a reward model for reinforcement learning has to decide which one of two or more responses is better using a technique called Proximal Policy Optimization (PPO) during several itereations. In order to do that, a comparison dataset had to be collected/created, rainking 2+ responses by quality. To do so, from the human-AI dialogues mentioned above, model-written responses where randomly selected and some completions were then subsequently sampled, having the AI trainers to rank them.</p>
+<p>All these pioneering efforts have paved the way for subsequent advancements in the field, leading to the development of even more sophisticated models that continue to shape the future of AI-driven content generation.</p>
+<h2><a class="header" href="#large-language-models-llms" id="large-language-models-llms">Large-Language Models (LLMs)</a></h2>
+<p>In order to define a Large-Language Model (LLM) in simple terms, we could say that it is essentially a neural-based machine learning model with billions of parameters (in contrast to BERT, RoBERTa, etc.), and which has been trained on vast amounts of textual data (See Scalling Laws). After reaching a certain number of parameters, these models can understand, generate, and manipulate human language in a coherent and contextually relevant manner (emergent properties). Examples include OpenAI’s GPT-4 and GPT-3, which can perform downstream tasks like translation, summarization, question-answering, or creative writing.</p>
+<h3><a class="header" href="#fine-tuning-and-llms" id="fine-tuning-and-llms">Fine-Tuning and LLMs</a></h3>
+<p>In the realm of LLMs, the <a href="vocabulary.html#fine-tunning">fine-tunning</a> process -that is, the process of adapt an already pre-trained model with general knowledge to a specific domain/task- can be though -for example- in terms of teaching the model the specifics of a particular product documentation, or adapting it to an internal corpus of collected customer feedback data to help identifying the most relevant suggestions.</p>
+<p>Full fine-tunning can achieve better metrics in the downstream tasks at the expense of collecting enough supervised samples for the finetuning dataset or overfit (or poorly learn stably) when using on small datasets. Also in contrast to other methods below, full fine-tuned models may lack out-of-distribution generalization capabilities.</p>
+<p>Apart from the traditional fine-tunning, other fine-tunning techniques have been done for LLMs; these include PEFT, Instruction-tunning, RLHF, DPO, PPO.</p>
+<h2><a class="header" href="#parameter-efficient-fine-tunning-peft" id="parameter-efficient-fine-tunning-peft">Parameter-Efficient Fine-Tunning (PEFT)</a></h2>
+<p>PEFT {[Unknown bib ref: cite] Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey} refers to a set of techniques that update only a small fraction of model parameters; the rest of the parameters are &quot;frozen&quot; by disabling the backward pass. Some of the techniques included here are:</p>
+<ul>
+<li><em>Additive PEFT or Adapter-tuning</em> Additional task-specific layers are inserted in between the layers of a pre-trained LLMs; only the parameters in this new layers will be updated.</li>
+<li><em>LoRA</em> or <em>Low-Rank Adaptation</em> adds small blocks of adaptor weights that are low rank approximations (a.k.a. update matrices) of the original weight matrices (which became frozen). Advantages are related to 1) being more memory efficiency while not adding inference latency, mitigating catastrophic forgetting, and 2) not introducing additional inference latency.</li>
+<li><em>Prefix-tuning</em> is inspired by prompting. It adds learnable vectors prepended to keys <em>k</em> and values <em>v</em> in the Transformer layers. A MLP layer is used to generate these prefix vectors (reparameterization strategy). The prefix consists entirely of free parameters (do not correspond to real tokens) and during tuning, only these prefix parameters are updated (the pre-trained model parameters are frozen).  After the fine-tuning, the prefix vectors will be the ones used in inference. </li>
+</ul>
+<h2><a class="header" href="#instruction-tunning" id="instruction-tunning">Instruction Tunning</a></h2>
+<p>Fine-tuning with instruction tunning refers to the use of supervised samples to &quot;align&quot; or &quot;tame&quot; the model; usually these supervised samples are a set of collected tasks rephrased as instructions to follow. In this case, during fine-tuning, all model parameters will be updated during. The instruction fine-tuning improves the performance of zero-shot scenarios on unseen tasks. It was considered one of the main important techniques in NLP in the early years of LLM dominance.</p>
+<h2><a class="header" href="#reinforcement-learning-from-human-feedback-rlhf" id="reinforcement-learning-from-human-feedback-rlhf">Reinforcement Learning from Human Feedback (RLHF)</a></h2>
+<p>RLHF can be see as a superset of instruction-tuning technique; As we'll show below, it adds some more steps after the instruction-tuning step to ensure the models are less biased and more aligned with the so-called &quot;human preferences&quot; {[Unknown bib ref: cite] Aligning Large Language Models with Human Preferences through Representation Engineering}, which includes toxicity, untruthfulness reduction, etc.</p>
+<p>The following is the generic RLHF process originally published in the InstructGPT paper.</p>
+<p><img src="images/rlhf.png" alt="RLHF" /></p>
+<p>The RLHF Process consists of:</p>
+<h3><a class="header" href="#1-data-collection" id="1-data-collection">1. Data Collection</a></h3>
+<ol>
+<li>Hire 40 contractors to label data based on their performance on a screening test.</li>
+<li>Collect a dataset of human-written demonstrations of desired output behavior on prompts.</li>
+<li>Collect a dataset of human-labeled comparisons between model outputs on a larger set of API prompts.</li>
+</ol>
+<h3><a class="header" href="#2-supervised-learning-baseline" id="2-supervised-learning-baseline">2. Supervised Learning Baseline</a></h3>
+<p>After the collection of the human-written demonstrations dataset for the desired model behavior, we will train a supervised model that will learn a baseline.</p>
+<h3><a class="header" href="#3-reward-model-rm-training" id="3-reward-model-rm-training">3. Reward Model (RM) Training</a></h3>
+<p>Then, we will collect another dataset of comparisons between 1) model outputs for a particular input, and 2) the preference of labelers, which will indicate which output they prefer for the given input. After that, we'll train a reward model on the dataset of human-labeled comparisons to predict preferred model outputs.</p>
+<h3><a class="header" href="#4-fine-tuning-with-ppo" id="4-fine-tuning-with-ppo">4. Fine-Tuning with PPO</a></h3>
+<p>In this step we will take the reward model and we'll optimize a policy against it using RL. So we will:</p>
+<ol>
+<li>Use the reward model as a reward function.</li>
+<li>Fine-tune the supervised learning baseline to maximize the reward using the PPO algorithm (see below).</li>
+</ol>
+<p>Steps 2, 3 and 4 can be pipelined in a virtuous circle; new comparison data can be collected on the current best policy, which will be in turn used to train a new reward model and subsequenty after that, a new policy.</p>
+<h3><a class="header" href="#5-evaluation" id="5-evaluation">5. Evaluation</a></h3>
+<ol>
+<li>Evaluate models by having labelers rate the quality of model outputs on a test set.</li>
+<li>Conduct automatic evaluations on public NLP datasets.</li>
+<li>Train models of different sizes (1.3B, 6B, and 175B parameters) using the same GPT architecture.</li>
+</ol>
+<p>RLHF comes with the so-called <em>alignment tax</em>, which is a slight penalty on model performance in certain downstream tasks.</p>
+<h3><a class="header" href="#proximal-policy-optimization-ppo" id="proximal-policy-optimization-ppo">Proximal Policy Optimization (PPO)</a></h3>
+<p>Proximal policy gradient methods come from the Reinforcement Learning realm {[Unknown bib ref: cite] Proximal Policy Optimization Algorithms}. Traditional policy gradient methods directly learn an optimal policy -a mapping from states to actions- adjusting its parameters to maximize expected cumulative rewards; they usually perform only one update per data sampled from the environment, which limits their efficiency and may lead to unstable learning. </p>
+<p>In contrast, Proximal Policy methods, sample a minibatch of data through interaction with the environment, and alternates those samples with the optimization of a “surrogate” objective function using SGA. This function has &quot;clipped probability ratios&quot; that allows for multiple epochs of minibatch updates, but limit the size of policy updates (avoiding large policy updates), which results in a more stable and efficient learning process. The probability ratio represents the change in action selection probability. In PPO it is clipped to a certain range (1-epsilon to 1+epsilon), preventing drastic changes that could destabilize learning, ensuring more gradual and reliable improvements. The clipping mechanism is adaptive, so it will react differently depending on whether the advantage is positive or negative. This is key to maintain a balance between exploration and exploitation, which in turn enhances stability.</p>
+<p>The PPO algorithm can be seen as a loop iterating through these steps:</p>
+<ol>
+<li>Multiple actors run the current policy in the environment for a fixed number of timesteps, collecting data. </li>
+<li>Advantage estimates are computed for each timestep. </li>
+<li>The surrogate loss function, which incorporates the clipped probability ratios, is optimized using minibatch SGD (often with Adam optimizer) for a number of epochs. </li>
+<li>The old policy parameters are updated with the newly optimized parameters. </li>
+</ol>
+<p>The loop is repeated until a termination condition is met.</p>
+<h3><a class="header" href="#dpo" id="dpo">DPO</a></h3>
+<p>In contrast with PPO, Direct Preference Optimization or DPO {[Unknown bib ref: cite] Direct Preference Optimization: Your Language Model is Secretly a Reward Model}, is a more simple, stable, performant, computationally lightweight implementation to align LLMs with human preferences.</p>
+<p>// TODO Add on this</p>
+<h2><a class="header" href="#new-architectures-beyond-the-transformer" id="new-architectures-beyond-the-transformer">New Architectures Beyond the Transformer</a></h2>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="transformers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="agents.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="transformers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="agents.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
