@@ -26,39 +26,90 @@ The reinforcement learning (RL) part comes into play when a reward model for rei
 
 All these pioneering efforts have paved the way for subsequent advancements in the field, leading to the development of even more sophisticated models that continue to shape the future of AI-driven content generation.
 
+## Large-Language Models (LLMs)
+
+In order to define a Large-Language Model (LLM) in simple terms, we could say that it is essentially a neural-based machine learning model with billions of parameters (in contrast to BERT, RoBERTa, etc.), and which has been trained on vast amounts of textual data (See Scalling Laws). After reaching a certain number of parameters, these models can understand, generate, and manipulate human language in a coherent and contextually relevant manner (emergent properties). Examples include OpenAI’s GPT-4 and GPT-3, which can perform downstream tasks like translation, summarization, question-answering, or creative writing.
+
+### Fine-Tuning and LLMs
+
+In the realm of LLMs, the [fine-tunning](vocabulary.md#fine-tunning) process -that is, the process of adapt an already pre-trained model with general knowledge to a specific domain/task- can be though -for example- in terms of teaching the model the specifics of a particular product documentation, or adapting it to an internal corpus of collected customer feedback data to help identifying the most relevant suggestions.
+
+Full fine-tunning can achieve better metrics in the downstream tasks at the expense of collecting enough supervised samples for the finetuning dataset or overfit (or poorly learn stably) when using on small datasets. Also in contrast to other methods below, full fine-tuned models may lack out-of-distribution generalization capabilities.
+
+Apart from the traditional fine-tunning, other fine-tunning techniques have been done for LLMs; these include PEFT, Instruction-tunning, RLHF, DPO, PPO.
+
+## Parameter-Efficient Fine-Tunning (PEFT)
+
+PEFT {@@cite Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey} refers to a set of techniques that update only a small fraction of model parameters; the rest of the parameters are "frozen" by disabling the backward pass. Some of the techniques included here are:
+
+* *Additive PEFT or Adapter-tuning* Additional task-specific layers are inserted in between the layers of a pre-trained LLMs; only the parameters in this new layers will be updated.
+* *LoRA* or *Low-Rank Adaptation* adds small blocks of adaptor weights that are low rank approximations (a.k.a. update matrices) of the original weight matrices (which became frozen). Advantages are related to 1) being more memory efficiency while not adding inference latency, mitigating catastrophic forgetting, and 2) not introducing additional inference latency.
+* *Prefix-tuning* is inspired by prompting. It adds learnable vectors prepended to keys *k* and values *v* in the Transformer layers. A MLP layer is used to generate these prefix vectors (reparameterization strategy). The prefix consists entirely of free parameters (do not correspond to real tokens) and during tuning, only these prefix parameters are updated (the pre-trained model parameters are frozen).  After the fine-tuning, the prefix vectors will be the ones used in inference. 
+
+## Instruction Tunning
+
+Fine-tuning with instruction tunning refers to the use of supervised samples to "align" or "tame" the model; usually these supervised samples are a set of collected tasks rephrased as instructions to follow. In this case, during fine-tuning, all model parameters will be updated during. The instruction fine-tuning improves the performance of zero-shot scenarios on unseen tasks. It was considered one of the main important techniques in NLP in the early years of LLM dominance.
+
 ## Reinforcement Learning from Human Feedback (RLHF)
+
+RLHF can be see as a superset of instruction-tuning technique; As we'll show below, it adds some more steps after the instruction-tuning step to ensure the models are less biased and more aligned with the so-called "human preferences" {@@cite Aligning Large Language Models with Human Preferences through Representation Engineering}, which includes toxicity, untruthfulness reduction, etc.
+
+The following is the generic RLHF process originally published in the InstructGPT paper.
 
 ![RLHF](images/rlhf.png)
 
-The RLHF Process described in the InstructGPT paper and in the figure above consist of:
+The RLHF Process consists of:
 
-### Data Collection
+### 1. Data Collection
 
 1. Hire 40 contractors to label data based on their performance on a screening test.
 2. Collect a dataset of human-written demonstrations of desired output behavior on prompts.
 3. Collect a dataset of human-labeled comparisons between model outputs on a larger set of API prompts.
 
-### Supervised Learning Baseline
+### 2. Supervised Learning Baseline
 
-Train supervised learning baselines using the collected human-written demonstrations.
+After the collection of the human-written demonstrations dataset for the desired model behavior, we will train a supervised model that will learn a baseline.
 
-### Reward Model (RM) Training
+### 3. Reward Model (RM) Training
 
-Train a reward model on the dataset of human-labeled comparisons to predict preferred model outputs.
+Then, we will collect another dataset of comparisons between 1) model outputs for a particular input, and 2) the preference of labelers, which will indicate which output they prefer for the given input. After that, we'll train a reward model on the dataset of human-labeled comparisons to predict preferred model outputs.
 
-### Fine-Tuning with PPO
+### 4. Fine-Tuning with PPO
+
+In this step we will take the reward model and we'll optimize a policy against it using RL. So we will:
 
 1. Use the reward model as a reward function.
-2. Fine-tune the supervised learning baseline to maximize the reward using the PPO algorithm.
+2. Fine-tune the supervised learning baseline to maximize the reward using the PPO algorithm (see below).
 
-### Evaluation
+Steps 2, 3 and 4 can be pipelined in a virtuous circle; new comparison data can be collected on the current best policy, which will be in turn used to train a new reward model and subsequenty after that, a new policy.
+
+### 5. Evaluation
 
 1. Evaluate models by having labelers rate the quality of model outputs on a test set.
 2. Conduct automatic evaluations on public NLP datasets.
-3. Train models of different sizes (1.3B, 6B, and 175B parameters) using the GPT-3 architecture.
+3. Train models of different sizes (1.3B, 6B, and 175B parameters) using the same GPT architecture.
 
-### PPO
+RLHF comes with the so-called *alignment tax*, which is a slight penalty on model performance in certain downstream tasks.
+
+### Proximal Policy Optimization (PPO)
+
+Proximal policy gradient methods come from the Reinforcement Learning realm {@@cite Proximal Policy Optimization Algorithms}. Traditional policy gradient methods directly learn an optimal policy -a mapping from states to actions- adjusting its parameters to maximize expected cumulative rewards; they usually perform only one update per data sampled from the environment, which limits their efficiency and may lead to unstable learning. 
+
+In contrast, Proximal Policy methods, sample a minibatch of data through interaction with the environment, and alternates those samples with the optimization of a “surrogate” objective function using SGA. This function has "clipped probability ratios" that allows for multiple epochs of minibatch updates, but limit the size of policy updates (avoiding large policy updates), which results in a more stable and efficient learning process. The probability ratio represents the change in action selection probability. In PPO it is clipped to a certain range (1-epsilon to 1+epsilon), preventing drastic changes that could destabilize learning, ensuring more gradual and reliable improvements. The clipping mechanism is adaptive, so it will react differently depending on whether the advantage is positive or negative. This is key to maintain a balance between exploration and exploitation, which in turn enhances stability.
+
+The PPO algorithm can be seen as a loop iterating through these steps:
+
+1. Multiple actors run the current policy in the environment for a fixed number of timesteps, collecting data. 
+2. Advantage estimates are computed for each timestep. 
+3. The surrogate loss function, which incorporates the clipped probability ratios, is optimized using minibatch SGD (often with Adam optimizer) for a number of epochs. 
+4. The old policy parameters are updated with the newly optimized parameters. 
+
+The loop is repeated until a termination condition is met.
 
 ### DPO
+
+In contrast with PPO, Direct Preference Optimization or DPO {@@cite Direct Preference Optimization: Your Language Model is Secretly a Reward Model}, is a more simple, stable, performant, computationally lightweight implementation to align LLMs with human preferences.
+
+// TODO Add on this
 
 ## New Architectures Beyond the Transformer

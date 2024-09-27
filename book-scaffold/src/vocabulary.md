@@ -104,6 +104,12 @@ Different subdomains of FSL can be extrapolated from the regular ML domains such
 - Few-shot reinforcement learning
 - ...
 
+## Fine-Tunning
+
+Fine tuning is a technique to adapt a pre-trained model to a specific task. In order to do so, a regular fine-tuning process usually involves a phase where the training process continues but using a dataset related to the specific task at hand. This process usually requires much less data than the pre-training. In the regular fine-tunning, all model parameters are updated. 
+
+*Transfer learning* -adapt to the new task by updating only certain layers of the pre-trained model- and *Knowledge Distillation* -using a large "teacher" model to "distill" its knowledge representations to a smaller one called a "student" are considered fine-tunning techniques.
+
 # G
 
 ## Generalization

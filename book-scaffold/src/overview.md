@@ -10,10 +10,12 @@ forthcoming years.
 I love AI/ML because is a very complex topic which has to be approached with a multi-disciplinary view. It's a compendium 
 of the advances and applications of well proven knowledge and battle-tested technology in many other fields, including:
 
+- Cybernetics
 - Mathematics & Statistics
 - Neuroscience
 - Computer Science
 - Philosophy
+- Cognitive Sciences
 - Psychology
 - Medicine
 - Biology
