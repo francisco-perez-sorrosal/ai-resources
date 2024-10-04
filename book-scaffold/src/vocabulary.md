@@ -147,6 +147,44 @@ This is related to the extent up to which humans can predict the results of a mo
 
 * [Ian Goodfellow Interview](https://www.technologyreview.com/2018/02/21/145289/the-ganfather-the-man-whos-given-machines-the-gift-of-imagination/)
 
+# K
+
+## Kullback-Leibler (KL) divergence
+
+It allows to measure how a probability distribution differs from another. So, it is used to compare two distributions, referred to as the "true" and the "approximation" or "model."
+
+We can think about KL divergence as a way to measure how much information is "lost" when you use the approximation of a distribution instead of the true one:
+
+$$
+D_{KL}(P || Q) = \sum_{x} P(x) \log\left(\frac{P(x)}{Q(x)}\right)
+$$
+
+- **$P(x)$**: The true distribution of data (e.g. representing real-world data).
+- **$Q(x)$**: The approximation of the true distribution.
+- **$D_{KL}(P || Q)$**: Measures how much extra information is needed to encode events from $P$ when you're using the distribution $Q$.
+
+If $P$ and $Q$ are identical, the KL divergence is zero, meaning no information is lost. The larger the KL divergence, the more different the two distributions are.
+
+### Properties
+0. **Unit-less**: because it measures relative differences between two probability distributions. But the unit of the result depends on the logarithm base used in the calculation; 1) nats if natural logarithm is used. 2) bits if base 2 logarithms are used.
+1. **Asymmetry**: $D_{KL}(P || Q) \neq D_{KL}(Q || P)$. The order matters!
+2. **Non-negativity**: The KL divergence is always greater than or equal to zero. It’s zero if the two distributions are the same.
+3. **Not a distance metric**: As it’s not symmetric, it is not a distance metric, but a measure of relative entropy or difference.
+
+### Example
+Imagine you have a coin, and you know the true probability $p$ of heads is 0.5. If someone approximates this probability with $q=0.6$, KL divergence will measure how inefficient that approximation is, in terms of encoding the outcomes of flipping the coin.
+
+KL Divergence Formula:
+
+
+$D_{\text{KL}}(p \,||\, q) = p \cdot \ln\left(\frac{p}{q}\right) + (1 - p) \cdot \ln\left(\frac{1 - p}{1 - q}\right)$
+
+$p \cdot \ln\left(\frac{p}{q}\right) = 0.5 \cdot \ln\left(\frac{0.5}{0.6}\right) = 0.5 \cdot \ln\left(\frac{5}{6}\right)$
+
+$(1 - p) \cdot \ln\left(\frac{1 - p}{1 - q}\right) = 0.5 \cdot \ln\left(\frac{0.5}{0.4}\right) = 0.5 \cdot \ln\left(\frac{5}{4}\right)$
+
+$D_{\text{KL}}(0.5 \,||\, 0.6) = -0.091 + 0.1115 = 0.0205 \text{ nats}$
+
 # L
 
 # Language Model
