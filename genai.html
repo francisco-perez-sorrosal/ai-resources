@@ -199,10 +199,19 @@
 <h2><a class="header" href="#instruction-tunning" id="instruction-tunning">Instruction Tunning</a></h2>
 <p>Fine-tuning with instruction tunning refers to the use of supervised samples to &quot;align&quot; or &quot;tame&quot; the model; usually these supervised samples are a set of collected tasks rephrased as instructions to follow. In this case, during fine-tuning, all model parameters will be updated during. The instruction fine-tuning improves the performance of zero-shot scenarios on unseen tasks. It was considered one of the main important techniques in NLP in the early years of LLM dominance.</p>
 <h2><a class="header" href="#reinforcement-learning-from-human-feedback-rlhf" id="reinforcement-learning-from-human-feedback-rlhf">Reinforcement Learning from Human Feedback (RLHF)</a></h2>
-<p>RLHF can be see as a superset of instruction-tuning technique; As we'll show below, it adds some more steps after the instruction-tuning step to ensure the models are less biased and more aligned with the so-called &quot;human preferences&quot; {[Unknown bib ref: cite] Aligning Large Language Models with Human Preferences through Representation Engineering}, which includes toxicity, untruthfulness reduction, etc.</p>
-<p>The following is the generic RLHF process originally published in the InstructGPT paper.</p>
+<p>RLHF can be see as a superset of instruction-tuning technique; As we'll show below, it adds some more steps after the instruction-tuning step to ensure the models are less biased and more aligned with the so-called &quot;human preferences&quot; {[Unknown bib ref: cite] Aligning Large Language Models with Human Preferences through Representation Engineering}, which includes toxicity, untruthfulness reduction, etc. </p>
+<p>The original technique is described in the DeepMind/OpenAI paper from 2017 {[Unknown bib ref: cite] Deep reinforcement learning from human preferences}. In that paper the authors show a solution suitable for sequential decision problems that do not have a clear reward function and which can:</p>
+<ol>
+<li>allow non-experts &quot;to drive&quot; agents behaviours based on their feedback</li>
+<li>enable solving tasks for which only the desired behavior is know, but does not necessarily demonstrate it</li>
+<li>scale to large problem domains</li>
+<li>be cheap from the user feedback tasks point of view</li>
+</ol>
+<p><img src="images/rlhf-orig.png" alt="RLHF Orig" /></p>
+<p>The figure above depicts the solution proposed, which learns a reward function aligned to the human preferences and trains simultaneously a particular policy to optimize the current predicted reward function. In the human in the loop factor of the algorithm, humans are shown short videos of the agent's behaviour and are asked to decide which is better. The authors claim that, 1) humans are better and faster at doing this kind of feedback task rather than having to provide a response based purely on numerical score, and 2) prove that the obtained feedback is useful in helping the agent learning from the human preferences.</p>
+<p>The following is the generic RLHF process published in the InstructGPT paper in 2022, adapted to the LLM-based scenarios from the RL realm were was originally published.</p>
 <p><img src="images/rlhf.png" alt="RLHF" /></p>
-<p>The RLHF Process consists of:</p>
+<p>The RLHF process consists of:</p>
 <h3><a class="header" href="#1-data-collection" id="1-data-collection">1. Data Collection</a></h3>
 <ol>
 <li>Hire 40 contractors to label data based on their performance on a screening test.</li>
