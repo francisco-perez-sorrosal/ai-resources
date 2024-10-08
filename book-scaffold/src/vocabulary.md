@@ -25,6 +25,10 @@ reaching the input layer.
 Correlations is not causation. In ML causality tries to understand the relationships between data in order to create models
 that generalize well.
 
+# Chain of Though (CoT)
+
+A prompting method @@cite{Wang et al 2022} that adds to the prompt an optional sequence of examples, each of which shows how to solve the task step-by-step. The aim is to make the model "think" to generate CoTs to solve new tasks. Two approaches can be identified; 1) *Zero-Shot CoT* does not add any prior examples included in the prompt. Proposed in @@cite{Kojima 2022}, a simple prompt is used that basically says: “Let’s think step by step”. The authors claim that in some way the model elicits system-2 thinking @@cite{Kanneman/Tversky} and helps solving tasks requiring slow and multi-step reasoning; 2) *Bag CoT* (or *CoT-BAG*) @@cite{Wang et al., 2023} was proposed for reasoning over graph-related tasks. It basically adds “Let’s construct a graph with the nodes and edges first” to the prompt where the graph is constructed.
+
 # Confusion Matrix
 
 A confusion matrix is a tool used to evaluate the performance of a classification model by comparing the predicted labels to the actual labels. It provides a more detailed analysis of the model's performance than simple accuracy metrics. The confusion matrix is typically presented as a table with four main outcomes:
