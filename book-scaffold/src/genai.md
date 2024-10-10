@@ -152,5 +152,3 @@ Compared to PPO, experiments across different tasks, such as sentiment generatio
 3. shows greater robustness to changes in sampling temperature.
 4. removing the RL loop and the simpler loss function leads to substantial computational savings and faster training times.
 
-
-## New Architectures Beyond the Transformer
