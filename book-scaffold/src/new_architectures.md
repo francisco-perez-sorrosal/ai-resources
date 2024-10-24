@@ -199,3 +199,4 @@ S4 introduces a new approach to parameterizing the matrices $A$, $B$, and $C$ to
 
 @@cite{xLSTM: Extended Long Short-Term Memory}
 
+[Traditional LSTMs](basic_dl_architectures.md#lstms) were groundbreaking when they appeared around 1997. However, they suffer from three key limitations: 1) they struggle to revise storage decisions; once information is stored in the cell state, it's difficult to update it later. So if potentially more relevant, information is learned later, it's difficult to make it available. 2) their storage capacity is limited by the scalar nature of the cell state; this difficults their ability to handle complex, high-dimensional information, especially concerning rare tokens in language modeling. 3) the sequential nature of LSTMs due to its architecture (e.g. memory mixing,) limits the parallelization, making them less efficient to train at scale compared to the [Transformer architecture](transformers.md).

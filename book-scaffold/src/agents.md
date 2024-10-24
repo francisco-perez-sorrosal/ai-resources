@@ -9,6 +9,47 @@ In the context of ML/AI, an agent represents an entity/system that is able to pe
 2. *Processing* Agents process the information they perceive from the environment to make decisions (e.g. take an action); this could involve algorithms, reasoning, learning, or planning to determine the next best action.
 3. *Action* Agents act on the environment to achieve the specific goal they have; depending on the type of agent, actions can be physical (e.g. a robotic arm moving its fingers) or virtual (e.g. a software agent making a sending an email).
 
+
+## Concepts
+
+Agents do better if they follow/fulfill the concepts below.
+
+### Roles
+
+This is about configuring an agent to play a particular role.
+
+### Memory
+
+It's a key element for self-improvement. As agents can access and store new knowledge, they can becomoe better at what they do.
+
+- Short term: For example, memory during the execution of a task.
+- Long term: Remains after the crew has stopped. Can be used 
+- Entity memory: Short lived. For example, what are the subjects that are being discussed.
+
+#### Shared memory vs local memory
+
+Share intermediate information with several agents.
+
+### Tools
+
+Tools are extensions available to agents which allows them to extend their limits of knowledge. This versatility is key in executing complex tasks. 
+It's recommended that tools are implemented with a fault tolerant mechanism; this way the agent can recover from a potential misuse of the tool and learn from its mistake.
+In general, it's better that an agent plays with less tools than with a broad range of tools, to increment the accuracy of the task execution. Also a caching mechanism for tool
+calls can save potential costs in operating the agents.
+
+### Focus
+
+In conjunction with role-playing, this concept emphasizes that, an agent that is dedicated to a specific domain and task, performs better than than another attempting to handle multiple tasks.
+Being narrow focused in a task, by having specific roles and objectives and a limited set of tools, usually improve the quality of the agent's delivered results.
+
+### Guardrails
+
+Fuzzy inputs and outputs is a problem with GenAI apps. Guarrails prevent agents from derailing or going into rabbit holes; e.g. they can prevent hallucinations or obtain more consistent results.
+
+### Cooperation
+
+Ability to cooperate and give feedback to each other is key to improve performance
+
 ## Types
 
 There are many classification of agents. For example:	
@@ -56,6 +97,8 @@ The pioneering attempts in the field of ML/AI about reasoning laid the foundatio
 
 Since the advent of GenAI, there's been a massive interest on LLM-base agents. These agents are systems that leverage a LLM to interpret instructions, perform tasks, and interact with different environments through tools (a.k.a. function/API calls) based on the natural language input provided by the users.
 
+Apart of containing a more or less reliable knowledge base in their "neurons," LLMs are made to predict the most likely next token -they can create content. This fact implies that some cognitive abilities are emerging. These abilities can be used reason and then act (e.g. deciding on an output, depending on a context) over a particular textually-defined environment.
+
 A major limitation of LLMs is related to the so-called common reasoning. They are not conscious beings and they struggle correcting their own reasoning errors without getting some external feedback.
 
 Presenting an LLM with step-by-step prompts, the so-called Chain-of-Though (CoT), to guide the reasoning process helps achieving better performance on solving complex reasoning tasks. The least-to-most prompting technique in LLMs teach the model to break a complex task into a sequence of simpler and smaller steps. This goes hand in hand with "self-consistency” techniques, which require the model to produce multiple solutions for finally selecting the most consistent answer. Also, as human-beings presenting them information in an illogical order makes them decrease the performance on the task at hand.
@@ -76,3 +119,5 @@ A limitation of LLM Agents that do not incorporate real-time feedback from their
 ## Multi-Agent Systems
 
 In more complex scenarios, multiple agents can interact within the same environment, either cooperating or competing. These multi-agent systems can be used in areas like simulation of economies, swarm robotics, or coordination in distributed AI systems.
+
+

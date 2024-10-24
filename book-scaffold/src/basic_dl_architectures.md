@@ -14,7 +14,9 @@ LSTMs capturing the **long-term dependencies** in sequential data -such as time 
 
 LSTMs introduce **memory cells** and **gates** in its architecture to control the information flow. These elements help the network decide which information to keep, which to forget, and which to update, allowing it to retain important information over long sequences.
 
-Below is a diagram of an LSTM:
+Below are two diagrams of an LSTM. The first one is more detailed and the second one simplified to describe the different parts below:
+
+![LSTM Architecture](images/lstm_arch2.png)
 
 ![LSTM Architecture](images/lstm_arch.png)
 
@@ -91,6 +93,16 @@ Below is a diagram of an LSTM:
      $$
      h_t = o_t \cdot \tanh(c_t)
      $$
+
+This cell structure can be stacked like this to see the temporal component:
+
+![LSTM Stack](images/lstm_stack.png)
+
+So I provide two more diagrams that summarize the architecture of a cell. The first one contains all the details and formulas, and the second is an improved representation of the first one with more details.
+
+![LSTM Cell 1](images/lstm_cell_1.png)
+
+![LSTM Cell 2](images/lstm_cell_2.png)
 
 ### Key Features
 - **Memory Capability** LSTMs can retain information over long sequences because the gates control the flow of information, mitigating the vanishing gradient problem.
